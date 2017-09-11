@@ -1,0 +1,4 @@
+Purdue CS 407 Software Engineering Final Project
+
+As a traveler, there are many things to keep track of such as flight information, important documents, travel itineraries, and what to pack.  It’s easy for the traveler to forget to check the weather and end up forgetting some very important items on their trip depending on the activities they plan on doing.  Also, it can be frustrating and annoying for the traveler to dig through their suitcase to remember what outfits they packed so they can plan them accordingly based on the weather.  We want to simplify these travel annoyances by creating an app to manage smart travel packing lists based on the length, place, and activities the traveler plans to do.  We also want the traveler to see a trip overview where they can view images of what they planned to wear for certain days so that they do not forget, while also seeing the projected weather for those days as well.
+
