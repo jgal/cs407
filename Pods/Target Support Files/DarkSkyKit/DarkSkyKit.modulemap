@@ -1,0 +1,6 @@
+framework module DarkSkyKit {
+  umbrella header "DarkSkyKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

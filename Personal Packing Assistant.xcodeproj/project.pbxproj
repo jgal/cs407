@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00315F5D63EAC21B19B7EE64 /* Pods_Personal_Packing_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FEEB8A0B81285EC93F7A7 /* Pods_Personal_Packing_Assistant.framework */; };
+		7C61B3A91F6A21A10072B31F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B3A81F6A21A10072B31F /* AppDelegate.swift */; };
+		7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B3AA1F6A21A10072B31F /* ViewController.swift */; };
+		7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AC1F6A21A10072B31F /* Main.storyboard */; };
+		7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AF1F6A21A10072B31F /* Assets.xcassets */; };
+		7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D7FEEB8A0B81285EC93F7A7 /* Pods_Personal_Packing_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Packing_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6694ED6B78C8AEC7873B76F6 /* Pods-Personal Packing Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Packing Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Packing Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C61B3A81F6A21A10072B31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7C61B3AA1F6A21A10072B31F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7C61B3AD1F6A21A10072B31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7C61B3AF1F6A21A10072B31F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7C61B3B21F6A21A10072B31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7C61B3B41F6A21A10072B31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Packing Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C61B3A21F6A21A10072B31F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00315F5D63EAC21B19B7EE64 /* Pods_Personal_Packing_Assistant.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C61B39C1F6A21A10072B31F = {
+			isa = PBXGroup;
+			children = (
+				7C61B3A71F6A21A10072B31F /* Personal Packing Assistant */,
+				7C61B3A61F6A21A10072B31F /* Products */,
+				F38466AF135C71FD077BC9E3 /* Pods */,
+				8839043610065FA8428431FA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7C61B3A61F6A21A10072B31F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C61B3A71F6A21A10072B31F /* Personal Packing Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				7C61B3A81F6A21A10072B31F /* AppDelegate.swift */,
+				7C61B3AA1F6A21A10072B31F /* ViewController.swift */,
+				7C61B3AC1F6A21A10072B31F /* Main.storyboard */,
+				7C61B3AF1F6A21A10072B31F /* Assets.xcassets */,
+				7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */,
+				7C61B3B41F6A21A10072B31F /* Info.plist */,
+			);
+			path = "Personal Packing Assistant";
+			sourceTree = "<group>";
+		};
+		8839043610065FA8428431FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D7FEEB8A0B81285EC93F7A7 /* Pods_Personal_Packing_Assistant.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F38466AF135C71FD077BC9E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6694ED6B78C8AEC7873B76F6 /* Pods-Personal Packing Assistant.debug.xcconfig */,
+				7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7C61B3A41F6A21A10072B31F /* Personal Packing Assistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C61B3B71F6A21A10072B31F /* Build configuration list for PBXNativeTarget "Personal Packing Assistant" */;
+			buildPhases = (
+				CF0453D6E49CCB1785DB74C2 /* [CP] Check Pods Manifest.lock */,
+				7C61B3A11F6A21A10072B31F /* Sources */,
+				7C61B3A21F6A21A10072B31F /* Frameworks */,
+				7C61B3A31F6A21A10072B31F /* Resources */,
+				DF433B5C8667A65A03DCC8A6 /* [CP] Embed Pods Frameworks */,
+				0431A01ED384AABC44671E95 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Personal Packing Assistant";
+			productName = "Personal Packing Assistant";
+			productReference = 7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C61B39D1F6A21A10072B31F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = CS407;
+				TargetAttributes = {
+					7C61B3A41F6A21A10072B31F = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7C61B3A01F6A21A10072B31F /* Build configuration list for PBXProject "Personal Packing Assistant" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7C61B39C1F6A21A10072B31F;
+			productRefGroup = 7C61B3A61F6A21A10072B31F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C61B3A41F6A21A10072B31F /* Personal Packing Assistant */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C61B3A31F6A21A10072B31F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */,
+				7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */,
+				7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0431A01ED384AABC44671E95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF0453D6E49CCB1785DB74C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Personal Packing Assistant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF433B5C8667A65A03DCC8A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DarkSkyKit/DarkSkyKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DarkSkyKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C61B3A11F6A21A10072B31F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */,
+				7C61B3A91F6A21A10072B31F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7C61B3AC1F6A21A10072B31F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C61B3AD1F6A21A10072B31F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C61B3B21F6A21A10072B31F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7C61B3B51F6A21A10072B31F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7C61B3B61F6A21A10072B31F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7C61B3B81F6A21A10072B31F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6694ED6B78C8AEC7873B76F6 /* Pods-Personal Packing Assistant.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal Packing Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.purdue.cs407.Personal-Packing-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7C61B3B91F6A21A10072B31F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal Packing Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.purdue.cs407.Personal-Packing-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C61B3A01F6A21A10072B31F /* Build configuration list for PBXProject "Personal Packing Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C61B3B51F6A21A10072B31F /* Debug */,
+				7C61B3B61F6A21A10072B31F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C61B3B71F6A21A10072B31F /* Build configuration list for PBXNativeTarget "Personal Packing Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C61B3B81F6A21A10072B31F /* Debug */,
+				7C61B3B91F6A21A10072B31F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C61B39D1F6A21A10072B31F /* Project object */;
+}
