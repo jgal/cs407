@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="MSp-5R-xMH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Packing Assistant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thj-tM-jBn">
+                    <rect key="frame" x="76" y="123" width="223" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0L-Uh-22g">
+                    <rect key="frame" x="124" y="306" width="127" height="30"/>
+                    <state key="normal" title="Plan for a new Trip"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFl-jh-BYb">
+                    <rect key="frame" x="141" y="367" width="92" height="30"/>
+                    <state key="normal" title="View All Trips"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="y0L-Uh-22g" secondAttribute="trailing" constant="124" id="1Jf-hF-5U6"/>
+                <constraint firstItem="thj-tM-jBn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="103" id="BAc-gq-rJD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="thj-tM-jBn" secondAttribute="trailing" constant="76" id="BHL-bx-MnV"/>
+                <constraint firstItem="y0L-Uh-22g" firstAttribute="top" secondItem="thj-tM-jBn" secondAttribute="bottom" constant="161.5" id="dT5-NK-fva"/>
+                <constraint firstItem="y0L-Uh-22g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="124" id="gnl-Ak-mYX"/>
+                <constraint firstItem="QFl-jh-BYb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="141" id="iGt-0i-GGM"/>
+                <constraint firstItem="thj-tM-jBn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="76" id="pad-1t-Agl"/>
+                <constraint firstItem="QFl-jh-BYb" firstAttribute="top" secondItem="y0L-Uh-22g" secondAttribute="bottom" constant="31" id="pyI-fa-RUC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QFl-jh-BYb" secondAttribute="trailing" constant="142" id="vea-wl-Yje"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>
