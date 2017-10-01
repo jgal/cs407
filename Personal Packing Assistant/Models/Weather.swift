@@ -7,3 +7,6 @@
 //
 
 import Foundation
+import DarkSkyKit
+
+let forecastClient = DarkSkyKit(apiToken: "fb81f4a6cb4709d5d4c5364a472333f3")
