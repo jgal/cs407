@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+import RealmSwift
+
+class Trip : Object {
+    @objc dynamic var name: String = ""
+    
+    let days = List<Day>()
+}
+
