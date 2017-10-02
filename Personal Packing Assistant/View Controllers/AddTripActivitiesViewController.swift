@@ -2,7 +2,7 @@
 //  AddTripActivitiesViewController.swift
 //  Personal Packing Assistant
 //
-//  Created by Joyce Kao on 10/1/17.
+//  Created by Joyce Kao on 10/2/17.
 //  Copyright © 2017 CS407. All rights reserved.
 //
 
