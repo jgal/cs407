@@ -13,6 +13,7 @@
 		7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AC1F6A21A10072B31F /* Main.storyboard */; };
 		7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AF1F6A21A10072B31F /* Assets.xcassets */; };
 		7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */; };
+		8D9F55A61F81E8650026CFF7 /* AddTripActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F55A51F81E8650026CFF7 /* AddTripActivitiesViewController.swift */; };
 		A5EADFB11F7ED8FD007B3BAC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB01F7ED8FD007B3BAC /* Trip.swift */; };
 		A5EADFB31F7ED90E007B3BAC /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB21F7ED90E007B3BAC /* Day.swift */; };
 		A5EADFB51F7ED91D007B3BAC /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB41F7ED91D007B3BAC /* Outfit.swift */; };
@@ -37,6 +38,7 @@
 		7C61B3B21F6A21A10072B31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C61B3B41F6A21A10072B31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Packing Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant.release.xcconfig"; sourceTree = "<group>"; };
+		8D9F55A51F81E8650026CFF7 /* AddTripActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripActivitiesViewController.swift; sourceTree = "<group>"; };
 		A5EADFB01F7ED8FD007B3BAC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		A5EADFB21F7ED90E007B3BAC /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		A5EADFB41F7ED91D007B3BAC /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				A5EADFC71F7EE188007B3BAC /* HomeViewController.swift */,
+				8D9F55A51F81E8650026CFF7 /* AddTripActivitiesViewController.swift */,
 				A5EADFC31F7EDBBE007B3BAC /* HomeViewController.xib */,
 			);
 			path = "View Controllers";
@@ -280,6 +283,7 @@
 				A5EADFBF1F7ED96B007B3BAC /* Weather.swift in Sources */,
 				A5EADFC11F7ED989007B3BAC /* PackingListGenerator.swift in Sources */,
 				A5EADFB91F7ED93F007B3BAC /* Item.swift in Sources */,
+				8D9F55A61F81E8650026CFF7 /* AddTripActivitiesViewController.swift in Sources */,
 				A5EADFBD1F7ED960007B3BAC /* Category.swift in Sources */,
 				A5EADFB51F7ED91D007B3BAC /* Outfit.swift in Sources */,
 				A5EADFBB1F7ED94A007B3BAC /* Activity.swift in Sources */,
