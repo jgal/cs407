@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class AddTripActivitiesViewController : UIViewController {
+    
     init() {
         super.init(nibName: String(describing: AddTripActivitiesViewController.self), bundle: Bundle.main)
     }

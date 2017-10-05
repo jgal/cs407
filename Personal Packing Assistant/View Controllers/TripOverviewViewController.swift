@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 class TripOverviewViewController : UIViewController {
+    
+    @IBOutlet weak var packingListButton: UINavigationBar!
+    @IBOutlet weak var homeButton: UINavigationBar!
+    
+    
+    
     init() {
         super.init(nibName: String(describing: TripOverviewViewController.self), bundle: Bundle.main)
     }

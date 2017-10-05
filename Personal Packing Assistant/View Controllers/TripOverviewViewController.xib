@@ -9,7 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripOverviewViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
+            <connections>
+                <outlet property="homeButton" destination="fyz-e0-v0q" id="mFv-Bm-vWI"/>
+                <outlet property="packingListButton" destination="fyz-e0-v0q" id="CxO-Y3-GQH"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
