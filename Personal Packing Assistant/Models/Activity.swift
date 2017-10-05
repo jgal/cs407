@@ -10,7 +10,9 @@ import Foundation
 import RealmSwift
 
 class Activity : Object {
+    // MARK: Properties
     @objc dynamic var name: String = ""
+    
     let items = List<Item>()
     let categories = List<Category>()
 }

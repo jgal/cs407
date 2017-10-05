@@ -10,4 +10,11 @@ import Foundation
 import RealmSwift
 
 class Outfit : Object {
+    // MARK: Properties
+    @objc dynamic var name: String = ""
+    @objc dynamic var photo: UIImage = UIImage()
+    
+    let items = List<Item>()
+    let categories = List<Category>()
+    
 }

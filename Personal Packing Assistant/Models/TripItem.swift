@@ -10,4 +10,9 @@ import Foundation
 import RealmSwift
 
 class TripItem : Object {
+    // MARK: Properties
+    @objc dynamic var name: String = ""
+    @objc dynamic var quantity: Int = 0
+    
+    let items = List<Item>()
 }

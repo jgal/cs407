@@ -10,5 +10,6 @@ import Foundation
 import RealmSwift
 
 class Category : Object {
+    // MARK: Properties
     @objc dynamic var name: String = ""
 }

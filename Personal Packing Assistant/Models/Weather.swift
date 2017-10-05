@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class Weather : Object {
+    // MARK: Properties
     // The "dynamic var" type fields are saved in Realm
     @objc dynamic var weatherName: String = ""
     @objc dynamic var humidity: Int = 0
