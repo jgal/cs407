@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		00315F5D63EAC21B19B7EE64 /* Pods_Personal_Packing_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FEEB8A0B81285EC93F7A7 /* Pods_Personal_Packing_Assistant.framework */; };
+		70DCDEFF1F85F84F00B376C0 /* AddTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70DCDEFE1F85F84F00B376C0 /* AddTripViewController.xib */; };
+		70DCDF011F85F8DF00B376C0 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCDF001F85F8DF00B376C0 /* AddTripViewController.swift */; };
+		70DCDF031F85FCA200B376C0 /* TripOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCDF021F85FCA200B376C0 /* TripOverviewViewController.swift */; };
+		70DCDF051F85FCD200B376C0 /* TripOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70DCDF041F85FCD200B376C0 /* TripOverviewViewController.xib */; };
 		7C61B3A91F6A21A10072B31F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B3A81F6A21A10072B31F /* AppDelegate.swift */; };
 		7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B3AA1F6A21A10072B31F /* ViewController.swift */; };
 		7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AC1F6A21A10072B31F /* Main.storyboard */; };
@@ -36,6 +40,10 @@
 /* Begin PBXFileReference section */
 		1D7FEEB8A0B81285EC93F7A7 /* Pods_Personal_Packing_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Packing_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6694ED6B78C8AEC7873B76F6 /* Pods-Personal Packing Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Packing Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		70DCDEFE1F85F84F00B376C0 /* AddTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTripViewController.xib; sourceTree = "<group>"; };
+		70DCDF001F85F8DF00B376C0 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		70DCDF021F85FCA200B376C0 /* TripOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripOverviewViewController.swift; sourceTree = "<group>"; };
+		70DCDF041F85FCD200B376C0 /* TripOverviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripOverviewViewController.xib; sourceTree = "<group>"; };
 		7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Packing Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C61B3A81F6A21A10072B31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C61B3AA1F6A21A10072B31F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,12 +150,16 @@
 				8D9F55A71F81F1E00026CFF7 /* AddTripActivitiesViewController.xib */,
 				8D9E3E1A1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift */,
 <<<<<<< HEAD
+				70DCDEFE1F85F84F00B376C0 /* AddTripViewController.xib */,
+				70DCDF001F85F8DF00B376C0 /* AddTripViewController.swift */,
+				70DCDF021F85FCA200B376C0 /* TripOverviewViewController.swift */,
+				70DCDF041F85FCD200B376C0 /* TripOverviewViewController.xib */,
+=======
 				FCBEF9E31F86B7070018D1B8 /* AddItemViewController.swift */,
 				FCBEF9E51F86B71D0018D1B8 /* AddItemViewController.xib */,
-=======
 				8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */,
 				8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */,
->>>>>>> 3da78563e9172adb4a5fc13808bbc7a306b39987
+>>>>>>> 3a74c1d512f5b60e32d78f798751ed6501b9dde0
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -227,6 +239,8 @@
 				FCBEF9E61F86B71D0018D1B8 /* AddItemViewController.xib in Resources */,
 				8D9F55A81F81F1E00026CFF7 /* AddTripActivitiesViewController.xib in Resources */,
 				A5EADFC41F7EDBBE007B3BAC /* HomeViewController.xib in Resources */,
+				70DCDEFF1F85F84F00B376C0 /* AddTripViewController.xib in Resources */,
+				70DCDF051F85FCD200B376C0 /* TripOverviewViewController.xib in Resources */,
 				7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */,
 				7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */,
 				8D9E3E1D1F86B63700B7BE88 /* EditDayViewController.xib in Resources */,
@@ -300,12 +314,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70DCDF031F85FCA200B376C0 /* TripOverviewViewController.swift in Sources */,
 				A5EADFB11F7ED8FD007B3BAC /* Trip.swift in Sources */,
 				A5EADFB71F7ED92F007B3BAC /* TripItem.swift in Sources */,
 				7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */,
 				A5EADFB31F7ED90E007B3BAC /* Day.swift in Sources */,
 				A5EADFBF1F7ED96B007B3BAC /* Weather.swift in Sources */,
+<<<<<<< HEAD
+				70DCDF011F85F8DF00B376C0 /* AddTripViewController.swift in Sources */,
+=======
 				FCBEF9E41F86B7070018D1B8 /* AddItemViewController.swift in Sources */,
+>>>>>>> 3a74c1d512f5b60e32d78f798751ed6501b9dde0
 				A5EADFC11F7ED989007B3BAC /* PackingListGenerator.swift in Sources */,
 				A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */,
 				8D9E3E1F1F86B66600B7BE88 /* EditDayViewController.swift in Sources */,
