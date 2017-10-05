@@ -149,14 +149,17 @@
 				A5EADFC31F7EDBBE007B3BAC /* HomeViewController.xib */,
 				8D9F55A71F81F1E00026CFF7 /* AddTripActivitiesViewController.xib */,
 				8D9E3E1A1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift */,
+<<<<<<< HEAD
 				70DCDEFE1F85F84F00B376C0 /* AddTripViewController.xib */,
 				70DCDF001F85F8DF00B376C0 /* AddTripViewController.swift */,
 				70DCDF021F85FCA200B376C0 /* TripOverviewViewController.swift */,
 				70DCDF041F85FCD200B376C0 /* TripOverviewViewController.xib */,
+=======
 				FCBEF9E31F86B7070018D1B8 /* AddItemViewController.swift */,
 				FCBEF9E51F86B71D0018D1B8 /* AddItemViewController.xib */,
 				8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */,
 				8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */,
+>>>>>>> 3a74c1d512f5b60e32d78f798751ed6501b9dde0
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -317,8 +320,11 @@
 				7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */,
 				A5EADFB31F7ED90E007B3BAC /* Day.swift in Sources */,
 				A5EADFBF1F7ED96B007B3BAC /* Weather.swift in Sources */,
+<<<<<<< HEAD
 				70DCDF011F85F8DF00B376C0 /* AddTripViewController.swift in Sources */,
+=======
 				FCBEF9E41F86B7070018D1B8 /* AddItemViewController.swift in Sources */,
+>>>>>>> 3a74c1d512f5b60e32d78f798751ed6501b9dde0
 				A5EADFC11F7ED989007B3BAC /* PackingListGenerator.swift in Sources */,
 				A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */,
 				8D9E3E1F1F86B66600B7BE88 /* EditDayViewController.swift in Sources */,
