@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-class AddTripActivitiesViewController : UIViewController {
+class EditDayViewController : UIViewController {
     
     init() {
-        super.init(nibName: String(describing: AddTripActivitiesViewController.self), bundle: Bundle.main)
+        super.init(nibName: String(describing: EditDayViewController.self), bundle: Bundle.main)
     }
     
     required init?(coder aDecoder: NSCoder) {

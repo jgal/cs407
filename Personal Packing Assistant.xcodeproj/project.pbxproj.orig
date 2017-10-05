@@ -31,8 +31,6 @@
 		A5EADFC81F7EE188007B3BAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFC71F7EE188007B3BAC /* HomeViewController.swift */; };
 		FCBEF9E41F86B7070018D1B8 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBEF9E31F86B7070018D1B8 /* AddItemViewController.swift */; };
 		FCBEF9E61F86B71D0018D1B8 /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBEF9E51F86B71D0018D1B8 /* AddItemViewController.xib */; };
-		FCBEF9E81F86B8F00018D1B8 /* PackingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBEF9E71F86B8F00018D1B8 /* PackingListViewController.swift */; };
-		FCBEF9EA1F86B9270018D1B8 /* PackingListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBEF9E91F86B9270018D1B8 /* PackingListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,8 +62,6 @@
 		A5EADFC71F7EE188007B3BAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FCBEF9E31F86B7070018D1B8 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		FCBEF9E51F86B71D0018D1B8 /* AddItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
-		FCBEF9E71F86B8F00018D1B8 /* PackingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListViewController.swift; sourceTree = "<group>"; };
-		FCBEF9E91F86B9270018D1B8 /* PackingListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackingListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,12 +141,13 @@
 				A5EADFC31F7EDBBE007B3BAC /* HomeViewController.xib */,
 				8D9F55A71F81F1E00026CFF7 /* AddTripActivitiesViewController.xib */,
 				8D9E3E1A1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift */,
+<<<<<<< HEAD
 				FCBEF9E31F86B7070018D1B8 /* AddItemViewController.swift */,
 				FCBEF9E51F86B71D0018D1B8 /* AddItemViewController.xib */,
+=======
 				8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */,
 				8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */,
-				FCBEF9E71F86B8F00018D1B8 /* PackingListViewController.swift */,
-				FCBEF9E91F86B9270018D1B8 /* PackingListViewController.xib */,
+>>>>>>> 3da78563e9172adb4a5fc13808bbc7a306b39987
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -232,7 +229,6 @@
 				A5EADFC41F7EDBBE007B3BAC /* HomeViewController.xib in Resources */,
 				7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */,
 				7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */,
-				FCBEF9EA1F86B9270018D1B8 /* PackingListViewController.xib in Resources */,
 				8D9E3E1D1F86B63700B7BE88 /* EditDayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +310,6 @@
 				A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */,
 				8D9E3E1F1F86B66600B7BE88 /* EditDayViewController.swift in Sources */,
 				A5EADFB91F7ED93F007B3BAC /* Item.swift in Sources */,
-				FCBEF9E81F86B8F00018D1B8 /* PackingListViewController.swift in Sources */,
 				8D9E3E1B1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift in Sources */,
 				A5EADFBD1F7ED960007B3BAC /* Category.swift in Sources */,
 				A5EADFB51F7ED91D007B3BAC /* Outfit.swift in Sources */,
