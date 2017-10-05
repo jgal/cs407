@@ -7,6 +7,15 @@
 //
 
 import Foundation
-import DarkSkyKit
+import RealmSwift
 
-let forecastClient = DarkSkyKit(apiToken: "fb81f4a6cb4709d5d4c5364a472333f3")
+class Weather : Object {
+    // The "dynamic var" type fields are saved in Realm
+    @objc dynamic var weatherName: String = ""
+    @objc dynamic var humidity: Int = 0
+    @objc dynamic var precipitation: Int = 0
+    @objc dynamic var wind: Int = 0
+    @objc dynamic var maxTemp: Int = 0
+    @objc dynamic var minTemp: Int = 0
+    @objc dynamic var location: String = ""    
+}

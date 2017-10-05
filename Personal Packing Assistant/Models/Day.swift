@@ -7,10 +7,8 @@
 //
 
 import Foundation
-
 import RealmSwift
 
 class Day : Object {
-    @objc dynamic var name: String = ""
 }
 

@@ -20,31 +20,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Packing Assistant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thj-tM-jBn">
-                    <rect key="frame" x="76" y="123" width="223" height="21.5"/>
+                    <rect key="frame" x="79" y="123" width="217" height="22"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0L-Uh-22g">
-                    <rect key="frame" x="124" y="306" width="127" height="30"/>
-                    <state key="normal" title="Plan for a new Trip"/>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFl-jh-BYb">
                     <rect key="frame" x="141" y="367" width="92" height="30"/>
                     <state key="normal" title="View All Trips"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1d-os-kPD">
+                    <rect key="frame" x="124" y="306" width="127" height="30"/>
+                    <state key="normal" title="Plan for a new Trip"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="y0L-Uh-22g" secondAttribute="trailing" constant="124" id="1Jf-hF-5U6"/>
-                <constraint firstItem="thj-tM-jBn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="103" id="BAc-gq-rJD"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="thj-tM-jBn" secondAttribute="trailing" constant="76" id="BHL-bx-MnV"/>
-                <constraint firstItem="y0L-Uh-22g" firstAttribute="top" secondItem="thj-tM-jBn" secondAttribute="bottom" constant="161.5" id="dT5-NK-fva"/>
-                <constraint firstItem="y0L-Uh-22g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="124" id="gnl-Ak-mYX"/>
-                <constraint firstItem="QFl-jh-BYb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="141" id="iGt-0i-GGM"/>
-                <constraint firstItem="thj-tM-jBn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="76" id="pad-1t-Agl"/>
-                <constraint firstItem="QFl-jh-BYb" firstAttribute="top" secondItem="y0L-Uh-22g" secondAttribute="bottom" constant="31" id="pyI-fa-RUC"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QFl-jh-BYb" secondAttribute="trailing" constant="142" id="vea-wl-Yje"/>
+                <constraint firstItem="thj-tM-jBn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="103" id="DqS-4M-Nua"/>
+                <constraint firstItem="thj-tM-jBn" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="MUe-mz-XSe"/>
+                <constraint firstItem="L1d-os-kPD" firstAttribute="top" secondItem="thj-tM-jBn" secondAttribute="bottom" constant="161.5" id="T2c-bs-19g"/>
+                <constraint firstItem="QFl-jh-BYb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VhH-V8-ktb"/>
+                <constraint firstItem="QFl-jh-BYb" firstAttribute="top" secondItem="L1d-os-kPD" secondAttribute="bottom" constant="31" id="gvf-bL-5bN"/>
+                <constraint firstItem="L1d-os-kPD" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="u76-I7-myl"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
