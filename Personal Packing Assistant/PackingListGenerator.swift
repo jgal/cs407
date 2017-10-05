@@ -45,6 +45,7 @@ class PackingListGenerator {
     func getActivityItems() {
         // Add items based off of the activities they are interested in
         // Add items to the self.items list and make sure there aren't duplicates
+        
     }
     
     func getWeatherItems() {
