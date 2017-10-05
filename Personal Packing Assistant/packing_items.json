@@ -1,0 +1,50 @@
+{
+	"necessities": {
+		"female": ["hair ties", "feminine hygiene products"],
+		"male": [],
+		"general": ["passport", "itinerary", "wallet", "toothbrush", "toothpaste", "toiletries", "cell phone", "charger", "camera", "undergarments", "umbrella/rain jacket", "brush", "prescription medication", "hand sanitizer", "headphones"]
+	},
+	
+	"activity": {
+		"fancy": {
+			"female": ["dress", "makeup", "fancy shoes", "accessories"],
+			"male": ["dress shoes", "dress shirt", "slacks", "tie", "belt"]
+		},
+		"outdoor": {
+			"general": ["comfortable walking shoes", "insect repellant"]
+		},
+		"water": ["swimsuit", "flip flops", "sunscreen"],
+	},
+
+	"accomodation": {
+		"hostel": ["shower shoes", "towel", "lock", "eye mask", "ear plugs"]
+	},
+
+	"location": {
+		"international": ["plug adapter", "passport"],
+		"domestic": ["ID"]
+	},
+
+	"weather": {
+		"warm": {
+			"female": ["dress", "sandals", "shorts", "tank top", "t-shirt"],
+			"male": ["t-shirt", "shorts"],
+			"general": ["sunscreen", "water bottle", "sunglasses"]
+		},
+		"cold": {
+			"female": [],
+			"male": [],
+			"general": ["gloves", "scarf", "sweater", "coat", "hat"]
+		},
+		"rain": {
+			"female": [],
+			"male": [],
+			"general": []
+		},
+		"snow": {
+			"female": [],
+			"male": [],
+			"general": ["boots"]
+		}
+	},
+}
