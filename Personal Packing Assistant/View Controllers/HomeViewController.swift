@@ -10,12 +10,20 @@ import Foundation
 import UIKit
 
 class HomeViewController : UIViewController {
+    
+    @IBOutlet weak var planNewTripButton: UIButton!
+    @IBOutlet weak var viewAllTripsButton: UIButton!
+    
     init() {
         super.init(nibName: String(describing: HomeViewController.self), bundle: Bundle.main)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+    
+    @IBAction func planNewTripTapped(sender: AnyObject) {
+        self.navigationController?.pushViewController(AddTripViewController(), animated: true)
     }
 }
 
