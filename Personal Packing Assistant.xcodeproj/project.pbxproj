@@ -14,6 +14,8 @@
 		7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AF1F6A21A10072B31F /* Assets.xcassets */; };
 		7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */; };
 		8D9E3E1B1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E3E1A1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift */; };
+		8D9E3E1D1F86B63700B7BE88 /* EditDayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */; };
+		8D9E3E1F1F86B66600B7BE88 /* EditDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */; };
 		8D9F55A81F81F1E00026CFF7 /* AddTripActivitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9F55A71F81F1E00026CFF7 /* AddTripActivitiesViewController.xib */; };
 		A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C45F21F85ECBD009B5F43 /* WeatherService.swift */; };
 		A5EADFB11F7ED8FD007B3BAC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB01F7ED8FD007B3BAC /* Trip.swift */; };
@@ -41,6 +43,8 @@
 		7C61B3B41F6A21A10072B31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Packing Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant.release.xcconfig"; sourceTree = "<group>"; };
 		8D9E3E1A1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripActivitiesViewController.swift; sourceTree = "<group>"; };
+		8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDayViewController.xib; sourceTree = "<group>"; };
+		8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDayViewController.swift; sourceTree = "<group>"; };
 		8D9F55A71F81F1E00026CFF7 /* AddTripActivitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTripActivitiesViewController.xib; sourceTree = "<group>"; };
 		A55C45F21F85ECBD009B5F43 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		A5EADFB01F7ED8FD007B3BAC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				A5EADFC31F7EDBBE007B3BAC /* HomeViewController.xib */,
 				8D9F55A71F81F1E00026CFF7 /* AddTripActivitiesViewController.xib */,
 				8D9E3E1A1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift */,
+				8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */,
+				8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 				A5EADFC41F7EDBBE007B3BAC /* HomeViewController.xib in Resources */,
 				7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */,
 				7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */,
+				8D9E3E1D1F86B63700B7BE88 /* EditDayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +297,7 @@
 				A5EADFBF1F7ED96B007B3BAC /* Weather.swift in Sources */,
 				A5EADFC11F7ED989007B3BAC /* PackingListGenerator.swift in Sources */,
 				A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */,
+				8D9E3E1F1F86B66600B7BE88 /* EditDayViewController.swift in Sources */,
 				A5EADFB91F7ED93F007B3BAC /* Item.swift in Sources */,
 				8D9E3E1B1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift in Sources */,
 				A5EADFBD1F7ED960007B3BAC /* Category.swift in Sources */,
