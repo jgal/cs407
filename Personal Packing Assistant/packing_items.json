@@ -2,7 +2,7 @@
 	"necessities": {
 		"female": ["hair ties", "feminine hygiene products"],
 		"male": [],
-		"general": ["passport", "itinerary", "wallet", "toothbrush", "toothpaste", "toiletries", "cell phone", "charger", "camera", "undergarments", "umbrella/rain jacket", "brush", "prescription medication", "hand sanitizer", "headphones"]
+		"general": ["passport", "itinerary", "wallet", "toothbrush", "toothpaste", "toiletries", "deodorant", "cell phone", "charger", "camera", "undergarments", "umbrella/rain jacket", "brush", "prescription medication", "hand sanitizer", "headphones"]
 	},
 	
 	"activity": {
