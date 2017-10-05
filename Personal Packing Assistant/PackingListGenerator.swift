@@ -15,6 +15,7 @@ class PackingListGenerator {
     
     init(trip : Trip) {
         self.trip = trip
+        self.items = []
     }
     
     func makeListOfTripItems() -> [TripItem] {

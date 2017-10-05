@@ -10,4 +10,8 @@ import Foundation
 import RealmSwift
 
 class Item : Object {
+    @objc dynamic var name: String = ""
+    @objc dynamic var photos : String = ""     //URL implementation?
+    @objc dynamic var worn: Bool = false
+    let categories = List<Category>()
 }
