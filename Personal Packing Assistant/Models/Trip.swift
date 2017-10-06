@@ -13,8 +13,8 @@ class Trip : Object {
     // MARK: Properties
     @objc dynamic var name: String = ""
     @objc dynamic var destination: String = ""
-   // @objc dynamic var traveler: String = ""
-   // @objc dynamic var gender: String = ""
+    @objc dynamic var traveler: String = ""
+    @objc dynamic var gender: String = ""
     @objc dynamic var startDate: String = "" // easier to get num day from start and end dates if strings
     @objc dynamic var endDate: String = ""
     
