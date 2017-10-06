@@ -15,8 +15,8 @@ class Trip : Object {
     @objc dynamic var destination: String = ""
    // @objc dynamic var traveler: String = ""
    // @objc dynamic var gender: String = ""
-    @objc dynamic var startDate: NSDate = NSDate()
-    @objc dynamic var endDate: NSDate = NSDate()
+    @objc dynamic var startDate: String = "" // easier to get num day from start and end dates if strings
+    @objc dynamic var endDate: String = ""
     
     let days = List<Day>()
     let tripItems = List<TripItem>()
