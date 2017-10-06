@@ -11,14 +11,14 @@ import RealmSwift
 
 class PackingListGenerator {
     // item dictionaries initialized here
-    let necessities : [String: Any]
-    let activity : [String: Any]
+    var necessities : [String: Any]
+    var activity : [String: Any]
     let accomodation : [String: Any]
     let location : [String: Any]
     let weather : [String: Any]
     
     let trip : Trip
-    let items : [Item]
+    var items : [String]
     
     init(trip : Trip) {
         self.trip = trip
@@ -46,11 +46,15 @@ class PackingListGenerator {
     
     func makeListOfTripItems() -> [TripItem] {
         
-        getBasicItems()
+        getBasicItems(type: "general")
         
-        getActivityItems()
+        getActivityItems(type: "fancy")
         
-        getWeatherItems()
+        getWeatherItems(type: "warm")
+        
+        getLocationItems(type: "domestic")
+        
+        getAccomodationItems(type: "hostel")
         
         // Turn the list of items (self.items) into a list of TripItems
         // add code for that
@@ -62,21 +66,86 @@ class PackingListGenerator {
         return packingList
     }
     
-    func getBasicItems() {
+    func getBasicItems (type: String) {
         // Add basic items that would be used for all trips
         // Example: toothbrush, toothpaste, toilitries, socks, clothes, etc.
         // Add items to the self.items list and make sure there aren't duplicates
+        var tempList : [Any]
+        tempList = self.necessities.removeValue(forKey: type) as! [Any]
+        var i : Int
+        i = 1
+        var itemsList : [String]
+        itemsList = []
+        while (i < tempList.count) {
+            itemsList.append(tempList.remove(at: i) as! String)
+            i = i + 1
+        }
+        items.append(contentsOf: itemsList)
     }
     
-    func getActivityItems() {
+    func getActivityItems(type: String) {
         // Add items based off of the activities they are interested in
         // Add items to the self.items list and make sure there aren't duplicates
+        var tempList : [Any]
+        tempList = self.activity.removeValue(forKey: type) as! [Any]
+        var i : Int
+        i = 1
+        var itemsList : [String]
+        itemsList = []
+        while (i < tempList.count) {
+            itemsList.append(tempList.remove(at: i) as! String)
+            i = i + 1
+        }
+        items.append(contentsOf: itemsList)
     }
     
-    func getWeatherItems() {
+    func getWeatherItems(type: String) {
         // Add items based off of the weather forecast
         // Add items to the self.items list and make sure there aren't duplicates
         // Fetching weather information will be done in WeatherService.swift
+        var tempList : [Any]
+        tempList = self.activity.removeValue(forKey: type) as! [Any]
+        var i : Int
+        i = 1
+        var itemsList : [String]
+        itemsList = []
+        while (i < tempList.count) {
+            itemsList.append(tempList.remove(at: i) as! String)
+            i = i + 1
+        }
+        items.append(contentsOf: itemsList)
+    }
+    
+    func getLocationItems(type: String) {
+        // Add items based off of the location
+        // Add items to the self.items list and make sure there aren't duplicates
+        var tempList : [Any]
+        tempList = self.activity.removeValue(forKey: type) as! [Any]
+        var i : Int
+        i = 1
+        var itemsList : [String]
+        itemsList = []
+        while (i < tempList.count) {
+            itemsList.append(tempList.remove(at: i) as! String)
+            i = i + 1
+        }
+        items.append(contentsOf: itemsList)
+    }
+    
+    func getAccomodationItems(type: String) {
+        // Add items based off of the accomodation
+        // Add items to the self.items list and make sure there aren't duplicates
+        var tempList : [Any]
+        tempList = self.activity.removeValue(forKey: type) as! [Any]
+        var i : Int
+        i = 1
+        var itemsList : [String]
+        itemsList = []
+        while (i < tempList.count) {
+            itemsList.append(tempList.remove(at: i) as! String)
+            i = i + 1
+        }
+        items.append(contentsOf: itemsList)
     }
     
     func changeItemQuantities() {
