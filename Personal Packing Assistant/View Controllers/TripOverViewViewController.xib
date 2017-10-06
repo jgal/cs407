@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripOverViewViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
             <connections>
+                <outlet property="AddTripItem" destination="UY8-5q-rZR" id="eed-pg-VPm"/>
                 <outlet property="tripTable" destination="s0f-Aj-2tg" id="6ga-UM-nKI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,18 +24,29 @@
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bnh-7G-rQg">
                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <items>
-                        <navigationItem title="Trip Overview" id="uxM-0m-CDZ"/>
+                        <navigationItem title="Trip Overview" id="uxM-0m-CDZ">
+                            <barButtonItem key="leftBarButtonItem" title="Back" id="7ti-tm-sEV"/>
+                            <barButtonItem key="rightBarButtonItem" title="+" id="UY8-5q-rZR"/>
+                        </navigationItem>
                     </items>
                 </navigationBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s0f-Aj-2tg">
-                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s0f-Aj-2tg">
+                    <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6HG-C5-AKY" userLabel="Days, Activities">
+                    <rect key="frame" x="0.0" y="64" width="375" height="29"/>
+                    <segments>
+                        <segment title="Days"/>
+                        <segment title="Activities"/>
+                    </segments>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Bnh-7G-rQg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9BJ-ri-HY5"/>
                 <constraint firstAttribute="bottom" secondItem="s0f-Aj-2tg" secondAttribute="bottom" id="9C6-M8-LyQ"/>
+                <constraint firstItem="s0f-Aj-2tg" firstAttribute="top" secondItem="6HG-C5-AKY" secondAttribute="bottom" id="BMZ-Hv-At2"/>
                 <constraint firstItem="s0f-Aj-2tg" firstAttribute="top" secondItem="Bnh-7G-rQg" secondAttribute="bottom" id="Gas-Si-hQy"/>
                 <constraint firstItem="Bnh-7G-rQg" firstAttribute="leading" secondItem="s0f-Aj-2tg" secondAttribute="leading" id="Iqx-c0-4TQ"/>
                 <constraint firstItem="Bnh-7G-rQg" firstAttribute="trailing" secondItem="s0f-Aj-2tg" secondAttribute="trailing" id="KAn-Qx-wge"/>
