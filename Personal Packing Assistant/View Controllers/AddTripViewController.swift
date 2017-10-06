@@ -13,7 +13,6 @@ import RealmSwift
 class AddTripViewController: UIViewController {
     
     @IBOutlet weak var backButton: UIBarButtonItem!
-    
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
     @IBOutlet weak var titleTextField: UITextField!
