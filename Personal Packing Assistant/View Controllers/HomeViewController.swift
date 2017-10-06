@@ -14,7 +14,7 @@ class HomeViewController : UIViewController {
     @IBOutlet weak var planNewTripButton: UIButton!
     @IBOutlet weak var viewAllTripsButton: UIButton!
     
-   /* init() {
+   init() {
         
         super.init(nibName: String(describing: HomeViewController.self), bundle: Bundle.main)
         
@@ -24,7 +24,7 @@ class HomeViewController : UIViewController {
         
         fatalError()
         
-    }*/
+    }
     override func viewDidLoad() {
         self.view.layoutIfNeeded()
     }

@@ -6,35 +6,44 @@
 //  Copyright © 2017 CS407. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Foundation
+import RealmSwift
 
-class AddTripViewController : UIViewController {
+class AddTripViewController: UIViewController {
+
     
-    @IBOutlet weak var nextButton: UIBarButtonItem!
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var titleTextBox: UITextField!
-    @IBOutlet weak var startDateTextBox: UITextField!
-    @IBOutlet weak var endDateTextBox: UITextField!
-    @IBOutlet weak var destinationTextBox: UITextField!
-    @IBOutlet weak var travelerNameTextBox: UITextField!
-    @IBOutlet weak var genderTextBox: UITextField!
-    
-    /*init() {
-        print("initiating AddTripViewController")
+    init() {
+        
         super.init(nibName: String(describing: AddTripViewController.self), bundle: Bundle.main)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }*/
-    override func viewDidLoad() {
-        print("view did load")
-        super.viewDidLoad()
-        print("view did load")
         
     }
     
-    
-}
+    required init?(coder aDecoder: NSCoder) {
+        
+        fatalError()
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

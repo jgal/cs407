@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  TripOverViewViewController.swift
 //  Personal Packing Assistant
 //
 //  Created by Janka on 10/5/17.
@@ -10,11 +10,11 @@ import UIKit
 import Foundation
 import RealmSwift
 
-class AddItemViewController: UIViewController {
+class TripOverViewViewController: UIViewController {
 
     init() {
         
-        super.init(nibName: String(describing: AddItemViewController.self), bundle: Bundle.main)
+        super.init(nibName: String(describing: TripOverViewViewController.self), bundle: Bundle.main)
         
     }
     
