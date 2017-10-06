@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTripViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
             <connections>
-                <outlet property="backButton" destination="YH8-f6-LpQ" id="Gtb-hA-e1o"/>
+                <outlet property="backButton" destination="YH8-f6-LpQ" id="CUQ-j7-4GB"/>
                 <outlet property="destinationTextField" destination="gdb-gq-Btm" id="9Df-F3-MTl"/>
                 <outlet property="endDateTextField" destination="2jR-rf-LIb" id="4sS-Jc-63D"/>
                 <outlet property="genderTextField" destination="Ium-qW-wtX" id="zx2-kb-gjH"/>
