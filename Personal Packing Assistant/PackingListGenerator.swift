@@ -10,6 +10,12 @@ import Foundation
 import RealmSwift
 
 class PackingListGenerator {
+    // item dictionaries initialized here
+    let necessities : [String: Any]
+    let activity : [String: Any]
+    let accomodation : [String: Any]
+    let location : [String: Any]
+    let weather : [String: Any]
     
     let trip : Trip
     let items : [Item]
@@ -17,6 +23,25 @@ class PackingListGenerator {
     init(trip : Trip) {
         self.trip = trip
         self.items = []
+
+        // get text from json file
+        let url = Bundle.main.url(forResource: "packing_items", withExtension: "json")!
+        let data = try! Data(contentsOf: url)
+        let json = try! JSONSerialization.jsonObject(with: data, options: [])
+        print(json)
+
+        // parse file contents into dictionaries
+        var dictionary = json as! [String: Any]
+        self.necessities = dictionary["necessities"] as! [String: Any]
+        print("getting necessity items")
+        self.activity = dictionary["activity"] as! [String: Any]
+        print("getting activity items")
+        self.accomodation = dictionary["accomodation"] as! [String: Any]
+        print("getting accomodation items")
+        self.location = dictionary["location"] as! [String: Any]
+        print("getting location items")
+        self.weather = dictionary["weather"] as! [String: Any]
+        print("getting weather items")
     }
     
     func makeListOfTripItems() -> [TripItem] {
