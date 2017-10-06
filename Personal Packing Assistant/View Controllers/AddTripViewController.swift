@@ -12,9 +12,6 @@ import RealmSwift
 
 class AddTripViewController: UIViewController {
     
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var nextButton: UIBarButtonItem!
-    
     @IBOutlet weak var titleTextField: UITextField!
     
     @IBOutlet weak var startDateTextField: UITextField!
@@ -46,7 +43,7 @@ class AddTripViewController: UIViewController {
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         let secondViewController = HomeViewController()
-        self.present(secondViewController, animated: true, completion: nil)
+        self.present(secondViewController, animated: false, completion: nil)
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {

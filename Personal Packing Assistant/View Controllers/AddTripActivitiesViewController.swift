@@ -12,15 +12,12 @@ import RealmSwift
 
 class AddTripActivitiesViewController: UIViewController {
 
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var nextButton: UIBarButtonItem!
-    @IBOutlet weak var activityTable: UITableView!
+    @IBOutlet weak var nextButton: UIButton!
     
-    @IBOutlet weak var nextButton: UIBarButtonItem!
     init() {
         
         super.init(nibName: String(describing: AddTripActivitiesViewController.self), bundle: Bundle.main)
-        @IBOutlet weak var ActivityTable: UITableView!
+
         
     }
     
@@ -41,26 +38,13 @@ class AddTripActivitiesViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(sender: UIButton) {
-        print("backButtonTapped: before push")
-        let backViewController = AddTripViewController()
-        self.present(secondViewController, animated: true, completion: nil)
-        print("backButtonTapped: after push")
-        
+        let nextViewController = AddTripViewController()
+        self.present(nextViewController, animated: false, completion: nil)
     }
     
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
-        print("nextButtonTapped: before push")
+    @IBAction func nextButtonTapped(sender: UIButton) {
         let nextViewController = PackingListViewController()
-        self.present(secondViewController, animated: true, completion: nil)
-        print("nextButtonTapped: after push")
+        self.present(nextViewController, animated: false, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
 }

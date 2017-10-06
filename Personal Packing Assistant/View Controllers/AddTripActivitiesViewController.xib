@@ -11,15 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTripActivitiesViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
             <connections>
-<<<<<<< HEAD
                 <outlet property="backButton" destination="vCa-yE-Dkl" id="reJ-xH-nKK"/>
-                <outlet property="nextButton" destination="27h-gN-nqH" id="ibJ-dj-c8a"/>
-=======
-                <outlet property="ActivityTable" destination="KLf-ug-P6J" id="EbI-bl-CpF"/>
-                <outlet property="activityTable" destination="KLf-ug-P6J" id="a6j-bP-r6V"/>
-                <outlet property="backButtonTapped" destination="vCa-yE-Dkl" id="0gP-PJ-zHW"/>
-                <outlet property="nextButtonTapped" destination="27h-gN-nqH" id="Jou-g8-ySQ"/>
->>>>>>> a8f84833920320ff2f605b59fa626ec20547f6dd
+                <outlet property="nextButton" destination="oYq-JN-1Gt" id="dCs-bV-XXS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,7 +32,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Back"/>
                                     <connections>
-                                        <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="hSG-zT-DJR"/>
+                                        <action selector="backButtonTappedWithSender:" destination="-1" eventType="touchUpInside" id="xiS-TJ-uzl"/>
                                     </connections>
                                 </button>
                             </barButtonItem>
@@ -48,6 +41,9 @@
                                     <rect key="frame" x="327" y="7" width="32" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Next"/>
+                                    <connections>
+                                        <action selector="nextButtonTappedWithSender:" destination="-1" eventType="touchUpInside" id="rSv-HD-eUk"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </navigationItem>
