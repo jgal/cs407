@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00315F5D63EAC21B19B7EE64 /* Pods_Personal_Packing_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7FEEB8A0B81285EC93F7A7 /* Pods_Personal_Packing_Assistant.framework */; };
+<<<<<<< HEAD
+=======
+		70DCDEFF1F85F84F00B376C0 /* AddTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70DCDEFE1F85F84F00B376C0 /* AddTripViewController.xib */; };
+		70DCDF011F85F8DF00B376C0 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCDF001F85F8DF00B376C0 /* AddTripViewController.swift */; };
+		70DCDF031F85FCA200B376C0 /* TripOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DCDF021F85FCA200B376C0 /* TripOverviewViewController.swift */; };
+		70DCDF051F85FCD200B376C0 /* TripOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70DCDF041F85FCD200B376C0 /* TripOverviewViewController.xib */; };
+>>>>>>> 915b0213e8d2c9f0e684c04825f268f7675bb20e
+		7C61B3A91F6A21A10072B31F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B3A81F6A21A10072B31F /* AppDelegate.swift */; };
+		7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B3AA1F6A21A10072B31F /* ViewController.swift */; };
+		7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AC1F6A21A10072B31F /* Main.storyboard */; };
+		7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AF1F6A21A10072B31F /* Assets.xcassets */; };
+		7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */; };
+		8D9E3E1B1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E3E1A1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift */; };
+		8D9E3E1D1F86B63700B7BE88 /* EditDayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */; };
+		8D9E3E1F1F86B66600B7BE88 /* EditDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */; };
+		8D9F55A81F81F1E00026CFF7 /* AddTripActivitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9F55A71F81F1E00026CFF7 /* AddTripActivitiesViewController.xib */; };
+		A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C45F21F85ECBD009B5F43 /* WeatherService.swift */; };
+		A5EADFB11F7ED8FD007B3BAC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB01F7ED8FD007B3BAC /* Trip.swift */; };
+		A5EADFB31F7ED90E007B3BAC /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB21F7ED90E007B3BAC /* Day.swift */; };
+		A5EADFB51F7ED91D007B3BAC /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB41F7ED91D007B3BAC /* Outfit.swift */; };
+		A5EADFB71F7ED92F007B3BAC /* TripItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB61F7ED92F007B3BAC /* TripItem.swift */; };
+		A5EADFB91F7ED93F007B3BAC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB81F7ED93F007B3BAC /* Item.swift */; };
+		A5EADFBB1F7ED94A007B3BAC /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFBA1F7ED94A007B3BAC /* Activity.swift */; };
+		A5EADFBD1F7ED960007B3BAC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFBC1F7ED960007B3BAC /* Category.swift */; };
+		A5EADFBF1F7ED96B007B3BAC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFBE1F7ED96B007B3BAC /* Weather.swift */; };
+		A5EADFC11F7ED989007B3BAC /* PackingListGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFC01F7ED989007B3BAC /* PackingListGenerator.swift */; };
+		A5EADFC41F7EDBBE007B3BAC /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5EADFC31F7EDBBE007B3BAC /* HomeViewController.xib */; };
+		A5EADFC81F7EE188007B3BAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFC71F7EE188007B3BAC /* HomeViewController.swift */; };
+		FCBEF9E41F86B7070018D1B8 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBEF9E31F86B7070018D1B8 /* AddItemViewController.swift */; };
+		FCBEF9E61F86B71D0018D1B8 /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBEF9E51F86B71D0018D1B8 /* AddItemViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D7FEEB8A0B81285EC93F7A7 /* Pods_Personal_Packing_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Packing_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6694ED6B78C8AEC7873B76F6 /* Pods-Personal Packing Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Packing Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		70DCDEFE1F85F84F00B376C0 /* AddTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTripViewController.xib; sourceTree = "<group>"; };
+		70DCDF001F85F8DF00B376C0 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		70DCDF021F85FCA200B376C0 /* TripOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripOverviewViewController.swift; sourceTree = "<group>"; };
+		70DCDF041F85FCD200B376C0 /* TripOverviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripOverviewViewController.xib; sourceTree = "<group>"; };
+>>>>>>> 915b0213e8d2c9f0e684c04825f268f7675bb20e
+		7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Packing Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C61B3A81F6A21A10072B31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7C61B3AA1F6A21A10072B31F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7C61B3AD1F6A21A10072B31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7C61B3AF1F6A21A10072B31F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7C61B3B21F6A21A10072B31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7C61B3B41F6A21A10072B31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Packing Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant.release.xcconfig"; sourceTree = "<group>"; };
+		8D9E3E1A1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripActivitiesViewController.swift; sourceTree = "<group>"; };
+		8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDayViewController.xib; sourceTree = "<group>"; };
+		8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDayViewController.swift; sourceTree = "<group>"; };
+		8D9F55A71F81F1E00026CFF7 /* AddTripActivitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTripActivitiesViewController.xib; sourceTree = "<group>"; };
+		A55C45F21F85ECBD009B5F43 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		A5EADFB01F7ED8FD007B3BAC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		A5EADFB21F7ED90E007B3BAC /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		A5EADFB41F7ED91D007B3BAC /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
+		A5EADFB61F7ED92F007B3BAC /* TripItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripItem.swift; sourceTree = "<group>"; };
+		A5EADFB81F7ED93F007B3BAC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A5EADFBA1F7ED94A007B3BAC /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		A5EADFBC1F7ED960007B3BAC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A5EADFBE1F7ED96B007B3BAC /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		A5EADFC01F7ED989007B3BAC /* PackingListGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingListGenerator.swift; sourceTree = "<group>"; };
+		A5EADFC31F7EDBBE007B3BAC /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		A5EADFC71F7EE188007B3BAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FCBEF9E31F86B7070018D1B8 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		FCBEF9E51F86B71D0018D1B8 /* AddItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C61B3A21F6A21A10072B31F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00315F5D63EAC21B19B7EE64 /* Pods_Personal_Packing_Assistant.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C61B39C1F6A21A10072B31F = {
+			isa = PBXGroup;
+			children = (
+				7C61B3A71F6A21A10072B31F /* Personal Packing Assistant */,
+				7C61B3A61F6A21A10072B31F /* Products */,
+				F38466AF135C71FD077BC9E3 /* Pods */,
+				8839043610065FA8428431FA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7C61B3A61F6A21A10072B31F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C61B3A71F6A21A10072B31F /* Personal Packing Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				A5EADFC21F7EDB83007B3BAC /* View Controllers */,
+				A5EADFAF1F7ED8DB007B3BAC /* Models */,
+				7C61B3A81F6A21A10072B31F /* AppDelegate.swift */,
+				7C61B3AA1F6A21A10072B31F /* ViewController.swift */,
+				7C61B3AC1F6A21A10072B31F /* Main.storyboard */,
+				7C61B3AF1F6A21A10072B31F /* Assets.xcassets */,
+				7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */,
+				7C61B3B41F6A21A10072B31F /* Info.plist */,
+				A5EADFC01F7ED989007B3BAC /* PackingListGenerator.swift */,
+				A55C45F21F85ECBD009B5F43 /* WeatherService.swift */,
+			);
+			path = "Personal Packing Assistant";
+			sourceTree = "<group>";
+		};
+		8839043610065FA8428431FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D7FEEB8A0B81285EC93F7A7 /* Pods_Personal_Packing_Assistant.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5EADFAF1F7ED8DB007B3BAC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5EADFB01F7ED8FD007B3BAC /* Trip.swift */,
+				A5EADFB21F7ED90E007B3BAC /* Day.swift */,
+				A5EADFB41F7ED91D007B3BAC /* Outfit.swift */,
+				A5EADFB61F7ED92F007B3BAC /* TripItem.swift */,
+				A5EADFB81F7ED93F007B3BAC /* Item.swift */,
+				A5EADFBA1F7ED94A007B3BAC /* Activity.swift */,
+				A5EADFBC1F7ED960007B3BAC /* Category.swift */,
+				A5EADFBE1F7ED96B007B3BAC /* Weather.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A5EADFC21F7EDB83007B3BAC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5EADFC71F7EE188007B3BAC /* HomeViewController.swift */,
+				A5EADFC31F7EDBBE007B3BAC /* HomeViewController.xib */,
+				8D9F55A71F81F1E00026CFF7 /* AddTripActivitiesViewController.xib */,
+				8D9E3E1A1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift */,
+<<<<<<< HEAD
+<<<<<<< HEAD
+				FCBEF9E31F86B7070018D1B8 /* AddItemViewController.swift */,
+				FCBEF9E51F86B71D0018D1B8 /* AddItemViewController.xib */,
+=======
+				8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */,
+				8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */,
+>>>>>>> 3da78563e9172adb4a5fc13808bbc7a306b39987
+=======
+				70DCDEFE1F85F84F00B376C0 /* AddTripViewController.xib */,
+				70DCDF001F85F8DF00B376C0 /* AddTripViewController.swift */,
+				70DCDF021F85FCA200B376C0 /* TripOverviewViewController.swift */,
+				70DCDF041F85FCD200B376C0 /* TripOverviewViewController.xib */,
+=======
+				FCBEF9E31F86B7070018D1B8 /* AddItemViewController.swift */,
+				FCBEF9E51F86B71D0018D1B8 /* AddItemViewController.xib */,
+				8D9E3E1C1F86B63700B7BE88 /* EditDayViewController.xib */,
+				8D9E3E1E1F86B66600B7BE88 /* EditDayViewController.swift */,
+>>>>>>> 3a74c1d512f5b60e32d78f798751ed6501b9dde0
+>>>>>>> 915b0213e8d2c9f0e684c04825f268f7675bb20e
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F38466AF135C71FD077BC9E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6694ED6B78C8AEC7873B76F6 /* Pods-Personal Packing Assistant.debug.xcconfig */,
+				7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7C61B3A41F6A21A10072B31F /* Personal Packing Assistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C61B3B71F6A21A10072B31F /* Build configuration list for PBXNativeTarget "Personal Packing Assistant" */;
+			buildPhases = (
+				CF0453D6E49CCB1785DB74C2 /* [CP] Check Pods Manifest.lock */,
+				7C61B3A11F6A21A10072B31F /* Sources */,
+				7C61B3A21F6A21A10072B31F /* Frameworks */,
+				7C61B3A31F6A21A10072B31F /* Resources */,
+				DF433B5C8667A65A03DCC8A6 /* [CP] Embed Pods Frameworks */,
+				0431A01ED384AABC44671E95 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Personal Packing Assistant";
+			productName = "Personal Packing Assistant";
+			productReference = 7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C61B39D1F6A21A10072B31F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = CS407;
+				TargetAttributes = {
+					7C61B3A41F6A21A10072B31F = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7C61B3A01F6A21A10072B31F /* Build configuration list for PBXProject "Personal Packing Assistant" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7C61B39C1F6A21A10072B31F;
+			productRefGroup = 7C61B3A61F6A21A10072B31F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C61B3A41F6A21A10072B31F /* Personal Packing Assistant */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C61B3A31F6A21A10072B31F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */,
+				FCBEF9E61F86B71D0018D1B8 /* AddItemViewController.xib in Resources */,
+				8D9F55A81F81F1E00026CFF7 /* AddTripActivitiesViewController.xib in Resources */,
+				A5EADFC41F7EDBBE007B3BAC /* HomeViewController.xib in Resources */,
+<<<<<<< HEAD
+=======
+				70DCDEFF1F85F84F00B376C0 /* AddTripViewController.xib in Resources */,
+				70DCDF051F85FCD200B376C0 /* TripOverviewViewController.xib in Resources */,
+>>>>>>> 915b0213e8d2c9f0e684c04825f268f7675bb20e
+				7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */,
+				7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */,
+				8D9E3E1D1F86B63700B7BE88 /* EditDayViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0431A01ED384AABC44671E95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF0453D6E49CCB1785DB74C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Personal Packing Assistant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF433B5C8667A65A03DCC8A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DarkSkyKit/DarkSkyKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DarkSkyKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C61B3A11F6A21A10072B31F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+<<<<<<< HEAD
+=======
+				70DCDF031F85FCA200B376C0 /* TripOverviewViewController.swift in Sources */,
+>>>>>>> 915b0213e8d2c9f0e684c04825f268f7675bb20e
+				A5EADFB11F7ED8FD007B3BAC /* Trip.swift in Sources */,
+				A5EADFB71F7ED92F007B3BAC /* TripItem.swift in Sources */,
+				7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */,
+				A5EADFB31F7ED90E007B3BAC /* Day.swift in Sources */,
+				A5EADFBF1F7ED96B007B3BAC /* Weather.swift in Sources */,
+<<<<<<< HEAD
+				FCBEF9E41F86B7070018D1B8 /* AddItemViewController.swift in Sources */,
+=======
+<<<<<<< HEAD
+				70DCDF011F85F8DF00B376C0 /* AddTripViewController.swift in Sources */,
+=======
+				FCBEF9E41F86B7070018D1B8 /* AddItemViewController.swift in Sources */,
+>>>>>>> 3a74c1d512f5b60e32d78f798751ed6501b9dde0
+>>>>>>> 915b0213e8d2c9f0e684c04825f268f7675bb20e
+				A5EADFC11F7ED989007B3BAC /* PackingListGenerator.swift in Sources */,
+				A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */,
+				8D9E3E1F1F86B66600B7BE88 /* EditDayViewController.swift in Sources */,
+				A5EADFB91F7ED93F007B3BAC /* Item.swift in Sources */,
+				8D9E3E1B1F82BCC000B7BE88 /* AddTripActivitiesViewController.swift in Sources */,
+				A5EADFBD1F7ED960007B3BAC /* Category.swift in Sources */,
+				A5EADFB51F7ED91D007B3BAC /* Outfit.swift in Sources */,
+				A5EADFBB1F7ED94A007B3BAC /* Activity.swift in Sources */,
+				7C61B3A91F6A21A10072B31F /* AppDelegate.swift in Sources */,
+				A5EADFC81F7EE188007B3BAC /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7C61B3AC1F6A21A10072B31F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C61B3AD1F6A21A10072B31F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C61B3B21F6A21A10072B31F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7C61B3B51F6A21A10072B31F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7C61B3B61F6A21A10072B31F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7C61B3B81F6A21A10072B31F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6694ED6B78C8AEC7873B76F6 /* Pods-Personal Packing Assistant.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal Packing Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.purdue.cs407.Personal-Packing-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7C61B3B91F6A21A10072B31F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Personal Packing Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.purdue.cs407.Personal-Packing-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C61B3A01F6A21A10072B31F /* Build configuration list for PBXProject "Personal Packing Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C61B3B51F6A21A10072B31F /* Debug */,
+				7C61B3B61F6A21A10072B31F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C61B3B71F6A21A10072B31F /* Build configuration list for PBXNativeTarget "Personal Packing Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C61B3B81F6A21A10072B31F /* Debug */,
+				7C61B3B91F6A21A10072B31F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C61B39D1F6A21A10072B31F /* Project object */;
+}

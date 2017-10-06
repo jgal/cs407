@@ -20,12 +20,19 @@ class AddTripViewController : UIViewController {
     @IBOutlet weak var travelerNameTextBox: UITextField!
     @IBOutlet weak var genderTextBox: UITextField!
     
-    init() {
+    /*init() {
+        print("initiating AddTripViewController")
         super.init(nibName: String(describing: AddTripViewController.self), bundle: Bundle.main)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }*/
+    override func viewDidLoad() {
+        print("view did load")
+        super.viewDidLoad()
+        print("view did load")
+        
     }
     
     

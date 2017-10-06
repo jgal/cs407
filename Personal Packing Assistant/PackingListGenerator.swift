@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class PackingListGenerator {
     
@@ -45,13 +46,11 @@ class PackingListGenerator {
     func getActivityItems() {
         // Add items based off of the activities they are interested in
         // Add items to the self.items list and make sure there aren't duplicates
-        
     }
     
     func getWeatherItems() {
         // Add items based off of the weather forecast
         // Add items to the self.items list and make sure there aren't duplicates
-        
         // Fetching weather information will be done in WeatherService.swift
     }
     

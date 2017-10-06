@@ -40,6 +40,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFl-jh-BYb">
                     <rect key="frame" x="141" y="367.5" width="92" height="30"/>
                     <state key="normal" title="View All Trips"/>
+                    <connections>
+                        <action selector="viewAllTripsTapped:" destination="-1" eventType="touchUpInside" id="B5V-sh-reA"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
