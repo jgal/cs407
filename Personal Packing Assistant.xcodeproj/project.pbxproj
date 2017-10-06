@@ -25,6 +25,7 @@
 		7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AC1F6A21A10072B31F /* Main.storyboard */; };
 		7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AF1F6A21A10072B31F /* Assets.xcassets */; };
 		7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */; };
+		8D3C77A11F87379100B558B3 /* packing_items.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C77A01F87379100B558B3 /* packing_items.json */; };
 		A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C45F21F85ECBD009B5F43 /* WeatherService.swift */; };
 		A5EADFB11F7ED8FD007B3BAC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB01F7ED8FD007B3BAC /* Trip.swift */; };
 		A5EADFB31F7ED90E007B3BAC /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB21F7ED90E007B3BAC /* Day.swift */; };
@@ -64,6 +65,7 @@
 		7C61B3B21F6A21A10072B31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C61B3B41F6A21A10072B31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Packing Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant.release.xcconfig"; sourceTree = "<group>"; };
+		8D3C77A01F87379100B558B3 /* packing_items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = packing_items.json; sourceTree = "<group>"; };
 		A55C45F21F85ECBD009B5F43 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		A5EADFB01F7ED8FD007B3BAC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		A5EADFB21F7ED90E007B3BAC /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				7C61B3AF1F6A21A10072B31F /* Assets.xcassets */,
 				7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */,
 				7C61B3B41F6A21A10072B31F /* Info.plist */,
+				8D3C77A01F87379100B558B3 /* packing_items.json */,
 				A5EADFC01F7ED989007B3BAC /* PackingListGenerator.swift */,
 				A55C45F21F85ECBD009B5F43 /* WeatherService.swift */,
 			);
@@ -252,6 +255,7 @@
 				70F6B63D1F87125400F42148 /* TripOverViewViewController.xib in Resources */,
 				70F6B6311F87104700F42148 /* PackingListViewController.xib in Resources */,
 				70F6B6451F8712F900F42148 /* AddTripActivitiesViewController.xib in Resources */,
+				8D3C77A11F87379100B558B3 /* packing_items.json in Resources */,
 				70F6B6391F87110800F42148 /* AddItemViewController.xib in Resources */,
 				7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */,
 				7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */,
