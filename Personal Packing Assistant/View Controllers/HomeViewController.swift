@@ -23,7 +23,7 @@ class HomeViewController : UIViewController {
         fatalError()
     }
     override func viewDidLoad() {
-        self.view.layoutIfNeeded()
+        super.viewDidLoad()
     }
     
     
@@ -50,8 +50,10 @@ class HomeViewController : UIViewController {
     }
     @IBAction func viewAllTripsTapped(_ sender: UIButton) {
         print("viewAllTripsTapped: before push")
-        let secondViewController = TripOverViewViewController()
+        let secondViewController = AllTripsTableViewController()
         self.present(secondViewController, animated: true, completion: nil)
+ 
+        
         print("viewAllTripsTapped: after push")
     }
 }
