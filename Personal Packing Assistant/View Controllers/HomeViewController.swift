@@ -8,30 +8,24 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class HomeViewController : UIViewController {
     
     @IBOutlet weak var planNewTripButton: UIButton!
     @IBOutlet weak var viewAllTripsButton: UIButton!
     
-   /* init() {
-        
+    init() {
         super.init(nibName: String(describing: HomeViewController.self), bundle: Bundle.main)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
-        
         fatalError()
-        
-    }*/
+    }
     override func viewDidLoad() {
         self.view.layoutIfNeeded()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-       
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
