@@ -13,8 +13,11 @@ import RealmSwift
 class AddTripActivitiesViewController: UIViewController {
 
     @IBOutlet weak var backButton: UIBarButtonItem!
+<<<<<<< HEAD
+=======
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var activityTable: UITableView!
+>>>>>>> a8f84833920320ff2f605b59fa626ec20547f6dd
     
     @IBOutlet weak var nextButton: UIBarButtonItem!
     init() {
@@ -40,6 +43,12 @@ class AddTripActivitiesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+<<<<<<< HEAD
+
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        let secondViewController = AddTripViewController()
+        self.present(secondViewController, animated: false, completion: nil)
+=======
     @IBAction func backButtonTapped(sender: UIButton) {
         print("backButtonTapped: before push")
         let backViewController = AddTripViewController()
@@ -62,5 +71,6 @@ class AddTripActivitiesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+>>>>>>> a8f84833920320ff2f605b59fa626ec20547f6dd
     }
 }
