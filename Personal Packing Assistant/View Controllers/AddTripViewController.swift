@@ -47,8 +47,26 @@ class AddTripViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        let secondViewController = AddTripActivitiesViewController()
+        addTripToRealm()
+        //Should do this
+        //let secondViewController = AddTripActivitiesViewController()
+        //but for now
+        let secondViewController = AllTripsTableViewController()
         self.present(secondViewController, animated: false, completion: nil)
+    }
+    func addTripToRealm() {
+        let newTrip = Trip()
+        print(titleTextField.text!)
+        newTrip.name = titleTextField.text!
+        print(destinationTextField.text!)
+        newTrip.destination = destinationTextField.text!
+       // newTrip.traveler = travelerNameTextField.text!
+       // newTrip.gender = genderTextField.text!
+        //newTrip.startDate =
+        //newTRip.endDate =
+        try! realm.write{
+                realm.add(newTrip)
+        }
     }
     
 

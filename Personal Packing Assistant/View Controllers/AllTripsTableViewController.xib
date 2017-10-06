@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllTripsTableViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
             <connections>
                 <outlet property="searchDisplayController" destination="xB2-pY-nYw" id="2fB-gV-5gR"/>
+                <outlet property="tripTable" destination="mbZ-Sk-KYR" id="hc2-4X-OEf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
