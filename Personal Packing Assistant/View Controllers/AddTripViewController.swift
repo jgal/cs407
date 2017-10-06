@@ -44,6 +44,16 @@ class AddTripViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        let secondViewController = HomeViewController()
+        self.present(secondViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        let secondViewController = AddTripActivitiesViewController()
+        self.present(secondViewController, animated: false, completion: nil)
+    }
+    
 
 
 }

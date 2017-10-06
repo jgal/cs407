@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTripActivitiesViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="vCa-yE-Dkl" id="reJ-xH-nKK"/>
+                <outlet property="nextButton" destination="27h-gN-nqH" id="ibJ-dj-c8a"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,6 +31,9 @@
                                     <rect key="frame" x="16" y="7" width="34" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Back"/>
+                                    <connections>
+                                        <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="hSG-zT-DJR"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" style="plain" id="27h-gN-nqH">

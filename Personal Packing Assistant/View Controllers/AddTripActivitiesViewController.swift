@@ -12,7 +12,9 @@ import RealmSwift
 
 class AddTripActivitiesViewController: UIViewController {
 
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     init() {
         
         super.init(nibName: String(describing: AddTripActivitiesViewController.self), bundle: Bundle.main)
@@ -36,14 +38,8 @@ class AddTripActivitiesViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        let secondViewController = AddTripViewController()
+        self.present(secondViewController, animated: false, completion: nil)
     }
-    */
-
 }

@@ -37,6 +37,9 @@
                                     <rect key="frame" x="16" y="7" width="34" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Back"/>
+                                    <connections>
+                                        <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="8tR-Tv-RaH"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" style="plain" id="IyE-MM-ZCI">
@@ -44,6 +47,9 @@
                                     <rect key="frame" x="327" y="7" width="32" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Next"/>
+                                    <connections>
+                                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="cIi-9o-Jfx"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </navigationItem>
