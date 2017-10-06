@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTripActivitiesViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
             <connections>
+                <outlet property="ActivityTable" destination="KLf-ug-P6J" id="EbI-bl-CpF"/>
+                <outlet property="activityTable" destination="KLf-ug-P6J" id="a6j-bP-r6V"/>
+                <outlet property="backButtonTapped" destination="vCa-yE-Dkl" id="0gP-PJ-zHW"/>
+                <outlet property="nextButtonTapped" destination="27h-gN-nqH" id="Jou-g8-ySQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
