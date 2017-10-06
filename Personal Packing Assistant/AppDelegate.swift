@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = HomeViewController()
         
         window?.makeKeyAndVisible()
-        
-        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        // Comment out when modifying the models 
+        //try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 
         
         
