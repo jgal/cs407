@@ -11,7 +11,22 @@ import Foundation
 import RealmSwift
 
 class AddTripViewController: UIViewController {
-
+    
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    @IBOutlet weak var nextButton: UIBarButtonItem!
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    
+    @IBOutlet weak var startDateTextField: UITextField!
+    
+    @IBOutlet weak var endDateTextField: UITextField!
+    
+    @IBOutlet weak var destinationTextField: UITextField!
+    
+    @IBOutlet weak var travelerNameTextField: UITextField!
+    
+    @IBOutlet weak var genderTextField: UITextField!
     
     init() {
         
