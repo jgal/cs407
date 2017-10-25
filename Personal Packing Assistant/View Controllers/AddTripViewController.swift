@@ -46,7 +46,6 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextButtonTapped(_:)))
         navigationItem.rightBarButtonItem?.isEnabled = false
     }
-
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -127,9 +126,6 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         addTripToRealm()
-        //Should do this
-        //let secondViewController = AddTripActivitiesViewController()
-        //but for now
         let secondViewController = AllTripsTableViewController()
         self.present(secondViewController, animated: false, completion: nil)
     }
@@ -154,15 +150,21 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         newTrip.name = titleTextField.text!
         print(destinationTextField.text!)
         newTrip.destination = destinationTextField.text!
-       // newTrip.traveler = travelerNameTextField.text!
-       // newTrip.gender = genderTextField.text!
+        newTrip.traveler = travelerNameTextField.text!
         newTrip.startDate = startDateTextField.text!
         newTrip.endDate = endDateTextField.text!
+        var gender = ""
+        if genderSelector.selectedSegmentIndex == 0 {
+            gender = "Male"
+        } else if genderSelector.selectedSegmentIndex == 1 {
+            gender = "Female"
+        } else {
+            gender = "Other"
+        }
+        newTrip.gender = gender
+        
         try! realm.write{
                 realm.add(newTrip)
         }
     }
-    
-
-
 }
