@@ -41,19 +41,15 @@ class HomeViewController : UIViewController {
     }
     
     @IBAction func planNewTripTapped(sender: Any) {
-        
         print("planNewTripTapped: before push")
         let secondViewController = AddTripViewController()
-        self.present(secondViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(secondViewController, animated: true)
         print("planNewTripTapped: after push")
-
     }
     @IBAction func viewAllTripsTapped(_ sender: UIButton) {
         print("viewAllTripsTapped: before push")
         let secondViewController = AllTripsTableViewController()
-        self.present(secondViewController, animated: true, completion: nil)
- 
-        
+        navigationController?.pushViewController(secondViewController, animated: true)
         print("viewAllTripsTapped: after push")
     }
 }

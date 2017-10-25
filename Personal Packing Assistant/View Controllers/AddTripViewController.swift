@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import RealmSwift
+import SkyFloatingLabelTextField
 
 class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
@@ -22,7 +23,10 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
     @IBOutlet weak var travelerNameTextField: UITextField!
     
-    @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var genderSelector: UISegmentedControl!
+    
+    var startDate: Date? = nil
+    var endDate: Date? = nil
     
     var datePicker : UIDatePicker!
     
@@ -37,6 +41,10 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        title = "Add Trip"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextButtonTapped(_:)))
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
 
    
@@ -59,6 +67,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         self.datePicker = UIDatePicker(frame:CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 216))
         self.datePicker.backgroundColor = UIColor.white
         self.datePicker.datePickerMode = UIDatePickerMode.date
+        
         textField.inputView = self.datePicker
         
         // ToolBar
@@ -75,6 +84,10 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(AddTripViewController.cancelClick))
             toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         } else {
+            if let d = startDate {
+                datePicker.date = d
+            }
+            
             let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(AddTripViewController.done1Click))
             let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
             let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(AddTripViewController.cancel1Click))
@@ -93,6 +106,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         dateFormatter1.timeStyle = .none
         startDateTextField.text = dateFormatter1.string(from: datePicker.date)
         startDateTextField.resignFirstResponder()
+        
+        startDate = datePicker.date
     }
     @objc func cancelClick(_ textField : UITextField) {
         startDateTextField.resignFirstResponder()
@@ -103,24 +118,35 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         dateFormatter1.timeStyle = .none
         endDateTextField.text = dateFormatter1.string(from: datePicker.date)
         endDateTextField.resignFirstResponder()
+        
+        endDate = datePicker.date
     }
     @objc func cancel1Click(_ textField : UITextField) {
         endDateTextField.resignFirstResponder()
     }
     
-    
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        let secondViewController = HomeViewController()
-        self.present(secondViewController, animated: false, completion: nil)
-    }
-    
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
+    @objc func nextButtonTapped(_ sender: UIButton) {
         addTripToRealm()
         //Should do this
         //let secondViewController = AddTripActivitiesViewController()
         //but for now
         let secondViewController = AllTripsTableViewController()
         self.present(secondViewController, animated: false, completion: nil)
+    }
+    @IBAction func checkValidation(_ sender: SkyFloatingLabelTextField) {
+        var enabled = true
+        if titleTextField.text?.count == 0 {
+            enabled = false
+        } else if startDateTextField.text?.count == 0 {
+            enabled = false
+        } else if endDateTextField.text?.count == 0 {
+            enabled = false
+        } else if destinationTextField.text?.count == 0 {
+            enabled = false
+        } else if travelerNameTextField.text?.count == 0 {
+            enabled = false
+        }
+        navigationItem.rightBarButtonItem?.isEnabled = enabled
     }
     func addTripToRealm() {
         let newTrip = Trip()

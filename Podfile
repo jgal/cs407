@@ -10,5 +10,6 @@ target 'Personal Packing Assistant' do
   # Pods for Personal Packing Assistant
   pod 'RealmSwift'
   pod 'DarkSkyKit'
+  pod 'SkyFloatingLabelTextField'
   
 end

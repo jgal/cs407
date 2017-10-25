@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="destinationTextField" destination="gdb-gq-Btm" id="l17-sa-f72"/>
                 <outlet property="endDateTextField" destination="2jR-rf-LIb" id="q9W-Ww-vw8"/>
-                <outlet property="genderTextField" destination="Ium-qW-wtX" id="1xF-wT-KNh"/>
+                <outlet property="genderSelector" destination="Mox-Ov-KTa" id="L5B-SF-Djl"/>
                 <outlet property="startDateTextField" destination="ID7-xu-5Bp" id="MRK-7i-b7h"/>
                 <outlet property="titleTextField" destination="ZrE-4a-Sp8" id="tKi-Cj-oQa"/>
                 <outlet property="travelerNameTextField" destination="VNp-QK-o2n" id="fPt-xC-6Qt"/>
@@ -25,127 +25,138 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RZ-wj-h2a">
-                    <rect key="frame" x="44" y="128" width="38" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-MA-8nC">
-                    <rect key="frame" x="44" y="163" width="81" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZrE-4a-Sp8">
-                    <rect key="frame" x="177" y="123" width="97" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icI-jl-maP">
-                    <rect key="frame" x="44" y="200" width="73" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destination:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hg-q1-sXm">
-                    <rect key="frame" x="44" y="236" width="92" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Traveler name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDT-et-ll9">
-                    <rect key="frame" x="44" y="270" width="113" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ID7-xu-5Bp">
-                    <rect key="frame" x="177" y="158" width="97" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <action selector="textFieldIsBeingEdited:" destination="-1" eventType="editingDidBegin" id="kBl-nW-TcU"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2jR-rf-LIb">
-                    <rect key="frame" x="177" y="195" width="97" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <action selector="EndDateEditing:" destination="-1" eventType="editingDidBegin" id="pCh-hP-bSG"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gdb-gq-Btm">
-                    <rect key="frame" x="177" y="231" width="97" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VNp-QK-o2n">
-                    <rect key="frame" x="177" y="267" width="97" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="M/F" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ium-qW-wtX">
-                    <rect key="frame" x="177" y="305" width="97" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3V-6v-CXG">
-                    <rect key="frame" x="44" y="310" width="62" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8xO-Wb-KHu">
-                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem title="Add Trip" id="yiE-VN-Z9s">
-                            <barButtonItem key="leftBarButtonItem" style="plain" id="YH8-f6-LpQ">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mcG-CI-62b">
-                                    <rect key="frame" x="16" y="7" width="34" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Back"/>
-                                    <connections>
-                                        <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="sPq-o1-NvX"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="IyE-MM-ZCI">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fUc-dX-baX">
-                                    <rect key="frame" x="327" y="7" width="32" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Next"/>
-                                    <connections>
-                                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="RcF-Nz-Hor"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUb-x8-EMm">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rv8-bc-Wi3">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="402.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4c8-BM-lwS">
+                                    <rect key="frame" x="32" y="32" width="310" height="338.5"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZrE-4a-Sp8" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="39"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Trip"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="checkValidation:" destination="-1" eventType="editingChanged" id="oWL-7u-0qr"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ID7-xu-5Bp" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                            <rect key="frame" x="0.0" y="55" width="310" height="39.5"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Start Date"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="checkValidation:" destination="-1" eventType="editingChanged" id="peC-wx-yrh"/>
+                                                <action selector="textFieldIsBeingEdited:" destination="-1" eventType="editingDidBegin" id="kBl-nW-TcU"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2jR-rf-LIb" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                            <rect key="frame" x="0.0" y="110.5" width="310" height="39"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="End Date"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="EndDateEditing:" destination="-1" eventType="editingDidBegin" id="pCh-hP-bSG"/>
+                                                <action selector="checkValidation:" destination="-1" eventType="editingChanged" id="xoh-im-u78"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gdb-gq-Btm" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                            <rect key="frame" x="0.0" y="165.5" width="310" height="39.5"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Destination"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="checkValidation:" destination="-1" eventType="editingChanged" id="DxQ-TN-sHp"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VNp-QK-o2n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                            <rect key="frame" x="0.0" y="221" width="310" height="39"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Traveler Name"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="checkValidation:" destination="-1" eventType="editingChanged" id="9ca-pI-Vhy"/>
+                                            </connections>
+                                        </textField>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oe1-XY-s2c">
+                                            <rect key="frame" x="0.0" y="276" width="310" height="62.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHb-mq-B24">
+                                                    <rect key="frame" x="0.0" y="0.0" width="310" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mox-Ov-KTa">
+                                                    <rect key="frame" x="0.0" y="22.5" width="310" height="41"/>
+                                                    <segments>
+                                                        <segment title="Male"/>
+                                                        <segment title="Female"/>
+                                                        <segment title="Other"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="Mox-Ov-KTa" firstAttribute="leading" secondItem="MHb-mq-B24" secondAttribute="leading" id="F3B-xD-gcO"/>
+                                                <constraint firstItem="MHb-mq-B24" firstAttribute="top" secondItem="oe1-XY-s2c" secondAttribute="top" id="Vgf-f1-CQA"/>
+                                                <constraint firstItem="Mox-Ov-KTa" firstAttribute="top" secondItem="MHb-mq-B24" secondAttribute="bottom" constant="8" id="g8X-01-pWH"/>
+                                                <constraint firstAttribute="trailing" secondItem="MHb-mq-B24" secondAttribute="trailing" id="jbp-VT-ED4"/>
+                                                <constraint firstItem="Mox-Ov-KTa" firstAttribute="trailing" secondItem="MHb-mq-B24" secondAttribute="trailing" id="t6K-gm-E1y"/>
+                                                <constraint firstItem="MHb-mq-B24" firstAttribute="leading" secondItem="oe1-XY-s2c" secondAttribute="leading" id="tL7-Et-eMC"/>
+                                                <constraint firstAttribute="bottom" secondItem="Mox-Ov-KTa" secondAttribute="bottom" id="w6G-zu-VA3"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="4c8-BM-lwS" firstAttribute="top" secondItem="Rv8-bc-Wi3" secondAttribute="top" constant="32" id="Y2e-KB-hbf"/>
+                                <constraint firstItem="4c8-BM-lwS" firstAttribute="centerX" secondItem="Rv8-bc-Wi3" secondAttribute="centerX" id="bMb-GL-npl"/>
+                                <constraint firstAttribute="trailing" secondItem="4c8-BM-lwS" secondAttribute="trailing" constant="32" id="bg2-DD-eRh"/>
+                                <constraint firstItem="4c8-BM-lwS" firstAttribute="leading" secondItem="Rv8-bc-Wi3" secondAttribute="leading" constant="32" id="hxH-NJ-UDz"/>
+                                <constraint firstItem="4c8-BM-lwS" firstAttribute="centerY" secondItem="Rv8-bc-Wi3" secondAttribute="centerY" id="pGs-0z-FbJ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Rv8-bc-Wi3" firstAttribute="top" secondItem="pUb-x8-EMm" secondAttribute="top" id="QGC-Bj-2Rm"/>
+                        <constraint firstItem="Rv8-bc-Wi3" firstAttribute="centerX" secondItem="pUb-x8-EMm" secondAttribute="centerX" id="Vft-NK-utt"/>
+                        <constraint firstAttribute="bottom" secondItem="Rv8-bc-Wi3" secondAttribute="bottom" id="bCQ-M9-LaM"/>
+                        <constraint firstItem="Rv8-bc-Wi3" firstAttribute="leading" secondItem="pUb-x8-EMm" secondAttribute="leading" id="qcO-ad-0zr"/>
+                        <constraint firstAttribute="trailing" secondItem="Rv8-bc-Wi3" secondAttribute="trailing" id="r7M-nE-O31"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="pUb-x8-EMm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0iS-Ke-QKQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pUb-x8-EMm" secondAttribute="bottom" id="FDf-Dv-ObV"/>
+                <constraint firstItem="pUb-x8-EMm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lle-bb-e9H"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pUb-x8-EMm" secondAttribute="trailing" id="m5D-oB-YsZ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
 </document>
