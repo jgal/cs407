@@ -30,7 +30,14 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
     var datePicker : UIDatePicker!
     
-    init() {
+    let fromHome: Bool
+
+    let existingTrip: Trip?
+    
+    public init(fromHome: Bool = false, withExistingTrip: Trip? = nil) {
+        self.fromHome = fromHome
+        existingTrip = withExistingTrip
+
         super.init(nibName: String(describing: AddTripViewController.self), bundle: Bundle.main)
     }
     
@@ -43,8 +50,36 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         
         title = "Add Trip"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextButtonTapped(_:)))
+        let buttonTitle = existingTrip == nil ? "Next" : "Save"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(nextButtonTapped(_:)))
         navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        if let t = existingTrip {
+            titleTextField.text = t.name
+            destinationTextField.text = t.destination
+            travelerNameTextField.text = t.traveler
+            
+            startDate = t.startDate
+            endDate = t.endDate
+            
+            let df = DateFormatter()
+            df.dateStyle = .medium
+            df.timeStyle = .none
+            
+            startDateTextField.text = df.string(from: startDate!)
+            endDateTextField.text = df.string(from: endDate!)
+            
+            if t.gender == "Male" {
+                genderSelector.selectedSegmentIndex = 0
+            }
+            else if t.gender == "Female" {
+                genderSelector.selectedSegmentIndex = 1
+            }
+            else {
+                genderSelector.selectedSegmentIndex = 2
+            }
+        }
     }
    
     override func didReceiveMemoryWarning() {
@@ -85,6 +120,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         } else {
             if let d = startDate {
                 datePicker.date = d
+                datePicker.minimumDate = d
             }
             
             let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(AddTripViewController.done1Click))
@@ -126,8 +162,15 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         addTripToRealm()
+        
         let secondViewController = AllTripsTableViewController()
-        self.present(secondViewController, animated: false, completion: nil)
+        
+        navigationController?.popViewController(animated: true)
+        
+        if fromHome {
+            // Change to navigate to the AddTripActivitiesViewController once it is created
+            navigationController?.pushViewController(secondViewController, animated: true)
+        }
     }
     @IBAction func checkValidation(_ sender: SkyFloatingLabelTextField) {
         var enabled = true
@@ -145,26 +188,43 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         navigationItem.rightBarButtonItem?.isEnabled = enabled
     }
     func addTripToRealm() {
-        let newTrip = Trip()
-        print(titleTextField.text!)
-        newTrip.name = titleTextField.text!
-        print(destinationTextField.text!)
-        newTrip.destination = destinationTextField.text!
-        newTrip.traveler = travelerNameTextField.text!
-        newTrip.startDate = startDateTextField.text!
-        newTrip.endDate = endDateTextField.text!
-        var gender = ""
-        if genderSelector.selectedSegmentIndex == 0 {
-            gender = "Male"
-        } else if genderSelector.selectedSegmentIndex == 1 {
-            gender = "Female"
-        } else {
-            gender = "Other"
-        }
-        newTrip.gender = gender
-        
-        try! realm.write{
-                realm.add(newTrip)
+        try! realm.write {
+            let t = existingTrip != nil ? existingTrip! : Trip()
+            
+            print(titleTextField.text!)
+            t.name = titleTextField.text!
+            print(destinationTextField.text!)
+            t.destination = destinationTextField.text!
+            t.traveler = travelerNameTextField.text!
+            t.startDate = startDate
+            t.endDate = endDate
+            var gender = ""
+            if genderSelector.selectedSegmentIndex == 0 {
+                gender = "Male"
+            } else if genderSelector.selectedSegmentIndex == 1 {
+                gender = "Female"
+            } else {
+                gender = "Other"
+            }
+            t.gender = gender
+            
+            // Calculate the number of days
+            let cal = Calendar.current
+            
+            var thisDate: Date = startDate!
+            
+            repeat {
+                thisDate = cal.date(byAdding: .day,
+                                    value: 1,
+                                    to: thisDate,
+                                    wrappingComponents: true)!
+                
+                t.days.append(Day(thisDate))
+            } while(thisDate < endDate!)
+            
+            if existingTrip == nil {
+                realm.add(t)
+            }
         }
     }
 }

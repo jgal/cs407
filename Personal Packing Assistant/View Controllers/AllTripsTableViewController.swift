@@ -28,6 +28,10 @@ class AllTripsTableViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         self.tripTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddTripButtonTapped(_:)))
+        
+        title = "All Trips"
+        
         // This view controller itself will provide the delegate methods and row data for the table view.
         tripTable.delegate = self
         tripTable.dataSource = self
@@ -84,9 +88,10 @@ class AllTripsTableViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
-    
-            // Editing will go here
-    
+            let t = self.lists[indexPath.row]
+            let vc = AddTripViewController(fromHome: false, withExistingTrip: t)
+            
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         return [deleteAction, editAction]
     }
@@ -96,18 +101,9 @@ class AllTripsTableViewController: UIViewController, UITableViewDelegate, UITabl
         print("jb \(self.lists[indexPath.row]) " )
         
     }
-    
-    
-   
-    @IBAction func AddTripButtonTapped(_ sender: UIBarButtonItem) {
+
+    @objc func AddTripButtonTapped(_ sender: UIBarButtonItem) {
         let secondViewController = AddTripViewController()
-        self.present(secondViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
-    
-    @IBAction func backTapped(_ sender: Any) {
-        let secondViewController = HomeViewController()
-        self.present(secondViewController, animated: false, completion: nil)
-        
-    }
-    
 }

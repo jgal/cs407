@@ -11,7 +11,13 @@ import RealmSwift
 
 class Day : Object {
     // MARK: Properties
-    @objc dynamic var date: NSDate = NSDate() // Need to implement calendar
+    @objc dynamic var date: Date = Date()
+    
+    public convenience init(_ date: Date) {
+        self.init()
+        
+        self.date = date
+    }
     
     var weather: Weather = Weather()
     let items = List<Item>()

@@ -42,7 +42,7 @@ class HomeViewController : UIViewController {
     
     @IBAction func planNewTripTapped(sender: Any) {
         print("planNewTripTapped: before push")
-        let secondViewController = AddTripViewController()
+        let secondViewController = AddTripViewController(fromHome: true)
         navigationController?.pushViewController(secondViewController, animated: true)
         print("planNewTripTapped: after push")
     }
