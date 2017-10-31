@@ -16,6 +16,7 @@ class WeatherService {
     let forecastClient = DarkSkyKit(apiToken: "fb81f4a6cb4709d5d4c5364a472333f3")
     
     public func latLong(forTrip: Trip) -> ((Double, Double)) {
+        let location = forTrip.destination
         // TODO: get longitude and latitude from trip location
         return (13.2476889,-57.2342027)
     }
