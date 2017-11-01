@@ -12,24 +12,40 @@ import RealmSwift
 
 class AddTripActivitiesViewController: UIViewController {
 
-    @IBOutlet weak var nextButton: UIButton!
     
-    init() {
-        
+    public init() {
         super.init(nibName: String(describing: AddTripActivitiesViewController.self), bundle: Bundle.main)
-
         
     }
     
     required init?(coder aDecoder: NSCoder) {
-        
-        fatalError()
-        
+            fatalError()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.activitiesCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
+        
+       // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddActivityButtonTapped(_:)))
+        
+        let buttonTitle = "Next"
+        title = "Add Activity"
 
-        // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(AddActivityButtonTapped(_:)))
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        
+
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        readTasksAndUpdateUI()
+        print("viewWillAppear")
+    }
+    
+    func readTasksAndUpdateUI() {
+        //self.activitiesCollection.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,14 +53,16 @@ class AddTripActivitiesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func backButtonTapped(sender: UIButton) {
-        let nextViewController = AddTripViewController()
-        self.present(nextViewController, animated: false, completion: nil)
+    
+    
+
+    
+    @objc func AddActivityButtonTapped(_ sender: UIBarButtonItem) {
+        print("Add New Activity")
+        //let secondViewController = AddTripViewController()
+        //navigationController?.pushViewController(secondViewController, animated: true)
     }
     
-    @IBAction func nextButtonTapped(sender: UIButton) {
-        let nextViewController = PackingListViewController()
-        self.present(nextViewController, animated: false, completion: nil)
-    }
+    
     
 }

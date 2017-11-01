@@ -33,11 +33,15 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     let fromHome: Bool
 
     let existingTrip: Trip?
-    
+    var curentTrip: Trip
     public init(fromHome: Bool = false, withExistingTrip: Trip? = nil) {
         self.fromHome = fromHome
         existingTrip = withExistingTrip
-
+        if ( existingTrip != nil) {
+            curentTrip = withExistingTrip!
+        } else {
+            curentTrip = Trip()
+        }
         super.init(nibName: String(describing: AddTripViewController.self), bundle: Bundle.main)
     }
     
@@ -162,15 +166,15 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         addTripToRealm()
-        
-        let secondViewController = AllTripsTableViewController()
-        
-        navigationController?.popViewController(animated: true)
-        
+        //let secondViewController = AllTripsTableViewController()
+        let secondViewController = AddTripActivityViewController(selectedTrip: curentTrip)
+        //navigationController?.popViewController(animated: true)
+
         if fromHome {
             // Change to navigate to the AddTripActivitiesViewController once it is created
             navigationController?.pushViewController(secondViewController, animated: true)
         }
+        
     }
     @IBAction func checkValidation(_ sender: SkyFloatingLabelTextField) {
         var enabled = true
@@ -224,6 +228,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             
             if existingTrip == nil {
                 realm.add(t)
+                curentTrip = t
             }
         }
     }

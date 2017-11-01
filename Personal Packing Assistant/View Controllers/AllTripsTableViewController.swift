@@ -73,8 +73,12 @@ class AllTripsTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         // set the text from the data model
         cell.textLabel?.text = self.lists[indexPath.row].name
-        
+        cell.accessoryType = .disclosureIndicator
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        callTripOverview(didSelectRowAt: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -99,11 +103,17 @@ class AllTripsTableViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tableView 4")
         print("jb \(self.lists[indexPath.row]) " )
-        
+        callTripOverview(didSelectRowAt: indexPath.row)
     }
 
     @objc func AddTripButtonTapped(_ sender: UIBarButtonItem) {
         let secondViewController = AddTripViewController()
         navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    func callTripOverview(didSelectRowAt row: Int ) {
+        let t = self.lists[row]
+        let secondViewController = TripOverviewViewController(withExistingTrip: t)
+        navigationController?.pushViewController(secondViewController, animated: true)
+        
     }
 }

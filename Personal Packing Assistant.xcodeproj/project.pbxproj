@@ -14,12 +14,8 @@
 		70F6B6351F8710A800F42148 /* EditDayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F6B6331F8710A800F42148 /* EditDayViewController.xib */; };
 		70F6B6381F87110800F42148 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F6B6361F87110800F42148 /* AddItemViewController.swift */; };
 		70F6B6391F87110800F42148 /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F6B6371F87110800F42148 /* AddItemViewController.xib */; };
-		70F6B63C1F87125300F42148 /* TripOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F6B63A1F87125300F42148 /* TripOverViewController.swift */; };
-		70F6B63D1F87125400F42148 /* TripOverViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F6B63B1F87125300F42148 /* TripOverViewViewController.xib */; };
 		70F6B6401F87129400F42148 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F6B63E1F87129400F42148 /* AddTripViewController.swift */; };
 		70F6B6411F87129400F42148 /* AddTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F6B63F1F87129400F42148 /* AddTripViewController.xib */; };
-		70F6B6441F8712F900F42148 /* AddTripActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F6B6421F8712F900F42148 /* AddTripActivitiesViewController.swift */; };
-		70F6B6451F8712F900F42148 /* AddTripActivitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F6B6431F8712F900F42148 /* AddTripActivitiesViewController.xib */; };
 		7C61B3A91F6A21A10072B31F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B3A81F6A21A10072B31F /* AppDelegate.swift */; };
 		7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61B3AA1F6A21A10072B31F /* ViewController.swift */; };
 		7C61B3AE1F6A21A10072B31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3AC1F6A21A10072B31F /* Main.storyboard */; };
@@ -40,6 +36,10 @@
 		A5EADFC81F7EE188007B3BAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFC71F7EE188007B3BAC /* HomeViewController.swift */; };
 		FC75C4901F872A54009C377A /* AllTripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC75C48E1F872A54009C377A /* AllTripsTableViewController.swift */; };
 		FC75C4911F872A54009C377A /* AllTripsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC75C48F1F872A54009C377A /* AllTripsTableViewController.xib */; };
+		FCE01FBA1FAA661600E4A6E4 /* AddTripActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE01FB81FAA661600E4A6E4 /* AddTripActivityViewController.swift */; };
+		FCE01FBB1FAA661600E4A6E4 /* AddTripActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE01FB91FAA661600E4A6E4 /* AddTripActivityViewController.xib */; };
+		FCE01FBE1FAA790400E4A6E4 /* TripOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE01FBC1FAA790400E4A6E4 /* TripOverviewViewController.swift */; };
+		FCE01FBF1FAA790400E4A6E4 /* TripOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE01FBD1FAA790400E4A6E4 /* TripOverviewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,12 +51,8 @@
 		70F6B6331F8710A800F42148 /* EditDayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDayViewController.xib; sourceTree = "<group>"; };
 		70F6B6361F87110800F42148 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		70F6B6371F87110800F42148 /* AddItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
-		70F6B63A1F87125300F42148 /* TripOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripOverViewController.swift; sourceTree = "<group>"; };
-		70F6B63B1F87125300F42148 /* TripOverViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripOverViewViewController.xib; sourceTree = "<group>"; };
 		70F6B63E1F87129400F42148 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		70F6B63F1F87129400F42148 /* AddTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTripViewController.xib; sourceTree = "<group>"; };
-		70F6B6421F8712F900F42148 /* AddTripActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripActivitiesViewController.swift; sourceTree = "<group>"; };
-		70F6B6431F8712F900F42148 /* AddTripActivitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTripActivitiesViewController.xib; sourceTree = "<group>"; };
 		7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Packing Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C61B3A81F6A21A10072B31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C61B3AA1F6A21A10072B31F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +76,10 @@
 		A5EADFC71F7EE188007B3BAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FC75C48E1F872A54009C377A /* AllTripsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTripsTableViewController.swift; sourceTree = "<group>"; };
 		FC75C48F1F872A54009C377A /* AllTripsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllTripsTableViewController.xib; sourceTree = "<group>"; };
+		FCE01FB81FAA661600E4A6E4 /* AddTripActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripActivityViewController.swift; sourceTree = "<group>"; };
+		FCE01FB91FAA661600E4A6E4 /* AddTripActivityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTripActivityViewController.xib; sourceTree = "<group>"; };
+		FCE01FBC1FAA790400E4A6E4 /* TripOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripOverviewViewController.swift; sourceTree = "<group>"; };
+		FCE01FBD1FAA790400E4A6E4 /* TripOverviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripOverviewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,14 +164,14 @@
 				70F6B6331F8710A800F42148 /* EditDayViewController.xib */,
 				70F6B6361F87110800F42148 /* AddItemViewController.swift */,
 				70F6B6371F87110800F42148 /* AddItemViewController.xib */,
-				70F6B63A1F87125300F42148 /* TripOverViewController.swift */,
-				70F6B63B1F87125300F42148 /* TripOverViewViewController.xib */,
 				70F6B63E1F87129400F42148 /* AddTripViewController.swift */,
 				70F6B63F1F87129400F42148 /* AddTripViewController.xib */,
-				70F6B6421F8712F900F42148 /* AddTripActivitiesViewController.swift */,
-				70F6B6431F8712F900F42148 /* AddTripActivitiesViewController.xib */,
 				FC75C48E1F872A54009C377A /* AllTripsTableViewController.swift */,
 				FC75C48F1F872A54009C377A /* AllTripsTableViewController.xib */,
+				FCE01FB81FAA661600E4A6E4 /* AddTripActivityViewController.swift */,
+				FCE01FB91FAA661600E4A6E4 /* AddTripActivityViewController.xib */,
+				FCE01FBC1FAA790400E4A6E4 /* TripOverviewViewController.swift */,
+				FCE01FBD1FAA790400E4A6E4 /* TripOverviewViewController.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -250,11 +250,11 @@
 				7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */,
 				70F6B6351F8710A800F42148 /* EditDayViewController.xib in Resources */,
 				70F6B6411F87129400F42148 /* AddTripViewController.xib in Resources */,
+				FCE01FBB1FAA661600E4A6E4 /* AddTripActivityViewController.xib in Resources */,
+				FCE01FBF1FAA790400E4A6E4 /* TripOverviewViewController.xib in Resources */,
 				FC75C4911F872A54009C377A /* AllTripsTableViewController.xib in Resources */,
 				A5EADFC41F7EDBBE007B3BAC /* HomeViewController.xib in Resources */,
-				70F6B63D1F87125400F42148 /* TripOverViewViewController.xib in Resources */,
 				70F6B6311F87104700F42148 /* PackingListViewController.xib in Resources */,
-				70F6B6451F8712F900F42148 /* AddTripActivitiesViewController.xib in Resources */,
 				8D3C77A11F87379100B558B3 /* packing_items.json in Resources */,
 				70F6B6391F87110800F42148 /* AddItemViewController.xib in Resources */,
 				7C61B3B01F6A21A10072B31F /* Assets.xcassets in Resources */,
@@ -337,16 +337,16 @@
 				7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */,
 				A5EADFB31F7ED90E007B3BAC /* Day.swift in Sources */,
 				A5EADFBF1F7ED96B007B3BAC /* Weather.swift in Sources */,
-				70F6B63C1F87125300F42148 /* TripOverViewController.swift in Sources */,
 				A5EADFC11F7ED989007B3BAC /* PackingListGenerator.swift in Sources */,
 				A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */,
 				70F6B6401F87129400F42148 /* AddTripViewController.swift in Sources */,
 				A5EADFB91F7ED93F007B3BAC /* Item.swift in Sources */,
+				FCE01FBA1FAA661600E4A6E4 /* AddTripActivityViewController.swift in Sources */,
 				A5EADFBD1F7ED960007B3BAC /* Category.swift in Sources */,
+				FCE01FBE1FAA790400E4A6E4 /* TripOverviewViewController.swift in Sources */,
 				70F6B6301F87104700F42148 /* PackingListViewController.swift in Sources */,
 				70F6B6381F87110800F42148 /* AddItemViewController.swift in Sources */,
 				A5EADFB51F7ED91D007B3BAC /* Outfit.swift in Sources */,
-				70F6B6441F8712F900F42148 /* AddTripActivitiesViewController.swift in Sources */,
 				A5EADFBB1F7ED94A007B3BAC /* Activity.swift in Sources */,
 				7C61B3A91F6A21A10072B31F /* AppDelegate.swift in Sources */,
 				FC75C4901F872A54009C377A /* AllTripsTableViewController.swift in Sources */,
