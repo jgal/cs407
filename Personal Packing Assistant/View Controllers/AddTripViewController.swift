@@ -168,7 +168,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         addTripToRealm()
         //let secondViewController = AllTripsTableViewController()
         let secondViewController = AddTripActivityViewController(selectedTrip: curentTrip)
-        //navigationController?.popViewController(animated: true)
+        //navigationController?.popViewController(animated: false)
 
         if fromHome {
             // Change to navigate to the AddTripActivitiesViewController once it is created

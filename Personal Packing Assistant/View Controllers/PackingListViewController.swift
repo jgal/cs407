@@ -27,7 +27,8 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "Packing List"
         // Do any additional setup after loading the view.
         
         self.packingListTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
