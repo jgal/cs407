@@ -10,7 +10,9 @@ import RealmSwift
 import Foundation
 import UIKit
 
-class PackingListViewController: UIViewController {
+class PackingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var packingListTable: UITableView!
     
     init() {
         
@@ -27,6 +29,13 @@ class PackingListViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.packingListTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        title = "Packing List"
+        packingListTable.delegate = self
+        packingListTable.dataSource = self
+        
     }
 
     override func didReceiveMemoryWarning() {
