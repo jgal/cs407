@@ -25,7 +25,8 @@ class PackingListViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "Packing List"
         // Do any additional setup after loading the view.
     }
 

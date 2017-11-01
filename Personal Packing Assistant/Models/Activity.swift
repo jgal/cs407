@@ -12,6 +12,7 @@ import RealmSwift
 class Activity : Object {
     // MARK: Properties
     @objc dynamic var name: String = ""
+    @objc dynamic var icon: String = ""
     
     let items = List<Item>()
     let categories = List<Category>()

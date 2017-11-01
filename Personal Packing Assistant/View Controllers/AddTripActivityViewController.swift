@@ -13,8 +13,7 @@ import RealmSwift
 class AddTripActivityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let currentTrip: Trip
-    
-
+    var activities : Results<Activity>!
     @IBOutlet weak var activityCollection: UICollectionView!
     
     public init(selectedTrip: Trip) {
@@ -46,14 +45,31 @@ class AddTripActivityViewController: UIViewController, UICollectionViewDelegate,
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        readTasksAndUpdateUI()
+        print("viewWillAppear")
+    }
+    
+    func readTasksAndUpdateUI() {
+        self.activities = realm.objects(Activity.self)
+
+        self.activityCollection.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return 3
+        
+       return activities.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell:UICollectionViewCell = self.activityCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = UIColor.black
+        //cell.backgroundColor = UIColor.black
+        //cell.text = self.activities[indexPath.row].name
+        //cell.textLabel?.text = self.activities[indexPath.row].name
+        let title = UILabel()
+        title.text = self.activities[indexPath.row].name
+        cell.contentView.addSubview(title)
         return cell
     }
     

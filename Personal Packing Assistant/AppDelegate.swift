@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         
@@ -30,8 +31,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Comment out when modifying the models 
         //try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 
-        
-        
+        /*let a1 = Activity()
+        a1.icon = "🏊"
+        a1.name = "swimming"
+        let a2 = Activity()
+        a2.icon = "⛺"
+        a2.name = "camping"
+        let a3 = Activity()
+        a3.icon = "🎣"
+        a3.name = "fishing"
+        let a4 = Activity()
+        a4.icon = "💃"
+        a4.name = "dancing"
+        realm.add(a1)
+        realm.add(a2)
+        realm.add(a3)
+        realm.add(a4)
+        */
         return true
     }
     

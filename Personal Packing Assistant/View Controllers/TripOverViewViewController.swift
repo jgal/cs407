@@ -11,7 +11,8 @@ import Foundation
 import RealmSwift
 
 class TripOverviewViewController: UIViewController {
-
+    @IBOutlet weak var add: UIBarButtonItem!
+    
     let trip : Trip
     public init(withExistingTrip: Trip ) {
         trip = withExistingTrip
@@ -26,12 +27,13 @@ class TripOverviewViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        title = "\(trip.name) +  Trip Overview"
+        title = "\(trip.name) Overview"
         
-        let buttonTitle = "🏠"
+        let buttonTitle = "🗒"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(nextButtonTapped(_:)))
         //navigationItem.rightBarButtonItem?.isEnabled = false
+        
     }
     
 
@@ -55,5 +57,36 @@ class TripOverviewViewController: UIViewController {
          navigationController?.pushViewController(secondViewController, animated: true)
     }
     
-
+    @IBAction func AddObject(_ sender: Any) {
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+        
+        // 2
+        let OutfitAction = UIAlertAction(title: "Outfit", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Add Outfit")
+        })
+        let TripItemAction = UIAlertAction(title: "TripItem", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Add TripItem")
+        })
+        
+        //
+        let ActivityAction = UIAlertAction(title: "Activity", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Add Activity")
+        })
+        let ItemAction = UIAlertAction(title: "Item", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Add Item")
+        })
+        let cancelAction = UIAlertAction(title: "Activity", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancel")
+        })
+    }
+    @IBAction func showPackinglist(_ sender: Any) {
+        let secondViewController = PackingListViewController()
+        navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    
 }
