@@ -62,16 +62,17 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         let secondViewController = PackingListViewController(withExistingTrip: self.assignedTrip)
         navigationController?.pushViewController(secondViewController, animated: true)
     }
+    
     func addItemToRealm() {
-        // TODO
+        let i = Item()
+        
+        print(ItemName.text!)
+        i.name = ItemName.text!
+        // i.categories = ItemName.text
+        
+        // TODO add to data structure?
+        
         try! realm.write {
-            let i = Item()
-            
-            print(ItemName.text!)
-            i.name = ItemName.text!
-            // i.categories = ItemName.text
-            
-            // TODO add to data structure?
             realm.add(i)
         }
     }
