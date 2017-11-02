@@ -72,10 +72,17 @@ class AddTripActivityViewController: UIViewController, UICollectionViewDelegate,
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         addActivityToRealm()
+        
+        let alltripsVC = AllTripsTableViewController()
         let secondViewController = TripOverviewViewController(withExistingTrip: currentTrip )
-        //navigationController?.popViewController(animated: true)
-        // Change to navigate to the TripOverviewViewController once it is created
-        navigationController?.pushViewController(secondViewController, animated: true)
+        
+        var vcs = [
+            navigationController?.viewControllers[0],
+            alltripsVC,
+            secondViewController
+        ]
+        
+        navigationController?.setViewControllers(vcs as! [UIViewController], animated: true)
     }
     
     func addActivityToRealm() {
