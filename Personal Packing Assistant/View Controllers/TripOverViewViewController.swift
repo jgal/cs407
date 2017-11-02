@@ -78,11 +78,22 @@ class TripOverviewViewController: UIViewController {
         let ItemAction = UIAlertAction(title: "Item", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Add Item")
+            let secondViewController = AddItemViewController()
+            self.navigationController?.pushViewController(secondViewController, animated: true)
         })
-        let cancelAction = UIAlertAction(title: "Activity", style: .cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Cancel")
         })
+        
+        optionMenu.addAction(ItemAction)
+        optionMenu.addAction(TripItemAction)
+        optionMenu.addAction(ActivityAction)
+        optionMenu.addAction(OutfitAction)
+        optionMenu.addAction(cancelAction)
+        
+        // 5
+        self.present(optionMenu, animated: true, completion: nil)
     }
     @IBAction func showPackinglist(_ sender: Any) {
         let secondViewController = PackingListViewController()
