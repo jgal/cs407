@@ -45,7 +45,6 @@
 		FCE01FBB1FAA661600E4A6E4 /* AddTripActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE01FB91FAA661600E4A6E4 /* AddTripActivityViewController.xib */; };
 		FCE01FBE1FAA790400E4A6E4 /* TripOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE01FBC1FAA790400E4A6E4 /* TripOverviewViewController.swift */; };
 		FCE01FBF1FAA790400E4A6E4 /* TripOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE01FBD1FAA790400E4A6E4 /* TripOverviewViewController.xib */; };
-		FCE01FC71FAAEBF400E4A6E4 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE01FC61FAAEBF400E4A6E4 /* CustomCellViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,7 +90,6 @@
 		FCE01FB91FAA661600E4A6E4 /* AddTripActivityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTripActivityViewController.xib; sourceTree = "<group>"; };
 		FCE01FBC1FAA790400E4A6E4 /* TripOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripOverviewViewController.swift; sourceTree = "<group>"; };
 		FCE01FBD1FAA790400E4A6E4 /* TripOverviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripOverviewViewController.xib; sourceTree = "<group>"; };
-		FCE01FC61FAAEBF400E4A6E4 /* CustomCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +182,6 @@
 				FCE01FB91FAA661600E4A6E4 /* AddTripActivityViewController.xib */,
 				FCE01FBC1FAA790400E4A6E4 /* TripOverviewViewController.swift */,
 				FCE01FBD1FAA790400E4A6E4 /* TripOverviewViewController.xib */,
-				FCE01FC61FAAEBF400E4A6E4 /* CustomCellViewController.swift */,
 				FC5569A71FAAF1FA00FC0537 /* String+Shortcuts.swift */,
 				FC5569A91FAB894000FC0537 /* AddTripItemViewController.swift */,
 				FC5569AA1FAB894000FC0537 /* AddTripItemViewController.xib */,
@@ -352,7 +349,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				70F6B6341F8710A800F42148 /* EditDayViewController.swift in Sources */,
-				FCE01FC71FAAEBF400E4A6E4 /* CustomCellViewController.swift in Sources */,
 				A5EADFB11F7ED8FD007B3BAC /* Trip.swift in Sources */,
 				A5EADFB71F7ED92F007B3BAC /* TripItem.swift in Sources */,
 				7C61B3AB1F6A21A10072B31F /* ViewController.swift in Sources */,

@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Comment out when modifying the models 
         // try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 
+        
         let a1 = Activity()
         a1.icon = "🏊"
         a1.name = "swimming"
@@ -44,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         a4.icon = "💃"
         a4.name = "dancing"
         try! realm.write {
+            
             var sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a1.name)
             if ( sa1 == nil) {
                 realm.add(a1)

@@ -202,6 +202,10 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             t.traveler = travelerNameTextField.text!
             t.startDate = startDate
             t.endDate = endDate
+            let a = Activity()
+            a.icon = "💼"
+            a.name = "travelling"
+            t.activities.append(a)
             var gender = ""
             if genderSelector.selectedSegmentIndex == 0 {
                 gender = "Male"
@@ -228,6 +232,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             
             if existingTrip == nil {
                 realm.add(t)
+                realm.add(a)
                 curentTrip = t
             }
         }

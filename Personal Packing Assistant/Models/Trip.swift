@@ -20,7 +20,12 @@ class Trip : Object {
     
     let days = List<Day>()
     let tripItems = List<TripItem>()
+    let items = List<Item>()
     let activities = List<Activity>()
     let outfits = List<Outfit>()
+    
+    override static func primaryKey() -> String? {
+        return "name"
+    }
 }
 
