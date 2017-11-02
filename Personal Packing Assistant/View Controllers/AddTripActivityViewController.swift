@@ -35,7 +35,7 @@ class AddTripActivityViewController: UIViewController, UICollectionViewDelegate,
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(nextButtonTapped(_:)))
         //navigationItem.rightBarButtonItem?.isEnabled = false
         
-        self.activityCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        self.activityCollection.register(CustomCellViewController.self, forCellWithReuseIdentifier: "cell")
         
         activityCollection.delegate = self
         activityCollection.dataSource = self
@@ -63,20 +63,11 @@ class AddTripActivityViewController: UIViewController, UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell:UICollectionViewCell = self.activityCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        /*let titleLabel = UILabel()
-        titleLabel.text = self.activities[indexPath.row].icon
-        titleLabel.textColor = UIColor.black
-        cell.addSubview(titleLabel)*/
-        cell.backgroundColor = UIColor.blue
-    
+        let cell = self.activityCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCellViewController
+        cell.nameLabel.text = self.activities[indexPath.row].icon
+        print(self.activities[indexPath.row].icon)
         return cell
-        //cell.backgroundColor = UIColor.black
-        //cell.text = self.activities[indexPath.row].name
-        //cell.textLabel?.text = self.activities[indexPath.row].name
-        //cell.backgroundView.
         
-        //return cell
     }
     
     @objc func nextButtonTapped(_ sender: UIButton) {

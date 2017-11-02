@@ -170,10 +170,10 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         let secondViewController = AddTripActivityViewController(selectedTrip: curentTrip)
         //navigationController?.popViewController(animated: false)
 
-        if fromHome {
+       // if fromHome {
             // Change to navigate to the AddTripActivitiesViewController once it is created
             navigationController?.pushViewController(secondViewController, animated: true)
-        }
+       // }
         
     }
     @IBAction func checkValidation(_ sender: SkyFloatingLabelTextField) {
