@@ -78,7 +78,7 @@ class TripOverviewViewController: UIViewController {
         let ItemAction = UIAlertAction(title: "Item", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Add Item")
-            let secondViewController = AddItemViewController()
+            let secondViewController = AddItemViewController(withExistingTrip: self.trip)
             self.navigationController?.pushViewController(secondViewController, animated: true)
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
@@ -96,7 +96,7 @@ class TripOverviewViewController: UIViewController {
         self.present(optionMenu, animated: true, completion: nil)
     }
     @IBAction func showPackinglist(_ sender: Any) {
-        let secondViewController = PackingListViewController()
+        let secondViewController = PackingListViewController(withExistingTrip: self.trip)
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     

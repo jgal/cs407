@@ -9,10 +9,18 @@
 import UIKit
 import Foundation
 import RealmSwift
+import SkyFloatingLabelTextField
 
 class AddItemViewController: UIViewController, UITextFieldDelegate {
-
-    init() {
+    @IBOutlet weak var ItemName: SkyFloatingLabelTextField!
+    @IBOutlet weak var ItemQuantity: SkyFloatingLabelTextField!
+    
+    var assignedTrip: Trip
+    var newItem: Item
+    
+    init(withExistingTrip: Trip!) {
+        assignedTrip = withExistingTrip
+        newItem = Item()
         
         super.init(nibName: String(describing: AddItemViewController.self), bundle: Bundle.main)
         
@@ -41,13 +49,25 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     // MARK:- Button Done
     @objc func doneButtonTapped(_ sender: UIButton) {
-        addItemToRealm()
+        // TODO add item to data structure
+//        addItemToRealm()
         
-        let secondViewController = PackingListViewController()
+        let secondViewController = PackingListViewController(withExistingTrip: self.assignedTrip)
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     func addItemToRealm() {
         // TODO
+        try! realm.write {
+            let i = Item()
+            
+            print(ItemName.text!)
+            i.name = ItemName.text!
+            print(ItemQuantity.text!)
+            // i.categories = ItemName.text
+            
+            // TODO add to data structure?
+            // realm.add(i)
+        }
     }
 
     /*
