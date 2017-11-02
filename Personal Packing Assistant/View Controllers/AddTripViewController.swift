@@ -13,7 +13,7 @@ import SkyFloatingLabelTextField
 
 class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
-    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var titleTextField: SkyFloatingLabelTextField!
     
     @IBOutlet weak var startDateTextField: UITextField!
     
@@ -147,6 +147,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         startDateTextField.resignFirstResponder()
         
         startDate = datePicker.date
+        
+        checkValidation(titleTextField)
     }
     @objc func cancelClick(_ textField : UITextField) {
         startDateTextField.resignFirstResponder()
@@ -159,6 +161,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         endDateTextField.resignFirstResponder()
         
         endDate = datePicker.date
+        
+        checkValidation(titleTextField)
     }
     @objc func cancel1Click(_ textField : UITextField) {
         endDateTextField.resignFirstResponder()
