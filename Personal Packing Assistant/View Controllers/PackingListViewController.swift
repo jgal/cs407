@@ -14,8 +14,8 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
 
 
     @IBOutlet weak var packingListTable: UITableView!
-    var assignedTrip: Trip
-    var items: [Item] = []
+    let assignedTrip: Trip
+    var items: List<Item>!
 
     init(withExistingTrip: Trip!) {
         assignedTrip = withExistingTrip
@@ -41,25 +41,16 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         
         packingListTable.delegate = self
         packingListTable.dataSource = self
-        
-        
-        let item1 = Item()
-        item1.name = "passport"
-        items.append(item1)
-        
-        let item2 = Item()
-        item2.name = "towel"
-        items.append(item2)
-        
-        let item3 = Item()
-        item3.name = "coat"
-        items.append(item3)
-
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        readTasksAndUpdateUI()
+        print("viewWillAppear")
     }
     
     func readTasksAndUpdateUI() {
-        //self.items = realm.objects(Items)
+        //self.items = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.items
+        self.items = self.assignedTrip.items
         
         for element in items {
             print(element.name)
@@ -93,12 +84,16 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
             
             //Deletion will go here
             let itemToBeDeleted = self.items[indexPath.row]
-            self.items.remove(at: indexPath.row)
-            self.readTasksAndUpdateUI()
+            try! realm.write{
+                //self.items.remove(objectAtIndex: indexPath.row)
+                //realm.delete(itemToBeDeleted)
+                self.assignedTrip.items.remove(objectAtIndex: indexPath.row)
+                self.readTasksAndUpdateUI()
+            }
         }
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
             let t = self.items[indexPath.row]
-            let vc = AddItemViewController(withExistingTrip: self.assignedTrip, withItemToEdit: t)
+            let vc = AddItemViewController(withExistingTrip: self.assignedTrip, withItemToEdit: t, index: indexPath.row)
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -106,7 +101,8 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc func AddItemButtonTapped(_ sender: UIBarButtonItem) {
-        let secondViewController = AddItemViewController(withExistingTrip: self.assignedTrip, withItemToEdit: nil)
+        print("BUTTON TAPPED")
+        let secondViewController = AddItemViewController(withExistingTrip: self.assignedTrip, withItemToEdit: nil, index: -1)
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     
