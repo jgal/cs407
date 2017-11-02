@@ -57,20 +57,26 @@ class AddTripActivityViewController: UIViewController, UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        print("num activities: \(activities.count) " )
        return activities.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell:UICollectionViewCell = self.activityCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        /*let titleLabel = UILabel()
+        titleLabel.text = self.activities[indexPath.row].icon
+        titleLabel.textColor = UIColor.black
+        cell.addSubview(titleLabel)*/
+        cell.backgroundColor = UIColor.blue
+    
+        return cell
         //cell.backgroundColor = UIColor.black
         //cell.text = self.activities[indexPath.row].name
         //cell.textLabel?.text = self.activities[indexPath.row].name
-        let title = UILabel()
-        title.text = self.activities[indexPath.row].name
-        cell.contentView.addSubview(title)
-        return cell
+        //cell.backgroundView.
+        
+        //return cell
     }
     
     @objc func nextButtonTapped(_ sender: UIButton) {
