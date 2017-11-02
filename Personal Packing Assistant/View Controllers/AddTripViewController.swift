@@ -33,14 +33,14 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     let fromHome: Bool
 
     let existingTrip: Trip?
-    var curentTrip: Trip
+    var currentTrip: Trip
     public init(fromHome: Bool = false, withExistingTrip: Trip? = nil) {
         self.fromHome = fromHome
         existingTrip = withExistingTrip
         if ( existingTrip != nil) {
-            curentTrip = withExistingTrip!
+            currentTrip = withExistingTrip!
         } else {
-            curentTrip = Trip()
+            currentTrip = Trip()
         }
         super.init(nibName: String(describing: AddTripViewController.self), bundle: Bundle.main)
     }
@@ -167,7 +167,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     @objc func nextButtonTapped(_ sender: UIButton) {
         addTripToRealm()
         //let secondViewController = AllTripsTableViewController()
-        let secondViewController = AddTripActivityViewController(selectedTrip: curentTrip)
+        let secondViewController = AddTripActivityViewController(selectedTrip: currentTrip)
         //navigationController?.popViewController(animated: false)
 
        // if fromHome {
@@ -228,7 +228,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             
             if existingTrip == nil {
                 realm.add(t)
-                curentTrip = t
+                currentTrip = t
             }
         }
     }

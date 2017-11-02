@@ -84,7 +84,7 @@ class TripOverviewViewController: UIViewController {
         let ItemAction = UIAlertAction(title: "Item", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Add Item")
-            let secondViewController = AddItemViewController(withExistingTrip: self.trip)
+            let secondViewController = AddItemViewController(withExistingTrip: self.trip, withItemToEdit: nil)
             self.navigationController?.pushViewController(secondViewController, animated: true)
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
