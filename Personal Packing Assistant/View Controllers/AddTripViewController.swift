@@ -13,7 +13,7 @@ import SkyFloatingLabelTextField
 
 class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
-    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var titleTextField: SkyFloatingLabelTextField!
     
     @IBOutlet weak var startDateTextField: UITextField!
     
@@ -33,14 +33,14 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     let fromHome: Bool
 
     let existingTrip: Trip?
-    var curentTrip: Trip
+    var currentTrip: Trip
     public init(fromHome: Bool = false, withExistingTrip: Trip? = nil) {
         self.fromHome = fromHome
         existingTrip = withExistingTrip
         if ( existingTrip != nil) {
-            curentTrip = withExistingTrip!
+            currentTrip = withExistingTrip!
         } else {
-            curentTrip = Trip()
+            currentTrip = Trip()
         }
         super.init(nibName: String(describing: AddTripViewController.self), bundle: Bundle.main)
     }
@@ -147,6 +147,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         startDateTextField.resignFirstResponder()
         
         startDate = datePicker.date
+        
+        checkValidation(titleTextField)
     }
     @objc func cancelClick(_ textField : UITextField) {
         startDateTextField.resignFirstResponder()
@@ -159,6 +161,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         endDateTextField.resignFirstResponder()
         
         endDate = datePicker.date
+        
+        checkValidation(titleTextField)
     }
     @objc func cancel1Click(_ textField : UITextField) {
         endDateTextField.resignFirstResponder()
@@ -167,7 +171,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     @objc func nextButtonTapped(_ sender: UIButton) {
         addTripToRealm()
         //let secondViewController = AllTripsTableViewController()
-        let secondViewController = AddTripActivityViewController(selectedTrip: curentTrip)
+        let secondViewController = AddTripActivityViewController(selectedTrip: currentTrip)
         //navigationController?.popViewController(animated: false)
 
        // if fromHome {
@@ -224,8 +228,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             repeat {
                 thisDate = cal.date(byAdding: .day,
                                     value: 1,
-                                    to: thisDate,
-                                    wrappingComponents: true)!
+                                    to: thisDate)!
                 
                 t.days.append(Day(thisDate))
             } while(thisDate < endDate!)

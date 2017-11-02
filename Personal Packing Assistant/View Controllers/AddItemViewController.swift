@@ -13,14 +13,17 @@ import SkyFloatingLabelTextField
 
 class AddItemViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ItemName: SkyFloatingLabelTextField!
-    @IBOutlet weak var ItemQuantity: SkyFloatingLabelTextField!
     
     var assignedTrip: Trip
-    var newItem: Item
+    let newItem: Item?
     
-    init(withExistingTrip: Trip!) {
+    init(withExistingTrip: Trip!, withItemToEdit: Item!) {
         assignedTrip = withExistingTrip
-        newItem = Item()
+        if (withItemToEdit != nil) {
+            newItem = withItemToEdit!
+        } else{
+            newItem = Item()
+        }
         
         super.init(nibName: String(describing: AddItemViewController.self), bundle: Bundle.main)
         
@@ -40,6 +43,10 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         let buttonTitle = "Done"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(doneButtonTapped(_:)))
         navigationItem.rightBarButtonItem?.isEnabled = true
+        
+        if let t = newItem {
+            ItemName.text = t.name;
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +57,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     // MARK:- Button Done
     @objc func doneButtonTapped(_ sender: UIButton) {
         // TODO add item to data structure
-//        addItemToRealm()
+        addItemToRealm()
         
         let secondViewController = PackingListViewController(withExistingTrip: self.assignedTrip)
         navigationController?.pushViewController(secondViewController, animated: true)
@@ -62,11 +69,10 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             
             print(ItemName.text!)
             i.name = ItemName.text!
-            print(ItemQuantity.text!)
             // i.categories = ItemName.text
             
             // TODO add to data structure?
-            // realm.add(i)
+            realm.add(i)
         }
     }
 

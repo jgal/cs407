@@ -36,23 +36,23 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view.
         self.packingListTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        
+      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddItemButtonTapped(_:)))
+        
         packingListTable.delegate = self
         packingListTable.dataSource = self
         
         
         let item1 = Item()
         item1.name = "passport"
-        item1.worn = false
         items.append(item1)
         
         let item2 = Item()
         item2.name = "towel"
-        item2.worn = false
         items.append(item2)
         
         let item3 = Item()
         item3.name = "coat"
-        item3.worn = false
         items.append(item3)
 
         
@@ -98,12 +98,18 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
             let t = self.items[indexPath.row]
-            let vc = AddItemViewController(withExistingTrip: self.assignedTrip)
+            let vc = AddItemViewController(withExistingTrip: self.assignedTrip, withItemToEdit: t)
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
         return [deleteAction, editAction]
     }
+    
+    @objc func AddItemButtonTapped(_ sender: UIBarButtonItem) {
+        let secondViewController = AddItemViewController(withExistingTrip: self.assignedTrip, withItemToEdit: nil)
+        navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
