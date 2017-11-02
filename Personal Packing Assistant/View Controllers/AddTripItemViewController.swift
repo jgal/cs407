@@ -10,7 +10,9 @@ import UIKit
 
 class AddTripItemViewController: UIViewController {
 
-    init() {
+    let trip : Trip
+    public init(withExistingTrip: Trip ) {
+        trip = withExistingTrip
         super.init(nibName: String(describing: AddTripItemViewController.self), bundle: Bundle.main)
     }
     
@@ -21,7 +23,12 @@ class AddTripItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Add Trip Item"
+        
+        let buttonTitle = "Next"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(nextButtonTapped(_:)))
+        //navigationItem.rightBarButtonItem?.isEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -30,15 +37,19 @@ class AddTripItemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc func nextButtonTapped(_ sender: UIButton) {
+        addTripItemToRealm()
+        let secondViewController = TripOverviewViewController(withExistingTrip: trip )
+        //navigationController?.popViewController(animated: true)
+        // Change to navigate to the TripOverviewViewController once it is created
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
-    */
+    
+    func addTripItemToRealm() {
+        // add activities to Trip
+        /*try! realm.write {
+         realm.add()
+         }*/
+    }
 
 }

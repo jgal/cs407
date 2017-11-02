@@ -64,13 +64,13 @@ class TripOverviewViewController: UIViewController {
         let OutfitAction = UIAlertAction(title: "Outfit", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Add Outfit")
-            let secondViewController = AddOutfitViewController()
+            let secondViewController = AddOutfitViewController(withExistingTrip: self.trip)
             self.navigationController?.pushViewController(secondViewController, animated: true)
         })
         let TripItemAction = UIAlertAction(title: "TripItem", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Add TripItem")
-            let secondViewController = AddTripItemViewController()
+            let secondViewController = AddTripItemViewController(withExistingTrip: self.trip)
             self.navigationController?.pushViewController(secondViewController, animated: true)
         })
         

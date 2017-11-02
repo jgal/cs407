@@ -10,8 +10,9 @@ import UIKit
 
 class AddOutfitViewController: UIViewController {
 
-    
-    init() {
+    let trip : Trip
+    public init(withExistingTrip: Trip ) {
+        trip = withExistingTrip
         super.init(nibName: String(describing: AddOutfitViewController.self), bundle: Bundle.main)
     }
     
@@ -21,7 +22,12 @@ class AddOutfitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Add Outfit"
+        
+        let buttonTitle = "Next"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(nextButtonTapped(_:)))
+        //navigationItem.rightBarButtonItem?.isEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -31,14 +37,19 @@ class AddOutfitViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc func nextButtonTapped(_ sender: UIButton) {
+        addOutfitToRealm()
+        let secondViewController = TripOverviewViewController(withExistingTrip: trip )
+        //navigationController?.popViewController(animated: true)
+        // Change to navigate to the TripOverviewViewController once it is created
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
-    */
+    
+    func addOutfitToRealm() {
+        // add activities to Trip
+        /*try! realm.write {
+         realm.add()
+         }*/
+    }
 
 }
