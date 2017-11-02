@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import RealmSwift
 
-class AddItemViewController: UIViewController {
+class AddItemViewController: UIViewController, UITextFieldDelegate {
 
     init() {
         
@@ -27,7 +27,11 @@ class AddItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        title = "Add Item"
+        
+        let buttonTitle = "Done"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(doneButtonTapped(_:)))
+        navigationItem.rightBarButtonItem?.isEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +39,16 @@ class AddItemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK:- Button Done
+    @objc func doneButtonTapped(_ sender: UIButton) {
+        addItemToRealm()
+        
+        let secondViewController = PackingListViewController()
+        navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    func addItemToRealm() {
+        // TODO
+    }
 
     /*
     // MARK: - Navigation
