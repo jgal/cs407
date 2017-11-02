@@ -67,14 +67,6 @@ class TripOverviewViewController: UIViewController {
             let secondViewController = AddOutfitViewController(withExistingTrip: self.trip)
             self.navigationController?.pushViewController(secondViewController, animated: true)
         })
-        let TripItemAction = UIAlertAction(title: "TripItem", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            print("Add TripItem")
-            let secondViewController = AddTripItemViewController(withExistingTrip: self.trip)
-            self.navigationController?.pushViewController(secondViewController, animated: true)
-        })
-        
-        //
         let ActivityAction = UIAlertAction(title: "Activity", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Add Activity")
@@ -93,7 +85,6 @@ class TripOverviewViewController: UIViewController {
         })
         
         optionMenu.addAction(ItemAction)
-        optionMenu.addAction(TripItemAction)
         optionMenu.addAction(ActivityAction)
         optionMenu.addAction(OutfitAction)
         optionMenu.addAction(cancelAction)
