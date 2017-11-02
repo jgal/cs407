@@ -14,9 +14,11 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
 
 
     @IBOutlet weak var packingListTable: UITableView!
+    var assignedTrip: Trip
     var items: [Item] = []
 
-    init() {
+    init(withExistingTrip: Trip!) {
+        assignedTrip = withExistingTrip
         
         super.init(nibName: String(describing: PackingListViewController.self), bundle: Bundle.main)
         
@@ -96,7 +98,7 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
             let t = self.items[indexPath.row]
-            let vc = AddItemViewController()
+            let vc = AddItemViewController(withExistingTrip: self.assignedTrip)
             
             self.navigationController?.pushViewController(vc, animated: true)
         }

@@ -9,10 +9,18 @@
 import UIKit
 import Foundation
 import RealmSwift
+import SkyFloatingLabelTextField
 
-class AddItemViewController: UIViewController {
-
-    init() {
+class AddItemViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var ItemName: SkyFloatingLabelTextField!
+    @IBOutlet weak var ItemQuantity: SkyFloatingLabelTextField!
+    
+    var assignedTrip: Trip
+    var newItem: Item
+    
+    init(withExistingTrip: Trip!) {
+        assignedTrip = withExistingTrip
+        newItem = Item()
         
         super.init(nibName: String(describing: AddItemViewController.self), bundle: Bundle.main)
         
@@ -27,7 +35,11 @@ class AddItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        title = "Add Item"
+        
+        let buttonTitle = "Done"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(doneButtonTapped(_:)))
+        navigationItem.rightBarButtonItem?.isEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +47,28 @@ class AddItemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK:- Button Done
+    @objc func doneButtonTapped(_ sender: UIButton) {
+        // TODO add item to data structure
+//        addItemToRealm()
+        
+        let secondViewController = PackingListViewController(withExistingTrip: self.assignedTrip)
+        navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    func addItemToRealm() {
+        // TODO
+        try! realm.write {
+            let i = Item()
+            
+            print(ItemName.text!)
+            i.name = ItemName.text!
+            print(ItemQuantity.text!)
+            // i.categories = ItemName.text
+            
+            // TODO add to data structure?
+            // realm.add(i)
+        }
+    }
 
     /*
     // MARK: - Navigation
