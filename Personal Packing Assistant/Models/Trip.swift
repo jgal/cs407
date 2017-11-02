@@ -23,5 +23,9 @@ class Trip : Object {
     let items = List<Item>()
     let activities = List<Activity>()
     let outfits = List<Outfit>()
+    
+    override static func primaryKey() -> String? {
+        return "name"
+    }
 }
 

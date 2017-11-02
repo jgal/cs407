@@ -235,8 +235,12 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             
             if existingTrip == nil {
                 realm.add(t)
+<<<<<<< HEAD
                 realm.add(a)
+                curentTrip = t
+=======
                 currentTrip = t
+>>>>>>> 24d4b9e53bb813da893df4151a4270c901ab15d7
             }
         }
     }

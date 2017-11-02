@@ -29,9 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         // Comment out when modifying the models 
+<<<<<<< HEAD
         //try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+=======
+<<<<<<< HEAD
+        // try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+>>>>>>> 6629132fb5a430718b2b5064b848a0dfae8e6b1b
+=======
+        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+>>>>>>> 530972f58848879bd65d227354a0b76074934c12
+>>>>>>> 24d4b9e53bb813da893df4151a4270c901ab15d7
 
-        
         let a1 = Activity()
         a1.icon = "🏊"
         a1.name = "swimming"
@@ -45,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         a4.icon = "💃"
         a4.name = "dancing"
         try! realm.write {
-            
             var sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a1.name)
             if ( sa1 == nil) {
                 realm.add(a1)

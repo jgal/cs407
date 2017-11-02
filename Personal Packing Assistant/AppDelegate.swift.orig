@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 <<<<<<< HEAD
         //try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 =======
-        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
->>>>>>> 530972f58848879bd65d227354a0b76074934c12
+        // try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+>>>>>>> 6629132fb5a430718b2b5064b848a0dfae8e6b1b
 
         let a1 = Activity()
         a1.icon = "🏊"

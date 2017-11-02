@@ -29,10 +29,10 @@ class TripOverviewViewController: UIViewController {
         
         title = "\(trip.name) Overview"
         
-        let buttonTitle = "🗒"
+        // let buttonTitle = "🗒"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(nextButtonTapped(_:)))
-        //navigationItem.rightBarButtonItem?.isEnabled = false
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(nextButtonTapped(_:)))
+        //navigationItem.leftBarButtonItem?.isEnabled = false
         
     }
     
