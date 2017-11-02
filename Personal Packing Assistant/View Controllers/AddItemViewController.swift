@@ -57,7 +57,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     // MARK:- Button Done
     @objc func doneButtonTapped(_ sender: UIButton) {
         // TODO add item to data structure
-//        addItemToRealm()
+        addItemToRealm()
         
         let secondViewController = PackingListViewController(withExistingTrip: self.assignedTrip)
         navigationController?.pushViewController(secondViewController, animated: true)
@@ -72,7 +72,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             // i.categories = ItemName.text
             
             // TODO add to data structure?
-            // realm.add(i)
+            realm.add(i)
         }
     }
 
