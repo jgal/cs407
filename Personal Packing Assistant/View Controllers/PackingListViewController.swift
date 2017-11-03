@@ -85,8 +85,6 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
             //Deletion will go here
             let itemToBeDeleted = self.items[indexPath.row]
             try! realm.write{
-                //self.items.remove(objectAtIndex: indexPath.row)
-                //realm.delete(itemToBeDeleted)
                 self.assignedTrip.items.remove(objectAtIndex: indexPath.row)
                 self.readTasksAndUpdateUI()
             }

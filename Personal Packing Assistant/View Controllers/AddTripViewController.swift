@@ -229,7 +229,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             let cal = Calendar.current
             
             var thisDate: Date = startDate!
-            
+            t.days.append(Day(thisDate))
             repeat {
                 thisDate = cal.date(byAdding: .day,
                                     value: 1,

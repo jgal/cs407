@@ -21,10 +21,16 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
     var number: Int
     var outfits: List<Outfit>!
     
-    public init(withExistingTrip: Trip, withOutfitToEdit: Item!, index: Int) {
+    public init(withExistingTrip: Trip, withOutfitToEdit: Outfit!, index: Int) {
         assignedTrip = withExistingTrip
         self.outfits = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.outfits
         self.number = index
+        
+        if(self.number != -1) {
+            currentOutfit = self.outfits[self.number]
+        } else {
+            currentOutfit = Outfit()
+        }
         
         super.init(nibName: String(describing: AddOutfitViewController.self), bundle: Bundle.main)
     }

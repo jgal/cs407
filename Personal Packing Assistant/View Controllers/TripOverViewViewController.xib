@@ -29,7 +29,7 @@
                                 <action selector="AddObject:" destination="-1" id="tcr-TO-Qdj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="List" id="dd4-iL-xpL">
+                        <barButtonItem title="📝" id="dd4-iL-xpL">
                             <connections>
                                 <action selector="showPackinglist:" destination="-1" id="8n9-fL-tED"/>
                             </connections>

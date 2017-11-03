@@ -17,6 +17,10 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var table: UITableView!
     let tripName: String
     var trip : Trip!
+    
+    var outfits: List<Outfit>!
+    var activities: List<Activity>!
+    
     public init(withExistingTrip: Trip ) {
         tripName = withExistingTrip.name
         super.init(nibName: String(describing: TripOverviewViewController.self), bundle: Bundle.main)
@@ -29,7 +33,7 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        readTripsAndUpdateUI()
+        readTasksAndUpdateUI()
         title = "\(trip.name) Overview"
         
         // let buttonTitle = "🗒"
@@ -52,11 +56,18 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //readTripsAndUpdateUI()
+        //readTasksAndUpdateUI()
     }
 
-     func readTripsAndUpdateUI(){
+     func readTasksAndUpdateUI(){
         trip = realm.objects(Trip.self).filter("name = %@", tripName).first
+        self.outfits = self.trip.outfits
+        self.activities = self.trip.activities
+
+       
+        self.table.setEditing(false, animated: true)
+        print("before reload")
+        self.table.reloadData()
     }
     
     
@@ -163,8 +174,61 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
-     @objc func buttonAction(sender: UIButton!) {
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if ( indexPath.section == 1 ) {
+            
+            
+            let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
+                
+                //Deletion will go here
+                let activityToBeDeleted = self.activities[indexPath.row]
+                try! realm.write{
+                    self.trip.activities.remove(objectAtIndex: indexPath.row)
+                    self.readTasksAndUpdateUI()
+                }
+            }
+            let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
+                let t = self.trip
+                let vc = AddTripActivityViewController(selectedTrip: t!)
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            return [deleteAction, editAction]
+        }
+        else if ( indexPath.section == 2 ) {
+            
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
+            
+            //Deletion will go here
+            let outfitToBeDeleted = self.outfits[indexPath.row]
+            try! realm.write{
+                //self.items.remove(objectAtIndex: indexPath.row)
+                //realm.delete(itemToBeDeleted)
+                self.trip.outfits.remove(objectAtIndex: indexPath.row)
+                self.readTasksAndUpdateUI()
+            }
+        }
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
+            let t = self.outfits[indexPath.row]
+            let vc = AddOutfitViewController(withExistingTrip: self.trip, withOutfitToEdit: t, index: indexPath.row)
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        return [deleteAction, editAction]
+        }
+        return []
+    }
+    
+     @objc func buttonAction(sender: UIButton!) {
+        
+        
+    
+ 
+        
     }
 
     @objc func nextButtonTapped(_ sender: UIButton) {
