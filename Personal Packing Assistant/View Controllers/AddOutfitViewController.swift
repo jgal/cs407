@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
-class AddOutfitViewController: UIViewController {
-
-    let trip : Trip
+class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    @IBOutlet weak var OutfitImageView: UIImageView!
+    @IBOutlet weak var TakePhotoButton: UIButton!
+    @IBOutlet weak var OutfitNameTextField: SkyFloatingLabelTextField!
+    
+    let assignedTrip : Trip
+    
     public init(withExistingTrip: Trip ) {
-        trip = withExistingTrip
+        assignedTrip = withExistingTrip
+        
         super.init(nibName: String(describing: AddOutfitViewController.self), bundle: Bundle.main)
     }
     
@@ -22,11 +28,11 @@ class AddOutfitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Add Outfit"
         
-        let buttonTitle = "Next"
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(nextButtonTapped(_:)))
+        let buttonTitle = "Done"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(doneButtonTapped(_:)))
         //navigationItem.rightBarButtonItem?.isEnabled = false
         // Do any additional setup after loading the view.
     }
@@ -37,19 +43,75 @@ class AddOutfitViewController: UIViewController {
     }
     
 
-    @objc func nextButtonTapped(_ sender: UIButton) {
-        addOutfitToRealm()
-        let secondViewController = TripOverviewViewController(withExistingTrip: trip )
-        //navigationController?.popViewController(animated: true)
-        // Change to navigate to the TripOverviewViewController once it is created
+    @objc func doneButtonTapped(_ sender: UIButton) {
+        // save photo to library (if taken on camera) and store file path
+        //var imageData = UIImageJPEGRepresentation(OutfitImageView.image!, 1)
+        //var compressedJPEGImage = UIImage(data: imageData!)
+        //UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
+        
+        // TODO
+        // addOutfitToRealm()
+        
+        let secondViewController = TripOverviewViewController(withExistingTrip: assignedTrip )
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     
+    @IBAction func takePhotoTapped(_ sender: UIButton) {
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+            print("Open Camera")
+    
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                var imagePicker = UIImagePickerController()
+                imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = false
+        
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        let libraryAction = UIAlertAction(title: "Open Library", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+            print("Open Photo Library")
+            
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                var imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.allowsEditing = true
+                
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in
+            print("Cancel")
+        })
+        
+        optionMenu.addAction(cameraAction)
+        optionMenu.addAction(libraryAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        OutfitImageView.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    
     func addOutfitToRealm() {
-        // add activities to Trip
-        /*try! realm.write {
-         realm.add()
-         }*/
+        let o = Outfit()
+        
+        print(OutfitNameTextField.text!)
+        o.name = OutfitNameTextField.text!
+        
+        // TODO add to data structure
+        
+        try! realm.write {
+            realm.add(o)
+        }
     }
 
 }

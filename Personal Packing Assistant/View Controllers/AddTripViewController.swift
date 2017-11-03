@@ -176,14 +176,10 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         addTripToRealm()
-        //let secondViewController = AllTripsTableViewController()
-        let secondViewController = AddTripActivityViewController(selectedTrip: currentTrip)
-        //navigationController?.popViewController(animated: false)
 
-       // if fromHome {
-            // Change to navigate to the AddTripActivitiesViewController once it is created
-            navigationController?.pushViewController(secondViewController, animated: true)
-       // }
+        let secondViewController = AddTripActivityViewController(selectedTrip: currentTrip)
+        navigationController?.pushViewController(secondViewController, animated: true)
+       
         
     }
     @IBAction func checkValidation(_ sender: SkyFloatingLabelTextField) {
@@ -202,6 +198,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         navigationItem.rightBarButtonItem?.isEnabled = enabled
     }
     func addTripToRealm() {
+        var flag = false
         try! realm.write {
             let t = existingTrip != nil ? existingTrip! : Trip()
             
@@ -212,10 +209,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             t.traveler = travelerNameTextField.text!
             t.startDate = startDate
             t.endDate = endDate
-            let a = Activity()
-            a.icon = "💼"
-            a.name = "travelling"
-            t.activities.append(a)
+         
             var gender = ""
             if genderSelector.selectedSegmentIndex == 0 {
                 gender = "Male"
@@ -244,11 +238,18 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
                 t.days.append(Day(thisDate))
             } while(thisDate < endDate!)
             
-            if existingTrip == nil {
+            let sa1 = realm.object(ofType: Trip.self, forPrimaryKey: t.name)
+            if existingTrip == nil && sa1 == nil {
                 realm.add(t)
-                realm.add(a)
                 currentTrip = t
+                flag =  true;
             }
+        }
+        if ( flag == false) {
+            let alert = UIAlertController(title: "Invalid Input", message: "Trip name already exists", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            titleTextField.text = ""
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
