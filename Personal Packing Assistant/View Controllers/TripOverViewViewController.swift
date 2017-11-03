@@ -98,12 +98,21 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
         let cell:UITableViewCell = self.table.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE, MMMM d, yyy"
-        
+        let formatter2 = DateFormatter()
+        formatter2.dateFormat = "d"
         // set the text from the data model
+        let weather = ["⛅️","❄️","🌨","🌩","⛈","☁️","🌦","☀️"]
         if ( indexPath.section == 0) {
+            //cell.imageView?.image = trip.days[indexPath.row].weather.icon.image()
+            let myInt = Int(formatter2.string(from:trip.days[indexPath.row].date))
+            cell.imageView?.image = weather[(myInt)!%8].image()
             cell.textLabel?.text = "Day \(indexPath.row+1): \(formatter.string(from:trip.days[indexPath.row].date))"
+            cell.detailTextLabel?.text = "Activities:"
+            cell.detailTextLabel?.text?.append("\nOutfits:")
+            //cell.
             
         } else if ( indexPath.section == 1) {
+            cell.imageView?.image = trip.activities[indexPath.row].icon.image()
             cell.textLabel?.text = "\(trip.activities[indexPath.row].name)"
         } else if ( indexPath.section == 2) {
             cell.textLabel?.text = "\(trip.outfits[indexPath.row].name)"
