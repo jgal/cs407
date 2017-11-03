@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import RealmSwift
+import Photos
 
 class TripOverviewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var add: UIBarButtonItem!
@@ -35,8 +36,10 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
         
         //navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(nextButtonTapped(_:)))
         //navigationItem.leftBarButtonItem?.isEnabled = false
-        self.table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        self.table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.rowHeight = UITableViewAutomaticDimension
+        table.estimatedRowHeight = 90
         table.delegate = self
         table.dataSource = self
         
@@ -96,6 +99,10 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
         print("tableView 2")
         // create a new cell if needed or reuse an old one
         let cell:UITableViewCell = self.table.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
+        let attributes = [ NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15),
+                           NSAttributedStringKey.foregroundColor: UIColor.darkGray ]
+        let attributesTitle = [ NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17),
+                                NSAttributedStringKey.foregroundColor: UIColor.black ]
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE, MMMM d, yyy"
         let formatter2 = DateFormatter()
@@ -106,22 +113,60 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
             //cell.imageView?.image = trip.days[indexPath.row].weather.icon.image()
             let myInt = Int(formatter2.string(from:trip.days[indexPath.row].date))
             cell.imageView?.image = weather[(myInt)!%8].image()
-            cell.textLabel?.text = "Day \(indexPath.row+1): \(formatter.string(from:trip.days[indexPath.row].date))"
-            cell.detailTextLabel?.text = "Activities:"
-            cell.detailTextLabel?.text?.append("\nOutfits:")
-            //cell.
             
+            let formattedString = NSMutableAttributedString(string: "Day \(indexPath.row+1): \(formatter.string(from:trip.days[indexPath.row].date))\n", attributes: attributesTitle)
+            
+            formattedString.append(NSAttributedString(string: "Activities: \(trip.days[indexPath.row].activities.count) \nOutfits: \(trip.days[indexPath.row].outfits.count) ", attributes: attributes))
+            cell.textLabel?.attributedText = formattedString
+            cell.textLabel?.numberOfLines = 3
+            //cell.
+            let btn: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+            btn.backgroundColor = UIColor.clear
+            btn.setTitle("🆕", for: .normal)
+            btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            //cell.accessoryView?.addSubview( btn)
+            cell.accessoryView = btn
         } else if ( indexPath.section == 1) {
             cell.imageView?.image = trip.activities[indexPath.row].icon.image()
-            cell.textLabel?.text = "\(trip.activities[indexPath.row].name)"
+            let formattedString = NSMutableAttributedString(string: "\(trip.activities[indexPath.row].name)", attributes: attributesTitle)
+            cell.textLabel?.attributedText = formattedString
         } else if ( indexPath.section == 2) {
-            cell.textLabel?.text = "\(trip.outfits[indexPath.row].name)"
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            fetchOptions.fetchLimit = 1
+            
+            var lastImageAsset: PHAsset? = nil
+            //lastImageAsset.
+            let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            if (fetchResult.firstObject != nil)
+            {
+                lastImageAsset = fetchResult.firstObject as! PHAsset
+                
+            }
+            let manager = PHImageManager.default()
+            let option = PHImageRequestOptions()
+            var thumbnail = UIImage()
+            option.isSynchronous = true
+            if ( lastImageAsset != nil) {
+            manager.requestImage(for: lastImageAsset!, targetSize: CGSize(width: 40, height: 40), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+                thumbnail = result!
+            })
         }
-        cell.accessoryType = .disclosureIndicator
+            cell.imageView?.image = thumbnail
+            cell.textLabel?.text = "\(trip.outfits[indexPath.row].name)"
+            
+        }
+        
+        cell.accessoryType = .none
         return cell
     }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+     @objc func buttonAction(sender: UIButton!) {
     
-    
+    }
+
     @objc func nextButtonTapped(_ sender: UIButton) {
          let secondViewController = AllTripsTableViewController()
          navigationController?.pushViewController(secondViewController, animated: true)
