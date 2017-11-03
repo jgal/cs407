@@ -45,11 +45,9 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         readTasksAndUpdateUI()
-        print("viewWillAppear")
     }
     
     func readTasksAndUpdateUI() {
-        //self.items = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.items
         self.items = self.assignedTrip.items
         
         for element in items {
@@ -74,16 +72,10 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You selected cell #\(indexPath.row)!")
-    }
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
             
-            //Deletion will go here
-            let itemToBeDeleted = self.items[indexPath.row]
+            //Deletion from list in realm
             try! realm.write{
                 self.assignedTrip.items.remove(objectAtIndex: indexPath.row)
                 self.readTasksAndUpdateUI()
@@ -99,7 +91,6 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc func AddItemButtonTapped(_ sender: UIBarButtonItem) {
-        print("BUTTON TAPPED")
         let secondViewController = AddItemViewController(withExistingTrip: self.assignedTrip, withItemToEdit: nil, index: -1)
         navigationController?.pushViewController(secondViewController, animated: true)
     }
