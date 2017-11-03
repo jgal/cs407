@@ -198,13 +198,19 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         navigationItem.rightBarButtonItem?.isEnabled = enabled
     }
     func addTripToRealm() {
-        var flag = false
+        if realm.objects(Trip.self).filter("name = %@", titleTextField.text!).count > 0 {
+            let alert = UIAlertController(title: "Invalid Input", message: "Trip name already exists", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            titleTextField.text = ""
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         try! realm.write {
             let t = existingTrip != nil ? existingTrip! : Trip()
             
-            print(titleTextField.text!)
             t.name = titleTextField.text!
-            print(destinationTextField.text!)
             t.destination = destinationTextField.text!
             t.traveler = travelerNameTextField.text!
             t.startDate = startDate
@@ -238,18 +244,10 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
                 t.days.append(Day(thisDate))
             } while(thisDate < endDate!)
             
-            let sa1 = realm.object(ofType: Trip.self, forPrimaryKey: t.name)
-            if existingTrip == nil && sa1 == nil {
+            if existingTrip == nil {
                 realm.add(t)
                 currentTrip = t
-                flag =  true;
             }
-        }
-        if ( flag == false) {
-            let alert = UIAlertController(title: "Invalid Input", message: "Trip name already exists", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            titleTextField.text = ""
-            self.present(alert, animated: true, completion: nil)
         }
     }
     

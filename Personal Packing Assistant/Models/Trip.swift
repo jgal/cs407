@@ -11,6 +11,8 @@ import RealmSwift
 
 class Trip : Object {
     // MARK: Properties
+    @objc dynamic var id = UUID().uuidString
+    
     @objc dynamic var name: String = ""
     @objc dynamic var destination: String = ""
     @objc dynamic var traveler: String = ""
@@ -25,7 +27,7 @@ class Trip : Object {
     let outfits = List<Outfit>()
     
     override static func primaryKey() -> String? {
-        return "name"
+        return "id"
     }
 }
 

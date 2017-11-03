@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         // Comment out when modifying the models 
-        // try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 
         
         let a1 = Activity()
