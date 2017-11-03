@@ -127,14 +127,6 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
             let secondViewController = AddOutfitViewController(withExistingTrip: self.trip)
             self.navigationController?.pushViewController(secondViewController, animated: true)
         })
-        let TripItemAction = UIAlertAction(title: "TripItem", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            print("Add TripItem")
-            let secondViewController = AddTripItemViewController(withExistingTrip: self.trip)
-            self.navigationController?.pushViewController(secondViewController, animated: true)
-        })
-        
-        //
         let ActivityAction = UIAlertAction(title: "Activity", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Add Activity")
@@ -144,7 +136,7 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
         let ItemAction = UIAlertAction(title: "Item", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Add Item")
-            let secondViewController = AddItemViewController(withExistingTrip: self.trip, withItemToEdit: nil)
+            let secondViewController = AddItemViewController(withExistingTrip: self.trip, withItemToEdit: nil, index: -1)
             self.navigationController?.pushViewController(secondViewController, animated: true)
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
@@ -153,7 +145,6 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
         })
         
         optionMenu.addAction(ItemAction)
-        optionMenu.addAction(TripItemAction)
         optionMenu.addAction(ActivityAction)
         optionMenu.addAction(OutfitAction)
         optionMenu.addAction(cancelAction)
