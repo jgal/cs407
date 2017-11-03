@@ -76,9 +76,20 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     @objc func doneButtonTapped(_ sender: UIButton) {
         // TODO add item to data structure
         addItemToRealm()
+        let alltripsVC = AllTripsTableViewController()
+        let tripoverview = TripOverviewViewController(withExistingTrip: assignedTrip )
+         let secondViewController = PackingListViewController(withExistingTrip: self.assignedTrip)
         
-        let secondViewController = PackingListViewController(withExistingTrip: self.assignedTrip)
-        navigationController?.pushViewController(secondViewController, animated: true)
+        var vcs = [
+            navigationController?.viewControllers[0],
+            alltripsVC,
+            tripoverview,
+            secondViewController
+        ]
+        
+        navigationController?.setViewControllers(vcs as! [UIViewController], animated: true)
+       
+        //navigationController?.pushViewController(secondViewController, animated: true)
     }
     func addItemToRealm() {
         // TODO

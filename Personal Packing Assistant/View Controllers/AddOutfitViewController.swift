@@ -51,9 +51,17 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         
         // TODO
         // addOutfitToRealm()
+         let secondViewController = TripOverviewViewController(withExistingTrip: assignedTrip )
+        let alltripsVC = AllTripsTableViewController()
+        var vcs = [
+            navigationController?.viewControllers[0],
+            alltripsVC,
+            secondViewController
+        ]
         
-        let secondViewController = TripOverviewViewController(withExistingTrip: assignedTrip )
-        navigationController?.pushViewController(secondViewController, animated: true)
+        navigationController?.setViewControllers(vcs as! [UIViewController], animated: true)
+       
+        //avigationController?.pushViewController(secondViewController, animated: true)
     }
     
     @IBAction func takePhotoTapped(_ sender: UIButton) {
