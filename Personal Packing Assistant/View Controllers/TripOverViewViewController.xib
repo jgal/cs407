@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripOverviewViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
             <connections>
                 <outlet property="add" destination="cwu-rZ-Hae" id="dVz-7p-ARg"/>
+                <outlet property="table" destination="zRT-YH-jGF" id="C1i-8x-2yW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,9 +37,15 @@
                         </barButtonItem>
                     </items>
                 </toolbar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zRT-YH-jGF">
+                    <rect key="frame" x="0.0" y="56" width="375" height="567"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="86.5" y="160.5"/>
         </view>
     </objects>
 </document>
