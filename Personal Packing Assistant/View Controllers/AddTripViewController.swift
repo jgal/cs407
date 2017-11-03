@@ -34,6 +34,12 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
 
     let existingTrip: Trip?
     var currentTrip: Trip
+    
+    var maleList = ["shaving kit", "cologne"]
+    var femaleList = ["hair ties", "feminine hygiene products", "perfume"]
+    var neutralList = ["passport", "itinerary", "wallet", "toothbrush", "toothpaste", "toiletries", "deodorant", "cell phone", "charger", "camera", "undergarments", "umbrella/rain jacket", "brush", "prescription medication", "hand sanitizer", "headphones"]
+    
+    
     public init(fromHome: Bool = false, withExistingTrip: Trip? = nil) {
         self.fromHome = fromHome
         existingTrip = withExistingTrip
@@ -207,10 +213,15 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             var gender = ""
             if genderSelector.selectedSegmentIndex == 0 {
                 gender = "Male"
+                addToItemList(trip: t, list: self.maleList)
+                addToItemList(trip: t, list: self.neutralList)
             } else if genderSelector.selectedSegmentIndex == 1 {
                 gender = "Female"
+                addToItemList(trip: t, list: self.femaleList)
+                addToItemList(trip: t, list: self.neutralList)
             } else {
                 gender = "Other"
+                addToItemList(trip: t, list: self.neutralList)
             }
             t.gender = gender
             
@@ -239,6 +250,14 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             titleTextField.text = ""
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func addToItemList(trip: Trip, list: [String]) {
+        for itemName in list {
+            let i = Item()
+            i.name = itemName
+            trip.items.append(i)
         }
     }
 }

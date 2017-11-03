@@ -102,6 +102,7 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
         // set the text from the data model
         if ( indexPath.section == 0) {
             cell.textLabel?.text = "Day \(indexPath.row+1): \(formatter.string(from:trip.days[indexPath.row].date))"
+            
         } else if ( indexPath.section == 1) {
             cell.textLabel?.text = "\(trip.activities[indexPath.row].name)"
         } else if ( indexPath.section == 2) {
