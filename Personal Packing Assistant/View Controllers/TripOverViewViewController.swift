@@ -124,7 +124,7 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
         let OutfitAction = UIAlertAction(title: "Outfit", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Add Outfit")
-            let secondViewController = AddOutfitViewController(withExistingTrip: self.trip)
+            let secondViewController = AddOutfitViewController(withExistingTrip: self.trip, withOutfitToEdit: nil, index: -1)
             self.navigationController?.pushViewController(secondViewController, animated: true)
         })
         let ActivityAction = UIAlertAction(title: "Activity", style: .default, handler: {

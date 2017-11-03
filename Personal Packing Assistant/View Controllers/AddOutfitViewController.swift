@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import RealmSwift
 import SkyFloatingLabelTextField
 
 class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -15,9 +17,14 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
     @IBOutlet weak var OutfitNameTextField: SkyFloatingLabelTextField!
     
     let assignedTrip : Trip
+    var currentOutfit: Outfit?
+    var number: Int
+    var outfits: List<Outfit>!
     
-    public init(withExistingTrip: Trip ) {
+    public init(withExistingTrip: Trip, withOutfitToEdit: Item!, index: Int) {
         assignedTrip = withExistingTrip
+        self.outfits = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.outfits
+        self.number = index
         
         super.init(nibName: String(describing: AddOutfitViewController.self), bundle: Bundle.main)
     }
@@ -34,7 +41,10 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         let buttonTitle = "Done"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(doneButtonTapped(_:)))
         //navigationItem.rightBarButtonItem?.isEnabled = false
-        // Do any additional setup after loading the view.
+        
+        if (self.number != -1) {
+            OutfitNameTextField.text = currentOutfit?.name
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,9 +60,9 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         //UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
         
         // TODO
-        // addOutfitToRealm()
+         addOutfitToRealm()
         
-        let secondViewController = TripOverviewViewController(withExistingTrip: assignedTrip )
+        let secondViewController = TripOverviewViewController(withExistingTrip: assignedTrip)
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     
@@ -110,8 +120,12 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         // TODO add to data structure
         
         try! realm.write {
-            realm.add(o)
+            if (number != -1) {
+                self.assignedTrip.outfits[number] = o
+            } else {
+                self.assignedTrip.outfits.append(o)
+                currentOutfit = o
+            }
         }
     }
-
 }
