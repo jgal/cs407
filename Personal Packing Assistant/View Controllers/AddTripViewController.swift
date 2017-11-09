@@ -10,8 +10,14 @@ import UIKit
 import Foundation
 import RealmSwift
 import SkyFloatingLabelTextField
+import LUAutocompleteView
+import MapKit
 
 class AddTripViewController: UIViewController, UITextFieldDelegate  {
+    let autocompleteView = LUAutocompleteView()
+    var searchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
+
     
     @IBOutlet weak var titleTextField: SkyFloatingLabelTextField!
     
@@ -90,6 +96,13 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
                 genderSelector.selectedSegmentIndex = 2
             }
         }
+        
+        view.addSubview(autocompleteView)
+        
+        autocompleteView.textField = destinationTextField
+        autocompleteView.dataSource = self
+        autocompleteView.delegate = self
+        searchCompleter.delegate = self
     }
    
     override func didReceiveMemoryWarning() {
@@ -215,6 +228,18 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             t.traveler = travelerNameTextField.text!
             t.startDate = startDate
             t.endDate = endDate
+            
+            if let s = selectedCoordinates {
+                let l = Location()
+                l.latitude = s.latitude
+                l.longitude = s.longitude
+                
+                t.coordinates = l
+            }
+            else
+            {
+                t.coordinates = nil
+            }
          
             var gender = ""
             if genderSelector.selectedSegmentIndex == 0 {
@@ -257,5 +282,74 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             i.name = itemName
             trip.items.append(i)
         }
+    }
+    
+    var autocompleteCompletion: (([String]) -> Void)!
+    
+    var selectedSearchResult: MKLocalSearchCompletion? = nil
+    var selectedCoordinates: CLLocationCoordinate2D? = nil
+}
+
+// MARK: - LUAutocompleteViewDataSource
+
+extension AddTripViewController: LUAutocompleteViewDataSource {
+    func autocompleteView(_ autocompleteView: LUAutocompleteView, elementsFor text: String, completion: @escaping ([String]) -> Void) {
+        autocompleteCompletion = completion
+
+        searchCompleter.queryFragment = text
+    }
+}
+
+// MARK: - LUAutocompleteViewDelegate
+
+extension AddTripViewController: LUAutocompleteViewDelegate {
+    func autocompleteView(_ autocompleteView: LUAutocompleteView, didSelect text: String) {
+        autocompleteView.textField?.text = text
+        
+        let parts = text.components(separatedBy: "\n")
+        
+        selectedSearchResult = nil
+        
+        if let first = searchResults.filter({ $0.title == parts[0] && $0.subtitle == parts[1] }).first {
+            selectedSearchResult = first
+            
+            let searchRequest = MKLocalSearchRequest(completion: first)
+            let search = MKLocalSearch(request: searchRequest)
+            search.start { (response, error) in
+                self.selectedCoordinates = response?.mapItems[0].placemark.coordinate
+            }
+        }
+    }
+}
+
+extension AddTripViewController: MKLocalSearchCompleterDelegate {
+    
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        searchResults = completer.results
+        
+        autocompleteCompletion(searchResults.map { $0.title + "\n" + $0.subtitle })
+    }
+    
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        // handle error
+    }
+}
+
+final class LocationAutocompleteTableViewCell: LUAutocompleteTableViewCell {
+    // MARK: - Base Class Overrides
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
+    override func set(text: String) {
+        let parts = text.components(separatedBy: "\n")
+        
+        textLabel?.text = parts[0]
+        detailTextLabel?.text = parts[1]
     }
 }
