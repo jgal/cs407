@@ -83,13 +83,22 @@ class AllTripsTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
-    
+            print("trying to delete trip")
             //Deletion will go here
-            let tripToBeDeleted = self.lists[indexPath.row]
-            try! realm.write{
-                realm.delete(tripToBeDeleted)
-                self.readTasksAndUpdateUI()
-            }
+            let alert = UIAlertController(title: "Are you sure you want to delete this trip?", message: "You won't be able to get it back.", preferredStyle: .alert)
+            // Cancel
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(alert: UIAlertAction!) -> Void in }))
+            // Delete
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {
+                (alert: UIAlertAction!) -> Void in
+                let tripToBeDeleted = self.lists[indexPath.row]
+                try! realm.write{
+                    realm.delete(tripToBeDeleted)
+                    self.readTasksAndUpdateUI()
+                }
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
         }
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
             let t = self.lists[indexPath.row]
