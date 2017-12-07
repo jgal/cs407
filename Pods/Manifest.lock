@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
+  - CheckboxButton (3.1.1)
   - DarkSkyKit (0.0.6):
     - Alamofire (~> 4.0)
   - LUAutocompleteView (2.0.0)
@@ -11,6 +12,7 @@ PODS:
   - SkyFloatingLabelTextField (3.2.1)
 
 DEPENDENCIES:
+  - CheckboxButton
   - DarkSkyKit
   - LUAutocompleteView
   - RealmSwift
@@ -18,12 +20,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  CheckboxButton: 6567e93ed41c3d93f5a94e0cef0f0a165cfe351b
   DarkSkyKit: ae500687161b11e1f352cdf261ff620fe3837cf5
   LUAutocompleteView: 38bdad1c826a45f7980ce285ba7d566adf0edf1d
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
   SkyFloatingLabelTextField: 71d28906024e7d7e4460099b342f3ca7036a2e24
 
-PODFILE CHECKSUM: 9c14b517e8ada989e4c5879d108684db69704633
+PODFILE CHECKSUM: 1b475b12ccb833472f11864dce25731d9f8582ed
 
 COCOAPODS: 1.4.0.beta.2

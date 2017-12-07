@@ -9,13 +9,14 @@
 import RealmSwift
 import Foundation
 import UIKit
+import CheckboxButton
 
 class PackingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
     @IBOutlet weak var packingListTable: UITableView!
     let assignedTrip: Trip
-    var items: List<Item>!
+    var items: [Item]!
 
     init(withExistingTrip: Trip!) {
         assignedTrip = withExistingTrip
@@ -36,8 +37,7 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view.
         self.packingListTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        
-      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddItemButtonTapped(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddItemButtonTapped(_:)))
         
         packingListTable.delegate = self
         packingListTable.dataSource = self
@@ -48,7 +48,10 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func readTasksAndUpdateUI() {
-        self.items = self.assignedTrip.items
+        self.items = self.assignedTrip.items.sorted(by: { (a, b) -> Bool in
+            // sort alphabetically
+            return a.name < b.name
+        })
         
         for element in items {
             print(element.name)
@@ -68,7 +71,12 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         
         // set the text from the data model
         cell.textLabel?.text = self.items[indexPath.row].name
-        cell.accessoryType = .disclosureIndicator
+        
+        let c = CheckboxButton()
+        c.sizeToFit()
+        
+        cell.accessoryView = c
+        
         return cell
     }
     

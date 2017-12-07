@@ -2,7 +2,7 @@
     "necessities": {
         "female": ["hair tools", "feminine hygiene products", "makeup", "makeup remover", "purse", "jewelry"],
         "male": [],
-        "general": ["passport", "itinerary", "wallet", "keys", "toothbrush", "toothpaste", "floss", "sleepwear", "deodorant", "cell phone", "charger", "camera", "undergarments", "brush", "medication", "hand sanitizer", "headphones", "first aid supplies", "hand sanitizer", "belts", "comfortable walking shoes", "moisturizer", "shampoo", "conditioner", "soap", "t-shirt", "jeans/pants"]
+        "general": ["passport", "itinerary", "wallet", "keys", "toothbrush", "toothpaste", "floss", "sleepwear", "deodorant", "cell phone", "charger", "camera", "undergarments", "brush", "medication", "hand sanitizer", "headphones", "first aid supplies", "hand sanitizer", "belts", "comfortable walking shoes", "moisturizer", "shampoo", "conditioner", "soap", "t-shirt", "jeans/pants", "water bottle"]
     },
     
     "activity": {
@@ -29,7 +29,7 @@
         "warm": {
             "female": ["sundress", "sandals", "tank top"],
             "male": [],
-            "general": ["sunscreen", "water bottle", "sunglasses", "shorts", "flip flops"]
+            "general": ["sunscreen", "sunglasses", "shorts", "flip flops"]
         },
         "cold": {
             "female": ["tights"],

@@ -58,7 +58,14 @@ class PackingListGenerator {
         
         // Turn the list of items (self.items) into a list of TripItems
         // add code for that
-        var packingList : [TripItem] = []
+        let packingList : [TripItem] = self.items.map { (name) -> TripItem in
+            let i = TripItem()
+            i.name = name
+            i.packed = false
+            i.quantity = 0
+            
+            return i
+        }
         
         // Change quantities of TripItems for daily things like socks, shirts, etc
         changeItemQuantities()

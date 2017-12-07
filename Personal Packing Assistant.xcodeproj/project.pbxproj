@@ -323,6 +323,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CheckboxButton/CheckboxButton.framework",
 				"${BUILT_PRODUCTS_DIR}/DarkSkyKit/DarkSkyKit.framework",
 				"${BUILT_PRODUCTS_DIR}/LUAutocompleteView/LUAutocompleteView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -332,6 +333,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CheckboxButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DarkSkyKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LUAutocompleteView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
