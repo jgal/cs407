@@ -17,6 +17,8 @@ let realm = try! Realm()
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    
 
     
     
@@ -28,42 +30,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         
         window?.makeKeyAndVisible()
-        // Comment out when modifying the models 
-        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-
         
-        let a1 = Activity()
-        a1.icon = "🏊"
-        a1.name = "swimming"
-        let a2 = Activity()
-        a2.icon = "⛺"
-        a2.name = "camping"
-        let a3 = Activity()
-        a3.icon = "🎣"
-        a3.name = "fishing"
-        let a4 = Activity()
-        a4.icon = "💃"
-        a4.name = "dancing"
-        try! realm.write {
-            
-            var sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a1.name)
-            if ( sa1 == nil) {
-                realm.add(a1)
-            }
-            sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a2.name)
-            if ( sa1 == nil) {
-                realm.add(a2)
-            }
-            sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a3.name)
-            if ( sa1 == nil) {
-                realm.add(a3)
-            }
-            sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a4.name)
-            if ( sa1 == nil) {
-                realm.add(a4)
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        // Comment out when modifying the models 
+//        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+
+        changeColors()
+        
+        if realm.objects(Activity.self).count == 0 {
+            for a in PackingListGenerator.getActivities() {
+                try! realm.write {
+                    realm.add(a)
+                }
             }
         }
+
         return true
+    }
+    
+    // changes colors of the menu nav bar
+    func changeColors() {
+        // Override point for customization after application launch.
+        //UINavigationBar.appearance().barTintColor = UIColor(red: 0, green: 0/255, blue: 205/255, alpha: 1)
+        //UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        UIBarButtonItem.appearance().tintColor = UIColor(red: 60/255, green: 155/255, blue: 175/255, alpha: 1.0)
+        
     }
     
     

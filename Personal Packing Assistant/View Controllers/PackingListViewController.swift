@@ -9,13 +9,14 @@
 import RealmSwift
 import Foundation
 import UIKit
+import CheckboxButton
 
 class PackingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
     @IBOutlet weak var packingListTable: UITableView!
     let assignedTrip: Trip
-    var items: List<Item>!
+    var items: [TripItem]!
 
     init(withExistingTrip: Trip!) {
         assignedTrip = withExistingTrip
@@ -36,8 +37,7 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view.
         self.packingListTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        
-      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddItemButtonTapped(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddItemButtonTapped(_:)))
         
         packingListTable.delegate = self
         packingListTable.dataSource = self
@@ -48,7 +48,10 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func readTasksAndUpdateUI() {
-        self.items = self.assignedTrip.items
+        self.items = self.assignedTrip.tripItems.sorted(by: { (a, b) -> Bool in
+            // sort alphabetically
+            return a.name < b.name
+        })
         
         for element in items {
             print(element.name)
@@ -67,9 +70,30 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         let cell:UITableViewCell = self.packingListTable.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
         
         // set the text from the data model
-        cell.textLabel?.text = self.items[indexPath.row].name
-        cell.accessoryType = .disclosureIndicator
+        let item = self.items[indexPath.row]
+        
+        cell.textLabel?.text = item.name
+        
+        let c = CheckboxButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
+        c.tag = indexPath.row
+        
+        c.removeTarget(nil, action: nil, for: .allEvents)
+        c.addTarget(self, action: #selector(toggleCheckbox), for: .valueChanged)
+        
+        c.on = item.packed
+        
+        cell.selectionStyle = .none
+        cell.accessoryView = c
+        
         return cell
+    }
+    
+    @objc func toggleCheckbox(sender: CheckboxButton) {
+        try! realm.write {
+            let item = self.items[sender.tag]
+            
+            item.packed = true
+        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

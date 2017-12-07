@@ -8,6 +8,19 @@
 
 import Foundation
 import RealmSwift
+import MapKit
+
+class Location: Object {
+    @objc dynamic var latitude = 0.0
+    @objc dynamic var longitude = 0.0
+    
+    /// Computed properties are ignored in Realm
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(
+            latitude: latitude,
+            longitude: longitude)
+    }
+}
 
 class Trip : Object {
     // MARK: Properties
@@ -19,6 +32,8 @@ class Trip : Object {
     @objc dynamic var gender: String = ""
     @objc dynamic var startDate: Date? = nil
     @objc dynamic var endDate: Date? = nil
+    
+    @objc dynamic var coordinates: Location? = nil
     
     let days = List<Day>()
     let tripItems = List<TripItem>()

@@ -10,18 +10,27 @@ import UIKit
 import Foundation
 import RealmSwift
 import SkyFloatingLabelTextField
+import LUAutocompleteView
+import MapKit
 
 class AddTripViewController: UIViewController, UITextFieldDelegate  {
+    let autocompleteView = LUAutocompleteView()
+    var searchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
+    
+    let blueColor = UIColor(red: 60/255, green: 155/255, blue: 175/255, alpha: 1.0)
+    let greyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
+
     
     @IBOutlet weak var titleTextField: SkyFloatingLabelTextField!
     
-    @IBOutlet weak var startDateTextField: UITextField!
+    @IBOutlet weak var startDateTextField: SkyFloatingLabelTextField!
     
-    @IBOutlet weak var endDateTextField: UITextField!
+    @IBOutlet weak var endDateTextField: SkyFloatingLabelTextField!
     
-    @IBOutlet weak var destinationTextField: UITextField!
+    @IBOutlet weak var destinationTextField: SkyFloatingLabelTextField!
     
-    @IBOutlet weak var travelerNameTextField: UITextField!
+    @IBOutlet weak var travelerNameTextField: SkyFloatingLabelTextField!
     
     @IBOutlet weak var genderSelector: UISegmentedControl!
     
@@ -34,11 +43,6 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
 
     let existingTrip: Trip?
     var currentTrip: Trip
-    
-    var maleList = ["shaving kit", "cologne"]
-    var femaleList = ["hair ties", "feminine hygiene products", "perfume"]
-    var neutralList = ["passport", "itinerary", "wallet", "toothbrush", "toothpaste", "toiletries", "deodorant", "cell phone", "charger", "camera", "undergarments", "umbrella/rain jacket", "brush", "prescription medication", "hand sanitizer", "headphones"]
-    
     
     public init(fromHome: Bool = false, withExistingTrip: Trip? = nil) {
         self.fromHome = fromHome
@@ -54,8 +58,43 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        // change label colors
+        
+        // title
+        titleTextField.tintColor = blueColor
+        titleTextField.lineColor = greyColor
+        titleTextField.selectedTitleColor = blueColor
+        titleTextField.selectedLineColor = blueColor
+        
+        // start date
+        startDateTextField.tintColor = blueColor
+        startDateTextField.lineColor = greyColor
+        startDateTextField.selectedTitleColor = blueColor
+        startDateTextField.selectedLineColor = blueColor
+        
+        // end date
+        endDateTextField.tintColor = blueColor
+        endDateTextField.lineColor = greyColor
+        endDateTextField.selectedTitleColor = blueColor
+        endDateTextField.selectedLineColor = blueColor
+        
+        // destination
+        destinationTextField.tintColor = blueColor
+        destinationTextField.lineColor = greyColor
+        destinationTextField.selectedTitleColor = blueColor
+        destinationTextField.selectedLineColor = blueColor
+        
+        // traveler
+        travelerNameTextField.tintColor = blueColor
+        travelerNameTextField.lineColor = greyColor
+        travelerNameTextField.selectedTitleColor = blueColor
+        travelerNameTextField.selectedLineColor = blueColor
+        
+        
         // Do any additional setup after loading the view.
         
         title = "Add Trip"
@@ -90,6 +129,13 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
                 genderSelector.selectedSegmentIndex = 2
             }
         }
+        
+        view.addSubview(autocompleteView)
+        
+        autocompleteView.textField = destinationTextField
+        autocompleteView.dataSource = self
+        autocompleteView.delegate = self
+        searchCompleter.delegate = self
     }
    
     override func didReceiveMemoryWarning() {
@@ -100,6 +146,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     @IBAction func textFieldIsBeingEdited(_ sender: Any) {
         self.pickUpDate(self.startDateTextField)
     }
+    
     @IBAction func EndDateEditing(_ sender: Any) {
         self.pickUpDate(self.endDateTextField)
     }
@@ -119,6 +166,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
         toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        
         toolBar.sizeToFit()
         
         // Adding Button ToolBar
@@ -156,9 +204,11 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         
         checkValidation(titleTextField)
     }
+    
     @objc func cancelClick(_ textField : UITextField) {
         startDateTextField.resignFirstResponder()
     }
+    
     @objc func done1Click(_ textField : UITextField) {
         let dateFormatter1 = DateFormatter()
         dateFormatter1.dateStyle = .medium
@@ -170,6 +220,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         
         checkValidation(titleTextField)
     }
+    
     @objc func cancel1Click(_ textField : UITextField) {
         endDateTextField.resignFirstResponder()
     }
@@ -182,6 +233,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
        
         
     }
+    
     @IBAction func checkValidation(_ sender: SkyFloatingLabelTextField) {
         var enabled = true
         if titleTextField.text?.count == 0 {
@@ -197,6 +249,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         }
         navigationItem.rightBarButtonItem?.isEnabled = enabled
     }
+    
     func addTripToRealm() {
         if realm.objects(Trip.self).filter("name = %@", titleTextField.text!).count > 0 {
             let alert = UIAlertController(title: "Invalid Input", message: "Trip name already exists", preferredStyle: .alert)
@@ -206,56 +259,167 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             
             return
         }
-        
+
+        let t = self.existingTrip != nil ? self.existingTrip! : Trip()
+
         try! realm.write {
-            let t = existingTrip != nil ? existingTrip! : Trip()
             
-            t.name = titleTextField.text!
-            t.destination = destinationTextField.text!
-            t.traveler = travelerNameTextField.text!
-            t.startDate = startDate
-            t.endDate = endDate
-         
+            t.name = self.titleTextField.text!
+            t.destination = self.destinationTextField.text!
+            t.traveler = self.travelerNameTextField.text!
+            t.startDate = self.startDate
+            t.endDate = self.endDate
+            
+            if let s = self.selectedCoordinates {
+                let l = Location()
+                l.latitude = s.latitude
+                l.longitude = s.longitude
+                
+                realm.add(l)
+                t.coordinates = l
+            }
+            else
+            {
+                t.coordinates = nil
+            }
+            
             var gender = ""
-            if genderSelector.selectedSegmentIndex == 0 {
+            if self.genderSelector.selectedSegmentIndex == 0 {
                 gender = "Male"
-                addToItemList(trip: t, list: self.maleList)
-                addToItemList(trip: t, list: self.neutralList)
-            } else if genderSelector.selectedSegmentIndex == 1 {
+            } else if self.genderSelector.selectedSegmentIndex == 1 {
                 gender = "Female"
-                addToItemList(trip: t, list: self.femaleList)
-                addToItemList(trip: t, list: self.neutralList)
             } else {
                 gender = "Other"
-                addToItemList(trip: t, list: self.neutralList)
             }
+            
             t.gender = gender
             
-            // Calculate the number of days
-            let cal = Calendar.current
+            t.days.removeAll()
             
-            var thisDate: Date = startDate!
-            t.days.append(Day(thisDate))
-            repeat {
-                thisDate = cal.date(byAdding: .day,
-                                    value: 1,
-                                    to: thisDate)!
-                
-                t.days.append(Day(thisDate))
-            } while(thisDate < endDate!)
-            
-            if existingTrip == nil {
+            if self.existingTrip == nil {
                 realm.add(t)
-                currentTrip = t
+                self.currentTrip = t
+            }
+        }
+        
+        // Calculate the number of days
+        let cal = Calendar.current
+
+        var thisDate: Date = startDate!
+        var days = [Day(thisDate)]
+        
+        let dispatchGroup = DispatchGroup()
+        
+        repeat {
+            thisDate = cal.date(byAdding: .day,
+                                value: 1,
+                                to: thisDate)!
+            
+            let d = Day(thisDate)
+            days.append(d)
+        } while(thisDate < endDate!)
+        
+        for d in days {
+            dispatchGroup.enter()
+            
+            WeatherService.sharedInstance.getHistoricalWeather(forDay: d, inTrip: t, complete: { (err, weather) in
+                if let w = weather {
+                    d.weather = w
+                }
+                
+                if let e = err {
+                    print(e)
+                }
+                
+                dispatchGroup.leave()
+            })
+        }
+        
+        dispatchGroup.notify(queue: DispatchQueue.global(qos: .userInitiated)) {
+            DispatchQueue.main.async {
+                try! realm.write {
+                    for d in days {
+                        if let w = d.weather {
+                            realm.add(w)
+                        }
+                        
+                        realm.add(d)
+                    }
+                    
+                    t.days.append(objectsIn: days)
+                    
+                    print("done with weather and days")
+                }
             }
         }
     }
     
-    func addToItemList(trip: Trip, list: [String]) {
-        for itemName in list {
-            let i = Item()
-            i.name = itemName
-            trip.items.append(i)
+    var autocompleteCompletion: (([String]) -> Void)!
+    
+    var selectedSearchResult: MKLocalSearchCompletion? = nil
+    var selectedCoordinates: CLLocationCoordinate2D? = nil
+}
+
+// MARK: - LUAutocompleteViewDataSource
+
+extension AddTripViewController: LUAutocompleteViewDataSource {
+    func autocompleteView(_ autocompleteView: LUAutocompleteView, elementsFor text: String, completion: @escaping ([String]) -> Void) {
+        autocompleteCompletion = completion
+
+        searchCompleter.queryFragment = text
+    }
+}
+
+// MARK: - LUAutocompleteViewDelegate
+
+extension AddTripViewController: LUAutocompleteViewDelegate {
+    func autocompleteView(_ autocompleteView: LUAutocompleteView, didSelect text: String) {
+        autocompleteView.textField?.text = text
+        
+        let parts = text.components(separatedBy: "\n")
+        
+        selectedSearchResult = nil
+        
+        if let first = searchResults.filter({ $0.title == parts[0] && $0.subtitle == parts[1] }).first {
+            selectedSearchResult = first
+            
+            let searchRequest = MKLocalSearchRequest(completion: first)
+            let search = MKLocalSearch(request: searchRequest)
+            search.start { (response, error) in
+                self.selectedCoordinates = response?.mapItems[0].placemark.coordinate
+            }
         }
+    }
+}
+
+extension AddTripViewController: MKLocalSearchCompleterDelegate {
+    
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        searchResults = completer.results
+        
+        autocompleteCompletion(searchResults.map { $0.title + "\n" + $0.subtitle })
+    }
+    
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        // handle error
+    }
+}
+
+final class LocationAutocompleteTableViewCell: LUAutocompleteTableViewCell {
+    // MARK: - Base Class Overrides
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
+    override func set(text: String) {
+        let parts = text.components(separatedBy: "\n")
+        
+        textLabel?.text = parts[0]
+        detailTextLabel?.text = parts[1]
     }
 }

@@ -11,5 +11,7 @@ target 'Personal Packing Assistant' do
   pod 'RealmSwift'
   pod 'DarkSkyKit'
   pod 'SkyFloatingLabelTextField'
+  pod 'LUAutocompleteView'
+  pod 'CheckboxButton'
   
 end

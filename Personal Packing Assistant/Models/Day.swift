@@ -19,7 +19,8 @@ class Day : Object {
         self.date = date
     }
     
-    var weather: Weather = Weather()
+    @objc dynamic var weather: Weather? = nil
+    
     let items = List<Item>()
     let activities = List<Activity>()
     let outfits = List<Outfit>()

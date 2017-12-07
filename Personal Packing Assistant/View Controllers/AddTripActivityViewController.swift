@@ -60,7 +60,7 @@ class AddTripActivityViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return activities.count + 1
+       return activities.count // + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,6 +94,8 @@ class AddTripActivityViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        return []
+        
         if (indexPath.row < activities.count) {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
             
@@ -132,26 +134,28 @@ class AddTripActivityViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //currentTrip.activities.append(self.activities[indexPath.row])
         if (indexPath.row < activities.count) {
-        let trip = realm.objects(Trip.self).filter("name = %@", currentTrip.name).first
-        let tripactivities = trip?.activities
-        var flag = -1
-        var count = 0
-        for object in tripactivities! {
-            count = count + 1
-            if object.name == activities[indexPath.row].name {
-                flag = count
+            let tripactivities = currentTrip.activities
+            var flag = -1
+            var count = 0
+            
+            for object in tripactivities {
+                count = count + 1
+                if object.name == activities[indexPath.row].name {
+                    flag = count
+                }
             }
-        }
-        if ( flag == -1) {
-            try! realm.write {
-                trip?.activities.append(self.activities[indexPath.row])
+            
+            if ( flag == -1) {
+                try! realm.write {
+                    currentTrip.activities.append(self.activities[indexPath.row])
+                }
+            } else {
+                try! realm.write {
+                    currentTrip.activities.remove(objectAtIndex: flag-1)
+                }
             }
-        } else {
-            try! realm.write {
-                trip?.activities.remove(objectAtIndex: flag-1)
-            }
-        }
-        readTasksAndUpdateUI()
+            
+            readTasksAndUpdateUI()
         } else {
             print("\there")
             loadAddCustomViewIntoController()
@@ -161,8 +165,18 @@ class AddTripActivityViewController: UIViewController, UITableViewDelegate, UITa
     @objc func nextButtonTapped(_ sender: UIButton) {
         addActivityToRealm()
         
+        let packingListGenerator = PackingListGenerator(trip: currentTrip)
+        let items = packingListGenerator.makeListOfTripItems()
+        
+        try! realm.write {
+            for i in items {
+                realm.add(i)
+                currentTrip.tripItems.append(i)
+            }
+        }
+        
         let alltripsVC = AllTripsTableViewController()
-        let secondViewController = TripOverviewViewController(withExistingTrip: currentTrip )
+        let secondViewController = TripOverviewViewController(withExistingTrip: currentTrip)
         
         var vcs = [
             navigationController?.viewControllers[0],

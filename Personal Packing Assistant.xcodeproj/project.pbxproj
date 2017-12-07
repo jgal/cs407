@@ -23,6 +23,8 @@
 		7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C61B3B11F6A21A10072B31F /* LaunchScreen.storyboard */; };
 		8D3C77A11F87379100B558B3 /* packing_items.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C77A01F87379100B558B3 /* packing_items.json */; };
 		A55C45F31F85ECBD009B5F43 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C45F21F85ECBD009B5F43 /* WeatherService.swift */; };
+		A5E6D1A41FD9197F00723D54 /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E6D1A31FD9166C00723D54 /* plane.png */; };
+		A5E6D1A61FD919A800723D54 /* New icon-AppStore.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E6D1A51FD919A500723D54 /* New icon-AppStore.png */; };
 		A5EADFB11F7ED8FD007B3BAC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB01F7ED8FD007B3BAC /* Trip.swift */; };
 		A5EADFB31F7ED90E007B3BAC /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB21F7ED90E007B3BAC /* Day.swift */; };
 		A5EADFB51F7ED91D007B3BAC /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EADFB41F7ED91D007B3BAC /* Outfit.swift */; };
@@ -68,6 +70,8 @@
 		7E431D353A31089CA974408A /* Pods-Personal Packing Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Packing Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant.release.xcconfig"; sourceTree = "<group>"; };
 		8D3C77A01F87379100B558B3 /* packing_items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = packing_items.json; sourceTree = "<group>"; };
 		A55C45F21F85ECBD009B5F43 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		A5E6D1A31FD9166C00723D54 /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
+		A5E6D1A51FD919A500723D54 /* New icon-AppStore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New icon-AppStore.png"; sourceTree = "<group>"; };
 		A5EADFB01F7ED8FD007B3BAC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		A5EADFB21F7ED90E007B3BAC /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		A5EADFB41F7ED91D007B3BAC /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				8D3C77A01F87379100B558B3 /* packing_items.json */,
 				A5EADFC01F7ED989007B3BAC /* PackingListGenerator.swift */,
 				A55C45F21F85ECBD009B5F43 /* WeatherService.swift */,
+				A5E6D1A51FD919A500723D54 /* New icon-AppStore.png */,
+				A5E6D1A31FD9166C00723D54 /* plane.png */,
 			);
 			path = "Personal Packing Assistant";
 			sourceTree = "<group>";
@@ -264,9 +270,11 @@
 			files = (
 				7C61B3B31F6A21A10072B31F /* LaunchScreen.storyboard in Resources */,
 				70F6B6351F8710A800F42148 /* EditDayViewController.xib in Resources */,
+				A5E6D1A41FD9197F00723D54 /* plane.png in Resources */,
 				70F6B6411F87129400F42148 /* AddTripViewController.xib in Resources */,
 				FCE01FBB1FAA661600E4A6E4 /* AddTripActivityViewController.xib in Resources */,
 				FCE01FBF1FAA790400E4A6E4 /* TripOverviewViewController.xib in Resources */,
+				A5E6D1A61FD919A800723D54 /* New icon-AppStore.png in Resources */,
 				FC75C4911F872A54009C377A /* AllTripsTableViewController.xib in Resources */,
 				A5EADFC41F7EDBBE007B3BAC /* HomeViewController.xib in Resources */,
 				70F6B6311F87104700F42148 /* PackingListViewController.xib in Resources */,
@@ -323,7 +331,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Packing Assistant/Pods-Personal Packing Assistant-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CheckboxButton/CheckboxButton.framework",
 				"${BUILT_PRODUCTS_DIR}/DarkSkyKit/DarkSkyKit.framework",
+				"${BUILT_PRODUCTS_DIR}/LUAutocompleteView/LUAutocompleteView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
@@ -331,7 +341,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CheckboxButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DarkSkyKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LUAutocompleteView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",

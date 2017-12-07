@@ -1,50 +1,67 @@
 {
-	"necessities": {
-		"female": ["hair ties", "feminine hygiene products"],
-		"male": [],
-		"general": ["passport", "itinerary", "wallet", "toothbrush", "toothpaste", "toiletries", "deodorant", "cell phone", "charger", "camera", "undergarments", "umbrella/rain jacket", "brush", "prescription medication", "hand sanitizer", "headphones"]
-	},
-	
-	"activity": {
-		"fancy": {
-			"female": ["dress", "makeup", "fancy shoes", "accessories"],
-			"male": ["dress shoes", "dress shirt", "slacks", "tie", "belt"]
-		},
-		"outdoor": {
-			"general": ["comfortable walking shoes", "insect repellant"]
-		},
-		"water": ["swimsuit", "flip flops", "sunscreen"],
-	},
-
-	"accomodation": {
-		"hostel": ["shower shoes", "towel", "lock", "eye mask", "ear plugs"]
-	},
-
-	"location": {
-		"international": ["plug adapter", "passport"],
-		"domestic": ["ID"]
-	},
-
-	"weather": {
-		"warm": {
-			"female": ["dress", "sandals", "shorts", "tank top", "t-shirt"],
-			"male": ["t-shirt", "shorts"],
-			"general": ["sunscreen", "water bottle", "sunglasses"]
-		},
-		"cold": {
-			"female": [],
-			"male": [],
-			"general": ["gloves", "scarf", "sweater", "coat", "hat"]
-		},
-		"rain": {
-			"female": [],
-			"male": [],
-			"general": []
-		},
-		"snow": {
-			"female": [],
-			"male": [],
-			"general": ["boots"]
-		}
-	},
+    "necessities": {
+        "female": ["hair tools", "feminine hygiene products", "makeup", "makeup remover", "purse", "jewelry"],
+        "male": [],
+        "general": ["passport", "itinerary", "wallet", "keys", "toothbrush", "toothpaste", "floss", "sleepwear", "deodorant", "cell phone", "charger", "undergarments", "socks", "brush", "medication", "headphones", "first aid supplies", "hand sanitizer", "belt", "comfortable walking shoes", "moisturizer", "shampoo", "conditioner", "soap", "t-shirt", "jeans/pants", "water bottle"]
+    },
+    
+    "activities": [{"name": "fancy", "emoji": "💃"},
+                   {"name": "hiking", "emoji": "🏔"},
+                   {"name": "swimming", "emoji": "🌊"},
+                   {"name": "business", "emoji": "💼"},
+                   {"name": "working out", "emoji": "💪"},
+                   {"name": "sightseeing", "emoji": "🏙"},
+                   {"name": "camping", "emoji": "⛺️"},
+                   {"name": "skiing", "emoji": "⛷"}],
+    
+    "activity": {
+        "fancy": {
+            "female": ["dress", "perfume", "blouse", "skirt", "makeup", "fancy shoes", "accessories"],
+            "male": ["dress shoes", "cologne", "dress shirt", "slacks", "tie", "belt"]
+        },
+        "hiking": {
+            "general": ["hiking shoes", "insect repellant"]
+        },
+        "swimming": {
+            "general": ["swimsuit", "cover-up", "flip flops", "sunscreen"],
+        },
+        "business": {
+            "general": ["briefcase", "laptop", "suit", "business cards"],
+        },
+        "working out": {
+            "general": ["running shoes", "athletic attire"],
+        },
+        "sightseeing": {
+            "general": ["map", "camera"],
+        },
+        "camping": {
+            "general": ["tent", "sleeping bag"],
+        },
+        "skiing": {
+            "general": ["skiis", "ski boots", "ski poles", "ski jacket", "snow pants"],
+        },
+    },
+    
+    "weather": {
+        "warm": {
+            "female": ["sundress", "sandals", "tank top"],
+            "male": [],
+            "general": ["sunscreen", "sunglasses", "shorts", "flip flops"]
+        },
+        "cold": {
+            "female": ["tights"],
+            "male": [],
+            "general": ["gloves", "scarf", "sweater", "coat", "hat"]
+        },
+        "rain": {
+            "female": [],
+            "male": [],
+            "general": ["umbrella", "rain jacket", "rain boots"]
+        },
+        "snow": {
+            "female": [],
+            "male": [],
+            "general": ["boots"]
+        }
+    },
 }
