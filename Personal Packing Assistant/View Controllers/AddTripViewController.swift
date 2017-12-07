@@ -17,17 +17,20 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     let autocompleteView = LUAutocompleteView()
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
+    
+    let blueColor = UIColor(red: 60/255, green: 155/255, blue: 175/255, alpha: 1.0)
+    let greyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
 
     
     @IBOutlet weak var titleTextField: SkyFloatingLabelTextField!
     
-    @IBOutlet weak var startDateTextField: UITextField!
+    @IBOutlet weak var startDateTextField: SkyFloatingLabelTextField!
     
-    @IBOutlet weak var endDateTextField: UITextField!
+    @IBOutlet weak var endDateTextField: SkyFloatingLabelTextField!
     
-    @IBOutlet weak var destinationTextField: UITextField!
+    @IBOutlet weak var destinationTextField: SkyFloatingLabelTextField!
     
-    @IBOutlet weak var travelerNameTextField: UITextField!
+    @IBOutlet weak var travelerNameTextField: SkyFloatingLabelTextField!
     
     @IBOutlet weak var genderSelector: UISegmentedControl!
     
@@ -62,6 +65,39 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        // change label colors
+        
+        // title
+        titleTextField.tintColor = blueColor
+        titleTextField.lineColor = greyColor
+        titleTextField.selectedTitleColor = blueColor
+        titleTextField.selectedLineColor = blueColor
+        
+        // start date
+        startDateTextField.tintColor = blueColor
+        startDateTextField.lineColor = greyColor
+        startDateTextField.selectedTitleColor = blueColor
+        startDateTextField.selectedLineColor = blueColor
+        
+        // end date
+        endDateTextField.tintColor = blueColor
+        endDateTextField.lineColor = greyColor
+        endDateTextField.selectedTitleColor = blueColor
+        endDateTextField.selectedLineColor = blueColor
+        
+        // destination
+        destinationTextField.tintColor = blueColor
+        destinationTextField.lineColor = greyColor
+        destinationTextField.selectedTitleColor = blueColor
+        destinationTextField.selectedLineColor = blueColor
+        
+        // traveler
+        travelerNameTextField.tintColor = blueColor
+        travelerNameTextField.lineColor = greyColor
+        travelerNameTextField.selectedTitleColor = blueColor
+        travelerNameTextField.selectedLineColor = blueColor
+        
+        
         // Do any additional setup after loading the view.
         
         title = "Add Trip"
@@ -132,6 +168,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
         toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        
         toolBar.sizeToFit()
         
         // Adding Button ToolBar

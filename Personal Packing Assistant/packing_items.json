@@ -2,27 +2,44 @@
     "necessities": {
         "female": ["hair tools", "feminine hygiene products", "makeup", "makeup remover", "purse", "jewelry"],
         "male": [],
-        "general": ["passport", "itinerary", "wallet", "keys", "toothbrush", "toothpaste", "floss", "sleepwear", "deodorant", "cell phone", "charger", "camera", "undergarments", "brush", "medication", "hand sanitizer", "headphones", "first aid supplies", "hand sanitizer", "belts", "comfortable walking shoes", "moisturizer", "shampoo", "conditioner", "soap", "t-shirt", "jeans/pants", "water bottle"]
+        "general": ["passport", "itinerary", "wallet", "keys", "toothbrush", "toothpaste", "floss", "sleepwear", "deodorant", "cell phone", "charger", "undergarments", "socks", "brush", "medication", "headphones", "first aid supplies", "hand sanitizer", "belt", "comfortable walking shoes", "moisturizer", "shampoo", "conditioner", "soap", "t-shirt", "jeans/pants", "water bottle"]
     },
+    
+    "activities": [{"name": "fancy", "emoji": "💃"},
+                   {"name": "hiking", "emoji": "🏔"},
+                   {"name": "swimming", "emoji": "🌊"},
+                   {"name": "business", "emoji": "💼"},
+                   {"name": "working out", "emoji": "💪"},
+                   {"name": "sightseeing", "emoji": "🏙"},
+                   {"name": "camping", "emoji": "⛺️"},
+                   {"name": "skiing", "emoji": "⛷"}],
     
     "activity": {
         "fancy": {
-            "female": ["dress", "blouse", "skirt", "makeup", "fancy shoes", "accessories"],
-            "male": ["dress shoes", "dress shirt", "slacks", "suit", "tie", "belt"]
+            "female": ["dress", "perfume", "blouse", "skirt", "makeup", "fancy shoes", "accessories"],
+            "male": ["dress shoes", "cologne", "dress shirt", "slacks", "tie", "belt"]
         },
-        "outdoor": {
+        "hiking": {
             "general": ["hiking shoes", "insect repellant"]
         },
-        "water": ["swimsuit", "cover-up", "flip flops", "sunscreen"],
-    },
-    
-    "accomodation": {
-        "hostel": ["shower shoes", "towel", "lock", "eye mask", "ear plugs"]
-    },
-    
-    "location": {
-        "international": ["plug adapter", "passport"],
-        "domestic": ["ID"]
+        "swimming": {
+            "general": ["swimsuit", "cover-up", "flip flops", "sunscreen"],
+        },
+        "business": {
+            "general": ["briefcase", "laptop", "suit", "business cards"],
+        },
+        "working out": {
+            "general": ["running shoes", "athletic attire"],
+        },
+        "sightseeing": {
+            "general": ["map", "camera"],
+        },
+        "camping": {
+            "general": ["tent", "sleeping bag"],
+        },
+        "skiing": {
+            "general": ["skiis", "ski boots", "ski poles", "ski jacket", "snow pants"],
+        },
     },
     
     "weather": {

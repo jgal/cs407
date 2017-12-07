@@ -11,11 +11,10 @@ import RealmSwift
 
 class PackingListGenerator {
     // item dictionaries initialized here
-    var necessities : [String: Any]
-    var activity : [String: Any]
-    let accomodation : [String: Any]
-    let location : [String: Any]
-    let weather : [String: Any]
+    var necessities : [String: [String]]
+    var activities : [String: [String: String]]
+    var activity : [String: [String: [String]]]
+    let weather : [String: [String: [String]]]
     
     let trip : Trip
     var items : [String]
@@ -32,130 +31,83 @@ class PackingListGenerator {
 
         // parse file contents into dictionaries
         var dictionary = json as! [String: Any]
-        self.necessities = dictionary["necessities"] as! [String: Any]
-        print("getting necessity items")
-        self.activity = dictionary["activity"] as! [String: Any]
-        print("getting activity items")
-        self.accomodation = dictionary["accomodation"] as! [String: Any]
-        print("getting accomodation items")
-        self.location = dictionary["location"] as! [String: Any]
-        print("getting location items")
-        self.weather = dictionary["weather"] as! [String: Any]
-        print("getting weather items")
+        self.necessities = dictionary["necessities"] as! [String: [String]]
+        self.activities = dictionary["activities"] as! [String: [String: String]]
+        self.activity = dictionary["activity"] as! [String: [String: [String]]]
+        self.weather = dictionary["weather"] as! [String: [String: [String]]]
     }
     
     func makeListOfTripItems() -> [TripItem] {
         
-        getBasicItems(type: "general")
+        let gender = self.trip.gender.lowercased()
         
-        getActivityItems(type: "fancy")
+        getBasicItems(gender: gender)
         
-        getWeatherItems(type: "warm")
+        for activity in self.trip.activities {
+            getActivityItems(gender: gender, activity: activity)
+        }
         
-        getLocationItems(type: "domestic")
+        // get weather data
+        // getWeatherItems(weather: weather, gender: gender)
         
-        getAccomodationItems(type: "hostel")
-        
-        // Turn the list of items (self.items) into a list of TripItems
-        // add code for that
-        let packingList : [TripItem] = self.items.map { (name) -> TripItem in
+        var packingList : [TripItem] = self.items.map { (name) -> TripItem in
             let i = TripItem()
             i.name = name
             i.packed = false
-            i.quantity = 0
+            i.quantity = 1
             
             return i
         }
         
         // Change quantities of TripItems for daily things like socks, shirts, etc
-        changeItemQuantities()
+        packingList = changeItemQuantities(tripItems: packingList)
         
         return packingList
     }
     
-    func getBasicItems (type: String) {
-        // Add basic items that would be used for all trips
-        // Example: toothbrush, toothpaste, toilitries, socks, clothes, etc.
-        // Add items to the self.items list and make sure there aren't duplicates
-        var tempList : [Any]
-        tempList = self.necessities.removeValue(forKey: type) as! [Any]
-        var i : Int
-        i = 1
-        var itemsList : [String]
-        itemsList = []
-        while (i < tempList.count) {
-            itemsList.append(tempList.remove(at: i) as! String)
-            i = i + 1
-        }
-        items.append(contentsOf: itemsList)
+    func getBasicItems (gender: String) {
+        items.append(contentsOf: self.necessities[gender]!.map({ $0 }))
+        items.append(contentsOf: self.necessities["general"]!.map({ $0 }))
     }
     
-    func getActivityItems(type: String) {
-        // Add items based off of the activities they are interested in
-        // Add items to the self.items list and make sure there aren't duplicates
-        var tempList : [Any]
-        tempList = self.activity.removeValue(forKey: type) as! [Any]
-        var i : Int
-        i = 1
-        var itemsList : [String]
-        itemsList = []
-        while (i < tempList.count) {
-            itemsList.append(tempList.remove(at: i) as! String)
-            i = i + 1
+    func getActivityItems(gender: String, activity: Activity) {
+        if activity.name == "fancy" {
+            items.append(contentsOf: self.activity[activity.name]![gender]!.map({ $0 }))
+        } else {
+            items.append(contentsOf: self.activity[activity.name]!["general"]!.map({ $0 }))
         }
-        items.append(contentsOf: itemsList)
     }
     
-    func getWeatherItems(type: String) {
-        // Add items based off of the weather forecast
-        // Add items to the self.items list and make sure there aren't duplicates
-        // Fetching weather information will be done in WeatherService.swift
-        var tempList : [Any]
-        tempList = self.activity.removeValue(forKey: type) as! [Any]
-        var i : Int
-        i = 1
-        var itemsList : [String]
-        itemsList = []
-        while (i < tempList.count) {
-            itemsList.append(tempList.remove(at: i) as! String)
-            i = i + 1
-        }
-        items.append(contentsOf: itemsList)
+    func getWeatherItems(weather: String, gender: String) {
+        items.append(contentsOf: self.activity[weather]![gender]!.map({ $0 }))
+        items.append(contentsOf: self.activity[weather]!["general"]!.map({ $0 }))
     }
     
-    func getLocationItems(type: String) {
-        // Add items based off of the location
-        // Add items to the self.items list and make sure there aren't duplicates
-        var tempList : [Any]
-        tempList = self.activity.removeValue(forKey: type) as! [Any]
-        var i : Int
-        i = 1
-        var itemsList : [String]
-        itemsList = []
-        while (i < tempList.count) {
-            itemsList.append(tempList.remove(at: i) as! String)
-            i = i + 1
-        }
-        items.append(contentsOf: itemsList)
-    }
-    
-    func getAccomodationItems(type: String) {
-        // Add items based off of the accomodation
-        // Add items to the self.items list and make sure there aren't duplicates
-        var tempList : [Any]
-        tempList = self.activity.removeValue(forKey: type) as! [Any]
-        var i : Int
-        i = 1
-        var itemsList : [String]
-        itemsList = []
-        while (i < tempList.count) {
-            itemsList.append(tempList.remove(at: i) as! String)
-            i = i + 1
-        }
-        items.append(contentsOf: itemsList)
-    }
-    
-    func changeItemQuantities() {
+    func changeItemQuantities(tripItems: [TripItem]) -> [TripItem] {
         // Change quantity of items based off of the length of the trip
+        let day_count = trip.days.count
+        let everyDayItems = ["undergarments", "t-shirt", "socks"]
+        let someDayItems = ["jeans/pants", "shorts"]
+        let fewDayItems = ["comfortable walking shoes"]
+        for item in tripItems {
+            if everyDayItems.contains(item.name) {
+                item.quantity = day_count
+            } else if someDayItems.contains(item.name) {
+                if day_count < 3 {
+                    item.quantity = day_count
+                } else {
+                    item.quantity = day_count / 2
+                }
+            } else if fewDayItems.contains(item.name) {
+                if day_count < 5 {
+                    item.quantity = 1
+                } else if day_count < 10 {
+                    item.quantity = 2
+                } else {
+                    item.quantity = 3
+                }
+            }
+        }
+        return tripItems
     }
 }

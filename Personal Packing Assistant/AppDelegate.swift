@@ -17,6 +17,8 @@ let realm = try! Realm()
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    
 
     
     
@@ -29,8 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         // Comment out when modifying the models 
-        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        // try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 
+        changeColors()
         
         let a1 = Activity()
         a1.icon = "🏊"
@@ -64,6 +67,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return true
+    }
+    
+    // changes colors of the menu nav bar
+    func changeColors() {
+        // Override point for customization after application launch.
+        //UINavigationBar.appearance().barTintColor = UIColor(red: 0, green: 0/255, blue: 205/255, alpha: 1)
+        //UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        UIBarButtonItem.appearance().tintColor = UIColor(red: 60/255, green: 155/255, blue: 175/255, alpha: 1.0)
+        
     }
     
     
