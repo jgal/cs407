@@ -271,6 +271,15 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
         // 5
         self.present(optionMenu, animated: true, completion: nil)
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("row selected")
+        if (indexPath.section == 0) {
+            let secondViewController = DayOverviewViewController(withExistingTrip: self.trip, selectedDay: self.trip.days[indexPath.row])
+            navigationController?.pushViewController(secondViewController, animated: true)
+        }
+    }
     @IBAction func showPackinglist(_ sender: Any) {
         let secondViewController = PackingListViewController(withExistingTrip: self.trip)
         navigationController?.pushViewController(secondViewController, animated: true)
