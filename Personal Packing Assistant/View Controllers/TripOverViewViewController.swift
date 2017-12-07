@@ -160,6 +160,13 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                if (indexPath.section == 0) {
+                        let secondViewController = DayOverviewViewController(withExistingTrip: self.trip, selectedDay: self.trip.days[indexPath.row], indexPathRow: indexPath.row)
+                        navigationController?.pushViewController(secondViewController, animated: true)
+                    }
+            }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if ( indexPath.section == 1 ) {
             let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
