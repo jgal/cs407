@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         // Comment out when modifying the models 
-//        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+       // try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 
         changeColors()
         
