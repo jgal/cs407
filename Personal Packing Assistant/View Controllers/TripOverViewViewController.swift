@@ -57,7 +57,7 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -65,13 +65,27 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
             return "List of Days"
         } else if ( section == 1) {
             return "List of Activities"
-        } else if ( section == 2) {
-            return "List of Outfits"
-        } else {
+        }  else {
             return "Default"
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+       
+        headerView.backgroundColor = UIColor(red: 60/255, green: 155/255, blue: 175/255, alpha: 1.0)
+        let headerLabel = UILabel(frame: CGRect(x: 10, y: 5, width:
+            tableView.bounds.size.width, height: 30))
+        headerLabel.textColor = UIColor.white
+        headerLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        headerLabel.sizeToFit()
+        headerView.addSubview(headerLabel)
+        
+        
+        //UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
+        return headerView
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch ( section  ) {
@@ -79,8 +93,6 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
             return self.trip.days.count
         case 1:
             return self.trip.activities.count
-        case 2:
-            return self.trip.outfits.count
         default:
             return 0
         }
@@ -206,34 +218,9 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func AddObject(_ sender: Any) {
-        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
-        
-        let OutfitAction = UIAlertAction(title: "Outfit", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            let secondViewController = AddOutfitViewController(withExistingTrip: self.trip, withOutfitToEdit: nil, index: -1)
-            self.navigationController?.pushViewController(secondViewController, animated: true)
-        })
-        
-        let ActivityAction = UIAlertAction(title: "Activity", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            let secondViewController = AddTripActivityViewController(selectedTrip: self.trip)
-            self.navigationController?.pushViewController(secondViewController, animated: true)
-        })
-        
-        let ItemAction = UIAlertAction(title: "Item", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            let secondViewController = AddItemViewController(withExistingTrip: self.trip, withItemToEdit: nil, index: -1)
-            self.navigationController?.pushViewController(secondViewController, animated: true)
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        optionMenu.addAction(ItemAction)
-        optionMenu.addAction(ActivityAction)
-        optionMenu.addAction(OutfitAction)
-        optionMenu.addAction(cancelAction)
-        
-        self.present(optionMenu, animated: true, completion: nil)
+        let secondViewController = AddTripActivityViewController(selectedTrip: self.trip)
+        navigationController?.pushViewController(secondViewController, animated: true)
+
     }
 
     @IBAction func showPackinglist(_ sender: Any) {
