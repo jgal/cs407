@@ -35,7 +35,8 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
 
         readTasksAndUpdateUI()
         
-        title = "\(trip.name) Overview"
+        title = trip.destination
+        navigationItem.prompt = "\(trip.name) Overview"
         
         self.table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
@@ -106,7 +107,7 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
             cell.textLabel?.text = "\(weather.emoji)  Day \(indexPath.row+1): \(formatter.string(from: day.date))"
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
             
-            cell.detailTextLabel?.text = "Low: \(String(format: "%.0f", weather.minTemp))℉  Hi: \(String(format: "%.0f", weather.maxTemp))℉.  \(weather.weatherName)"
+            cell.detailTextLabel?.text = "Low: \(String(format: "%.0f", weather.minTemp))℉  Hi: \(String(format: "%.0f", weather.maxTemp))℉.\n\(weather.weatherName)"
             cell.detailTextLabel?.numberOfLines = 0
             
             cell.accessoryType = .none

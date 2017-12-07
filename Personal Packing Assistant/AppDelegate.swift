@@ -34,47 +34,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         // Comment out when modifying the models 
-        // try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+//        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 
         changeColors()
-        /*
         
-        let a1 = Activity()
-        a1.icon = "🏊"
-        a1.name = "swimming"
-        let a2 = Activity()
-        a2.icon = "⛺"
-        a2.name = "camping"
-        let a3 = Activity()
-        a3.icon = "🎣"
-        a3.name = "fishing"
-        let a4 = Activity()
-        a4.icon = "💃"
-        a4.name = "dancing"
-        
-        try! realm.write {
-            var sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a1.name)
-            if ( sa1 == nil) {
-                realm.add(a1)
-            }
-            
-            sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a2.name)
-            if ( sa1 == nil) {
-                realm.add(a2)
-            }
-            
-            sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a3.name)
-            if ( sa1 == nil) {
-                realm.add(a3)
-            }
-            
-            sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a4.name)
-            if ( sa1 == nil) {
-                realm.add(a4)
+        if realm.objects(Activity.self).count == 0 {
+            for a in PackingListGenerator.getActivities() {
+                try! realm.write {
+                    realm.add(a)
+                }
             }
         }
-         */
- 
+
         return true
     }
     

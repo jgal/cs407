@@ -12,12 +12,27 @@ import RealmSwift
 class PackingListGenerator {
     // item dictionaries initialized here
     var necessities : [String: [String]]
-    var activities : [String: [String: String]]
     var activity : [String: [String: [String]]]
     let weather : [String: [String: [String]]]
     
     let trip : Trip
     var items : [String]
+    
+    public static func getActivities() -> [Activity] {
+        let url = Bundle.main.url(forResource: "packing_items", withExtension: "json")!
+        let data = try! Data(contentsOf: url)
+        let json = try! JSONSerialization.jsonObject(with: data, options: [])
+        var dictionary = json as! [String: Any]
+
+        let activities = dictionary["activities"] as! [[String: String]]
+        
+        return activities.map({ (dict) in
+            let a = Activity()
+            a.icon = dict["emoji"]!
+            a.name = dict["name"]!
+            return a
+        })
+    }
     
     init(trip : Trip) {
         self.trip = trip
@@ -27,12 +42,10 @@ class PackingListGenerator {
         let url = Bundle.main.url(forResource: "packing_items", withExtension: "json")!
         let data = try! Data(contentsOf: url)
         let json = try! JSONSerialization.jsonObject(with: data, options: [])
-        print(json)
 
         // parse file contents into dictionaries
         var dictionary = json as! [String: Any]
         self.necessities = dictionary["necessities"] as! [String: [String]]
-        self.activities = dictionary["activities"] as! [String: [String: String]]
         self.activity = dictionary["activity"] as! [String: [String: [String]]]
         self.weather = dictionary["weather"] as! [String: [String: [String]]]
     }

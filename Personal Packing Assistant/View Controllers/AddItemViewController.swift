@@ -15,19 +15,19 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ItemName: SkyFloatingLabelTextField!
     
     var assignedTrip: Trip
-    var currentItem: Item?
+    var currentItem: TripItem?
     var number: Int
-    var items: List<Item>!
+    var items: List<TripItem>!
     
-    init(withExistingTrip: Trip!, withItemToEdit: Item!, index: Int) {
+    init(withExistingTrip: Trip!, withItemToEdit: TripItem!, index: Int) {
         assignedTrip = withExistingTrip
-        self.items = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.items
+        self.items = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.tripItems
         self.number = index
 
         if(self.number != -1) {
             currentItem = self.items[self.number]
         } else {
-            currentItem = Item()
+            currentItem = TripItem()
         }
         
         
@@ -80,14 +80,14 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     }
     func addItemToRealm() {
         try! realm.write {
-            let i = Item()
+            let i = TripItem()
             print(ItemName.text!)
             i.name = ItemName.text!
             
             if (number != -1) {
-                self.assignedTrip.items[number] = i
+                self.assignedTrip.tripItems[number] = i
             } else {
-                self.assignedTrip.items.append(i)
+                self.assignedTrip.tripItems.append(i)
                 currentItem = i
             }
         }
