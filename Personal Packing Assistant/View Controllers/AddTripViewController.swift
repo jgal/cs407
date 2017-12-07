@@ -44,11 +44,6 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     let existingTrip: Trip?
     var currentTrip: Trip
     
-    var maleList = ["shaving kit", "cologne"]
-    var femaleList = ["hair ties", "feminine hygiene products", "perfume"]
-    var neutralList = ["passport", "itinerary", "wallet", "toothbrush", "toothpaste", "toiletries", "deodorant", "cell phone", "charger", "camera", "undergarments", "umbrella/rain jacket", "brush", "prescription medication", "hand sanitizer", "headphones"]
-    
-    
     public init(fromHome: Bool = false, withExistingTrip: Trip? = nil) {
         self.fromHome = fromHome
         existingTrip = withExistingTrip
@@ -63,6 +58,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // change label colors
@@ -149,6 +146,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     @IBAction func textFieldIsBeingEdited(_ sender: Any) {
         self.pickUpDate(self.startDateTextField)
     }
+    
     @IBAction func EndDateEditing(_ sender: Any) {
         self.pickUpDate(self.endDateTextField)
     }
@@ -206,9 +204,11 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         
         checkValidation(titleTextField)
     }
+    
     @objc func cancelClick(_ textField : UITextField) {
         startDateTextField.resignFirstResponder()
     }
+    
     @objc func done1Click(_ textField : UITextField) {
         let dateFormatter1 = DateFormatter()
         dateFormatter1.dateStyle = .medium
@@ -220,6 +220,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         
         checkValidation(titleTextField)
     }
+    
     @objc func cancel1Click(_ textField : UITextField) {
         endDateTextField.resignFirstResponder()
     }
@@ -232,6 +233,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
        
         
     }
+    
     @IBAction func checkValidation(_ sender: SkyFloatingLabelTextField) {
         var enabled = true
         if titleTextField.text?.count == 0 {
@@ -247,6 +249,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
         }
         navigationItem.rightBarButtonItem?.isEnabled = enabled
     }
+    
     func addTripToRealm() {
         if realm.objects(Trip.self).filter("name = %@", titleTextField.text!).count > 0 {
             let alert = UIAlertController(title: "Invalid Input", message: "Trip name already exists", preferredStyle: .alert)
@@ -256,68 +259,98 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
             
             return
         }
-        
+
+        let t = self.existingTrip != nil ? self.existingTrip! : Trip()
+
         try! realm.write {
-            let t = existingTrip != nil ? existingTrip! : Trip()
             
-            t.name = titleTextField.text!
-            t.destination = destinationTextField.text!
-            t.traveler = travelerNameTextField.text!
-            t.startDate = startDate
-            t.endDate = endDate
+            t.name = self.titleTextField.text!
+            t.destination = self.destinationTextField.text!
+            t.traveler = self.travelerNameTextField.text!
+            t.startDate = self.startDate
+            t.endDate = self.endDate
             
-            if let s = selectedCoordinates {
+            if let s = self.selectedCoordinates {
                 let l = Location()
                 l.latitude = s.latitude
                 l.longitude = s.longitude
                 
+                realm.add(l)
                 t.coordinates = l
             }
             else
             {
                 t.coordinates = nil
             }
-         
+            
             var gender = ""
-            if genderSelector.selectedSegmentIndex == 0 {
+            if self.genderSelector.selectedSegmentIndex == 0 {
                 gender = "Male"
-                addToItemList(trip: t, list: self.maleList)
-                addToItemList(trip: t, list: self.neutralList)
-            } else if genderSelector.selectedSegmentIndex == 1 {
+            } else if self.genderSelector.selectedSegmentIndex == 1 {
                 gender = "Female"
-                addToItemList(trip: t, list: self.femaleList)
-                addToItemList(trip: t, list: self.neutralList)
             } else {
                 gender = "Other"
-                addToItemList(trip: t, list: self.neutralList)
             }
+            
             t.gender = gender
             
-            // Calculate the number of days
-            let cal = Calendar.current
+            t.days.removeAll()
             
-            var thisDate: Date = startDate!
-            t.days.append(Day(thisDate))
-            repeat {
-                thisDate = cal.date(byAdding: .day,
-                                    value: 1,
-                                    to: thisDate)!
-                
-                t.days.append(Day(thisDate))
-            } while(thisDate < endDate!)
-            
-            if existingTrip == nil {
+            if self.existingTrip == nil {
                 realm.add(t)
-                currentTrip = t
+                self.currentTrip = t
             }
         }
-    }
-    
-    func addToItemList(trip: Trip, list: [String]) {
-        for itemName in list {
-            let i = Item()
-            i.name = itemName
-            trip.items.append(i)
+        
+        // Calculate the number of days
+        let cal = Calendar.current
+
+        var thisDate: Date = startDate!
+        var days = [Day(thisDate)]
+        
+        let dispatchGroup = DispatchGroup()
+        
+        repeat {
+            thisDate = cal.date(byAdding: .day,
+                                value: 1,
+                                to: thisDate)!
+            
+            let d = Day(thisDate)
+            days.append(d)
+        } while(thisDate < endDate!)
+        
+        for d in days {
+            dispatchGroup.enter()
+            
+            WeatherService.sharedInstance.getHistoricalWeather(forDay: d, inTrip: t, complete: { (err, weather) in
+                if let w = weather {
+                    d.weather = w
+                }
+                
+                if let e = err {
+                    print(e)
+                }
+                
+                dispatchGroup.leave()
+            })
+        }
+        
+        dispatchGroup.notify(queue: DispatchQueue.global(qos: .userInitiated)) {
+            DispatchQueue.main.async {
+                try! realm.write {
+                    for d in days {
+                        if let w = d.weather {
+                            realm.add(w)
+                        }
+                        
+                        realm.add(d)
+                    }
+                    
+                    t.days.append(objectsIn: days)
+                    
+                    print("done with weather and days")
+                }
+            }
         }
     }
     

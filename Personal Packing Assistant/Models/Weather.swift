@@ -43,4 +43,20 @@ class Weather : Object {
         self.icon = icon
     }
 
+    static let weatherMap = [
+        "clear-day"              : "☀️",
+        "clear-night"            : "🌙",
+        "rain"                   : "🌨",
+        "snow"                   : "❄️",
+        "sleet"                  : "❄️",
+        "wind"                   : "💨",
+        "fog"                    : "🌫",
+        "cloudy"                 : "☁️",
+        "partly-cloudy-day"      : "⛅️",
+        "partly-cloudy-night"    : "⛅️",
+    ]
+
+    public var emoji : String {
+        return Weather.weatherMap[icon]!
+    }
 }

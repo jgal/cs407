@@ -10,7 +10,7 @@ import Foundation
 import DarkSkyKit
 
 class WeatherService {
-    public let sharedInstance = WeatherService()
+    public static let sharedInstance = WeatherService()
     
     // use this class to update Weather models by utilizing the DarkSky API
     let forecastClient = DarkSkyKit(apiToken: "fb81f4a6cb4709d5d4c5364a472333f3")
@@ -24,7 +24,9 @@ class WeatherService {
     public func getHistoricalWeather(forDay: Day, inTrip: Trip, complete: @escaping (Error?, Weather?) -> Void) {
         let l = latLong(forTrip: inTrip)
         
-        forecastClient.timeMachine(latitude: l.0, longitude: l.1, date: forDay.date) { (forecast) in
+        let date = Date(timeIntervalSince1970: Double(UInt64(forDay.date.timeIntervalSince1970)))
+        
+        forecastClient.timeMachine(latitude: l.0, longitude: l.1, date: date) { (forecast) in
             if let e = forecast.error {
                 complete(e, nil)
             }

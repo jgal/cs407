@@ -30,10 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         
         window?.makeKeyAndVisible()
+        
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         // Comment out when modifying the models 
         // try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 
         changeColors()
+        /*
         
         let a1 = Activity()
         a1.icon = "🏊"
@@ -47,25 +51,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let a4 = Activity()
         a4.icon = "💃"
         a4.name = "dancing"
+        
         try! realm.write {
-            
             var sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a1.name)
             if ( sa1 == nil) {
                 realm.add(a1)
             }
+            
             sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a2.name)
             if ( sa1 == nil) {
                 realm.add(a2)
             }
+            
             sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a3.name)
             if ( sa1 == nil) {
                 realm.add(a3)
             }
+            
             sa1 = realm.object(ofType: Activity.self, forPrimaryKey: a4.name)
             if ( sa1 == nil) {
                 realm.add(a4)
             }
         }
+         */
+ 
         return true
     }
     
