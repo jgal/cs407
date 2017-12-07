@@ -60,7 +60,7 @@
 		70F6B6371F87110800F42148 /* AddItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
 		70F6B63E1F87129400F42148 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		70F6B63F1F87129400F42148 /* AddTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTripViewController.xib; sourceTree = "<group>"; };
-		7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Packing Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C61B3A51F6A21A10072B31F /* Packmap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Packmap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C61B3A81F6A21A10072B31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C61B3AA1F6A21A10072B31F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7C61B3AD1F6A21A10072B31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		7C61B3A61F6A21A10072B31F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */,
+				7C61B3A51F6A21A10072B31F /* Packmap.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,9 +209,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7C61B3A41F6A21A10072B31F /* Personal Packing Assistant */ = {
+		7C61B3A41F6A21A10072B31F /* Packmap */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7C61B3B71F6A21A10072B31F /* Build configuration list for PBXNativeTarget "Personal Packing Assistant" */;
+			buildConfigurationList = 7C61B3B71F6A21A10072B31F /* Build configuration list for PBXNativeTarget "Packmap" */;
 			buildPhases = (
 				CF0453D6E49CCB1785DB74C2 /* [CP] Check Pods Manifest.lock */,
 				7C61B3A11F6A21A10072B31F /* Sources */,
@@ -224,9 +224,9 @@
 			);
 			dependencies = (
 			);
-			name = "Personal Packing Assistant";
+			name = Packmap;
 			productName = "Personal Packing Assistant";
-			productReference = 7C61B3A51F6A21A10072B31F /* Personal Packing Assistant.app */;
+			productReference = 7C61B3A51F6A21A10072B31F /* Packmap.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -258,7 +258,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7C61B3A41F6A21A10072B31F /* Personal Packing Assistant */,
+				7C61B3A41F6A21A10072B31F /* Packmap */,
 			);
 		};
 /* End PBXProject section */
@@ -557,7 +557,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7C61B3B71F6A21A10072B31F /* Build configuration list for PBXNativeTarget "Personal Packing Assistant" */ = {
+		7C61B3B71F6A21A10072B31F /* Build configuration list for PBXNativeTarget "Packmap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7C61B3B81F6A21A10072B31F /* Debug */,
