@@ -18,6 +18,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     var currentItem: TripItem?
     var number: Int
     var items: List<TripItem>!
+    var quant: Int
     
     let blueColor = UIColor(red: 60/255, green: 155/255, blue: 175/255, alpha: 1.0)
     let greyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
@@ -31,14 +32,14 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     public init(withExistingTrip: Trip!, withItemToEdit: TripItem!, index: Int) {
         assignedTrip = withExistingTrip
         self.items = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.tripItems
-        self.number = index
-
+        self.quant = 0
         self.number = -1
         currentItem = withItemToEdit
         var count = 0;
         for item in assignedTrip.tripItems {
             if (item.name ==  currentItem?.name) {
-                self.number = count;
+                self.number = count
+                self.quant = (currentItem?.quantity)!
                 break
             }
             count += 1;
@@ -66,8 +67,10 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             ItemName.text = currentItem?.name
             var k :String
             k = String((currentItem?.quantity)!)
+            self.quant = (currentItem?.quantity)!
             Quantity.text = k
         } else {
+            quant = 0
             Quantity.text = "0"
         }
         ItemName.tintColor = blueColor
@@ -120,7 +123,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             let i = TripItem()
             print(ItemName.text!)
             i.name = ItemName.text!
-            
+            i.quantity = self.quant
             
             if (number != -1) {
                 self.assignedTrip.tripItems[number] = i
@@ -132,54 +135,21 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func DecQuantity(_ sender: Any) {
-        try! realm.write {
-            var i = TripItem()
-            if ( number == -1 ) {
-                i.name = ItemName.text!
-                i.quantity = 0
-            } else {
-                i = currentItem!
-            }
-            
-           
-            i.quantity -= 1
-            
+        
+        if ( self.quant > 0) {
             var k :String
-            k = String((i.quantity))
+            self.quant -= 1
+            k = String(self.quant)
             Quantity.text = k
-            if (number != -1) {
-                self.assignedTrip.tripItems[number] = i
-                currentItem = i
-            } else {
-                self.assignedTrip.tripItems.append(i)
-                currentItem = i
-            }
         }
     }
     
     @IBAction func IncQuantity(_ sender: Any) {
-        try! realm.write {
-            var i = TripItem()
-            if ( number == -1 ) {
-                i.name = ItemName.text!
-                i.quantity = 0
-            } else {
-                i = currentItem!
-            }
-            
-            
-            i.quantity += 1
-            
+        if ( self.quant < 99) {
             var k :String
-            k = String((i.quantity))
+            self.quant += 1
+            k = String(self.quant)
             Quantity.text = k
-            if (number != -1) {
-                self.assignedTrip.tripItems[number] = i
-                currentItem = i
-            } else {
-                self.assignedTrip.tripItems.append(i)
-                currentItem = i
-            }
         }
     }
     

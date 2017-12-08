@@ -15,9 +15,12 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
 
 
     @IBOutlet weak var packingListTable: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
+
     let assignedTrip: Trip
     //var items: [TripItem]!
     var items: Results<TripItem>!
+    var filteredItems = [TripItem]()
     init(withExistingTrip: Trip!) {
         assignedTrip = withExistingTrip
         
@@ -43,6 +46,11 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         
         packingListTable.delegate = self
         packingListTable.dataSource = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Trip Items"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +76,10 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return self.items.count;
+        if isFiltering() {
+            return self.filteredItems.count
+        }
+        return self.items.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,8 +95,13 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = b!
         
         // set the text from the data model
-        let item = self.items[indexPath.row]
-        
+        //let item = self.items[indexPath.row]
+        let item : TripItem
+        if isFiltering() {
+            item = self.filteredItems[indexPath.row]
+        } else {
+            item = self.items[indexPath.row]
+        }
         cell.textLabel?.text = String(item.quantity) + " \t" + item.name
         cell.detailTextLabel?.text = nil
         //cell.detailTextLabel?.numberOfLines = 0
@@ -114,7 +130,12 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
-            let t = self.items[indexPath.row]
+            let t : TripItem
+            if self.isFiltering() {
+                t = self.filteredItems[indexPath.row]
+            } else {
+                t = self.items[indexPath.row]
+            }
             print("delete  \(t.name)")
             var count = 0
             var number = -1
@@ -134,7 +155,12 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
-            let t = self.items[indexPath.row]
+            let t : TripItem
+            if self.isFiltering() {
+                t = self.filteredItems[indexPath.row]
+            } else {
+                t = self.items[indexPath.row]
+            }
             let vc = AddItemViewController(withExistingTrip: self.assignedTrip, withItemToEdit: t, index: indexPath.row)
             
             self.navigationController?.pushViewController(vc, animated: true)
@@ -153,7 +179,22 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
-
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredItems = items.filter({( item : TripItem) -> Bool in
+            return item.name.lowercased().contains(searchText.lowercased())
+        })
+        
+        self.packingListTable.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
     /*
     // MARK: - Navigation
 
@@ -164,4 +205,11 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     */
 
+}
+
+extension PackingListViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
 }
