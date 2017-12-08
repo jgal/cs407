@@ -12,25 +12,35 @@ import RealmSwift
 import SkyFloatingLabelTextField
 
 class AddItemViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var ItemName: SkyFloatingLabelTextField!
+    
     
     var assignedTrip: Trip
     var currentItem: TripItem?
     var number: Int
     var items: List<TripItem>!
     
-    init(withExistingTrip: Trip!, withItemToEdit: TripItem!, index: Int) {
+    let blueColor = UIColor(red: 60/255, green: 155/255, blue: 175/255, alpha: 1.0)
+    let greyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
+    
+    @IBOutlet weak var ItemName: SkyFloatingLabelTextField!
+    @IBOutlet weak var Quantity: SkyFloatingLabelTextField!
+    @IBOutlet weak var QuantityStepper: UIStepper!
+    
+    public init(withExistingTrip: Trip!, withItemToEdit: TripItem!, index: Int) {
         assignedTrip = withExistingTrip
         self.items = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.tripItems
         self.number = index
 
-        if(self.number != -1) {
-            currentItem = self.items[self.number]
-        } else {
-            currentItem = TripItem()
+        self.number = -1
+        currentItem = withItemToEdit
+        var count = 0;
+        for item in assignedTrip.tripItems {
+            if (item.name ==  currentItem?.name) {
+                self.number = count;
+                break
+            }
+            count += 1;
         }
-        
-        
         super.init(nibName: String(describing: AddItemViewController.self), bundle: Bundle.main)
         
     }
@@ -52,7 +62,22 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
 
         if (self.number != -1) {
             ItemName.text = currentItem?.name
+            var k :String
+            k = String((currentItem?.quantity)!)
+            Quantity.text = k
+        } else {
+            Quantity.text = "0"
         }
+        ItemName.tintColor = blueColor
+        ItemName.lineColor = blueColor
+        ItemName.selectedTitleColor = blueColor
+        ItemName.selectedLineColor = blueColor
+        Quantity.tintColor = blueColor
+        Quantity.lineColor = blueColor
+        Quantity.selectedTitleColor = blueColor
+        Quantity.selectedLineColor = blueColor
+        QuantityStepper.tintColor = blueColor
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,6 +109,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             print(ItemName.text!)
             i.name = ItemName.text!
             
+            
             if (number != -1) {
                 self.assignedTrip.tripItems[number] = i
             } else {
@@ -93,6 +119,33 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+  
+    @IBAction func QuantityChange(_ sender: Any) {
+        try! realm.write {
+            var i = TripItem()
+            if ( number == -1 ) {
+                i.name = ItemName.text!
+                i.quantity = 0
+            } else {
+                i = currentItem!
+            }
+            
+            print( i.quantity)
+            let value = self.QuantityStepper.value
+                i.quantity = i.quantity + Int(value)
+            
+            var k :String
+            k = String((i.quantity))
+            Quantity.text = k
+            if (number != -1) {
+                self.assignedTrip.tripItems[number] = i
+                currentItem = i
+            } else {
+                self.assignedTrip.tripItems.append(i)
+                currentItem = i
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
