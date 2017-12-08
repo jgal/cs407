@@ -174,7 +174,7 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 if (indexPath.section == 0) {
-                        let secondViewController = DayOverviewViewController(withExistingTrip: self.trip, selectedDay: self.trip.days[indexPath.row], indexPathRow: indexPath.row)
+                        let secondViewController = DayOverviewViewController(withExistingTrip: self.trip, indexPathRow: indexPath.row)
                         navigationController?.pushViewController(secondViewController, animated: true)
                     }
             }
