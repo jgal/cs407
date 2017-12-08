@@ -9,11 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddItemViewController" customModule="Personal_Packing_Assistant" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddItemViewController" customModule="Packmap" customModuleProvider="target">
             <connections>
+                <outlet property="DecQ" destination="l8n-Ub-Xjx" id="6UM-Wj-enD"/>
+                <outlet property="IncQ" destination="Lj6-fm-AWJ" id="5VG-el-1hG"/>
                 <outlet property="ItemName" destination="kHB-QO-Ouy" id="fwt-7p-fCx"/>
                 <outlet property="Quantity" destination="WGo-7M-FyH" id="O29-DR-POV"/>
-                <outlet property="QuantityStepper" destination="dGd-pI-XGy" id="XUm-09-dTO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,8 +37,8 @@
                     <rect key="frame" x="32" y="265" width="327" height="63"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Quantity" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WGo-7M-FyH" userLabel="Quantity" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                            <rect key="frame" x="0.0" y="12" width="222" height="39"/>
+                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Quantity" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WGo-7M-FyH" userLabel="Quantity" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                            <rect key="frame" x="0.0" y="12" width="255" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration">
                                 <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -55,17 +56,35 @@
                                     <color key="value" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                    <color key="value" red="0.23529411759999999" green="0.60784313729999995" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="value" red="0.23541685938835144" green="0.60731750726699829" blue="0.68745017051696777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" autorepeat="NO" wraps="YES" value="1" minimumValue="1" maximumValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dGd-pI-XGy">
-                            <rect key="frame" x="230" y="22" width="94" height="29"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lj6-fm-AWJ" userLabel="Inc Quantity">
+                            <rect key="frame" x="297" y="21" width="30" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <color key="tintColor" red="0.23541685938835144" green="0.60731750726699829" blue="0.68745017051696777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="+">
+                                <color key="titleColor" red="0.23541685938835144" green="0.60731750726699829" blue="0.68745017051696777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                             <connections>
-                                <action selector="QuantityChange:" destination="-1" eventType="valueChanged" id="woI-Nf-wdw"/>
+                                <action selector="IncQuantity:" destination="-1" eventType="touchUpInside" id="bf3-oA-bsJ"/>
                             </connections>
-                        </stepper>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8n-Ub-Xjx" userLabel="DQ">
+                            <rect key="frame" x="268" y="21" width="30" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <color key="tintColor" red="0.23541685938835144" green="0.60731750726699829" blue="0.68745017051696777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="-">
+                                <color key="titleColor" red="0.23541685938835144" green="0.60731750726699829" blue="0.68745017051696777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="DecQuantity:" destination="-1" eventType="touchUpInside" id="8aY-la-1Gm"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>

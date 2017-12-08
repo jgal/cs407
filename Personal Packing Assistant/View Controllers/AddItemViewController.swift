@@ -24,7 +24,9 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var ItemName: SkyFloatingLabelTextField!
     @IBOutlet weak var Quantity: SkyFloatingLabelTextField!
-    @IBOutlet weak var QuantityStepper: UIStepper!
+    @IBOutlet weak var DecQ: UIButton!
+    @IBOutlet weak var IncQ: UIButton!
+    
     
     public init(withExistingTrip: Trip!, withItemToEdit: TripItem!, index: Int) {
         assignedTrip = withExistingTrip
@@ -76,8 +78,18 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         Quantity.lineColor = blueColor
         Quantity.selectedTitleColor = blueColor
         Quantity.selectedLineColor = blueColor
-        QuantityStepper.tintColor = blueColor
-        
+        //DecQ.tintColor = blueColor
+       // IncQ.tintColor = blueColor
+        //DecQ.backgroundColor = blueColor
+       // IncQ.backgroundColor = blueColor
+        DecQ.backgroundColor = .clear
+        DecQ.layer.cornerRadius = 4
+        DecQ.layer.borderWidth = 2
+        DecQ.layer.borderColor = blueColor.cgColor
+        IncQ.backgroundColor = .clear
+        IncQ.layer.cornerRadius = 4
+        IncQ.layer.borderWidth = 2
+        IncQ.layer.borderColor = blueColor.cgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,8 +131,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-  
-    @IBAction func QuantityChange(_ sender: Any) {
+    @IBAction func DecQuantity(_ sender: Any) {
         try! realm.write {
             var i = TripItem()
             if ( number == -1 ) {
@@ -130,9 +141,8 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
                 i = currentItem!
             }
             
-            print( i.quantity)
-            let value = self.QuantityStepper.value
-                i.quantity = i.quantity + Int(value)
+           
+            i.quantity -= 1
             
             var k :String
             k = String((i.quantity))
@@ -146,14 +156,32 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func IncQuantity(_ sender: Any) {
+        try! realm.write {
+            var i = TripItem()
+            if ( number == -1 ) {
+                i.name = ItemName.text!
+                i.quantity = 0
+            } else {
+                i = currentItem!
+            }
+            
+            
+            i.quantity += 1
+            
+            var k :String
+            k = String((i.quantity))
+            Quantity.text = k
+            if (number != -1) {
+                self.assignedTrip.tripItems[number] = i
+                currentItem = i
+            } else {
+                self.assignedTrip.tripItems.append(i)
+                currentItem = i
+            }
+        }
     }
-    */
-
+    
+    
 }

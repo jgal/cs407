@@ -34,18 +34,8 @@
                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1d-os-kPD">
-                    <rect key="frame" x="87" y="430.5" width="70" height="36"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="new trip">
-                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="planNewTripTappedWithSender:" destination="-1" eventType="touchUpInside" id="hjm-Oq-l9x"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFl-jh-BYb">
-                    <rect key="frame" x="218" y="430.5" width="64" height="36"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFl-jh-BYb">
+                    <rect key="frame" x="213" y="430.5" width="64" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="view all">
                         <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -61,15 +51,25 @@
                         <constraint firstAttribute="height" constant="30" id="mR7-p2-qcx"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1d-os-kPD">
+                    <rect key="frame" x="93" y="430" width="70" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="new trip">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="planNewTripTappedWithSender:" destination="-1" eventType="touchUpInside" id="hjm-Oq-l9x"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="thj-tM-jBn" firstAttribute="centerX" secondItem="JGr-ta-JFI" secondAttribute="centerX" id="1kw-cr-64d"/>
                 <constraint firstItem="JGr-ta-JFI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="120" id="95u-SZ-H9y"/>
                 <constraint firstItem="Wma-d5-QgG" firstAttribute="centerX" secondItem="thj-tM-jBn" secondAttribute="centerX" id="G7n-oN-fQ6"/>
-                <constraint firstItem="QFl-jh-BYb" firstAttribute="leading" secondItem="Wma-d5-QgG" secondAttribute="trailing" constant="5" id="UIA-ZF-Vle"/>
+                <constraint firstItem="QFl-jh-BYb" firstAttribute="leading" secondItem="Wma-d5-QgG" secondAttribute="trailing" constant="10" id="UIA-ZF-Vle"/>
                 <constraint firstItem="L1d-os-kPD" firstAttribute="top" secondItem="thj-tM-jBn" secondAttribute="bottom" constant="12" id="Vdv-3Z-dxG"/>
-                <constraint firstItem="Wma-d5-QgG" firstAttribute="leading" secondItem="L1d-os-kPD" secondAttribute="trailing" constant="5" id="cps-qG-mgs"/>
+                <constraint firstItem="Wma-d5-QgG" firstAttribute="leading" secondItem="L1d-os-kPD" secondAttribute="trailing" constant="10" id="cps-qG-mgs"/>
                 <constraint firstItem="thj-tM-jBn" firstAttribute="top" secondItem="JGr-ta-JFI" secondAttribute="bottom" constant="-20" id="dZo-BM-Lgs"/>
                 <constraint firstItem="QFl-jh-BYb" firstAttribute="top" secondItem="thj-tM-jBn" secondAttribute="bottom" constant="12" id="tkE-ot-olt"/>
                 <constraint firstItem="Wma-d5-QgG" firstAttribute="top" secondItem="thj-tM-jBn" secondAttribute="bottom" constant="16" id="tzL-cS-TQO"/>
