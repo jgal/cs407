@@ -16,4 +16,8 @@ class TripItem : Object {
     @objc dynamic var packed: Bool = false
 
     let items = List<Item>()
+    
+    override static func primaryKey() -> String? {
+        return "name"
+    }
 }

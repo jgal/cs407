@@ -170,11 +170,19 @@ class AddTripActivityViewController: UIViewController, UITableViewDelegate, UITa
         
         try! realm.write {
             for i in items {
-                realm.add(i)
-                currentTrip.tripItems.append(i)
+                var itemThatExists = realm.objects(TripItem.self).filter("name = %@", i.name).first
+                
+                if itemThatExists == nil {
+                    realm.add(i)
+                }
+                itemThatExists = currentTrip.tripItems.filter("name = %@", i.name).first
+                if itemThatExists == nil {
+                    currentTrip.tripItems.append(i)
+                    
+                }
+                
             }
         }
-        
         let alltripsVC = AllTripsTableViewController()
         let secondViewController = TripOverviewViewController(withExistingTrip: currentTrip)
         
