@@ -31,6 +31,7 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         day = self.assignedTrip.days[self.dayIndex]
         self.outfits = self.day.outfits
         if(self.number != -1) {
+            print("in if statement")
             currentOutfit = self.outfits[self.number]
         } else {
             currentOutfit = Outfit()
@@ -44,6 +45,7 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
     }
     
     override func viewDidLoad() {
+        print("add outfit did load")
         super.viewDidLoad()
         
         title = "Add Outfit"

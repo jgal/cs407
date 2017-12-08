@@ -59,9 +59,8 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func readTasksAndUpdateUI(){
-        trip = realm.objects(Trip.self).filter("name = %@", tripName).first
-        self.outfits = self.trip.outfits
-        self.activities = self.trip.activities
+        self.outfits = self.day.outfits
+        self.activities = self.day.activities
         
         self.table.setEditing(false, animated: true)
         self.table.reloadData()
@@ -71,7 +70,6 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
         return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberOfRowsInSection \(section)");
         switch ( section  ) {
         case 0:
             return 1 //weather
@@ -104,8 +102,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var c = self.table.dequeueReusableCell(withIdentifier: "subtitle")
         
-        print("cellForRowAt \(indexPath)");
-        //let day = trip.days[indexPath.row]
+
         let weather = day.weather!
         
         if c == nil {
@@ -117,7 +114,6 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE, MMMM d, yyy"
         if (indexPath.section == 0) {
-            print("section 0")
             cell.textLabel?.text = "\(weather.emoji)"
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 30.0)
             
@@ -126,9 +122,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.accessoryType = .none
             cell.selectionStyle = .none
-            print("section 0 end")
         } else if (indexPath.section == 1) {
-             print("section 1")
             var count = 0
             print(day)
             for object in day.activities {
@@ -184,6 +178,30 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if ( indexPath.section == 2 ) {
+         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
+         try! realm.write{
+         self.day.outfits.remove(objectAtIndex: indexPath.row)
+         self.readTasksAndUpdateUI()
+         }
+         }
+         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
+            print("after editAction \(indexPath.row)")
+         let t = self.day.outfits[indexPath.row]
+            print("after outfits indexpath")
+         let vc = AddOutfitViewController(withExistingTrip: self.trip, dayIndex: self.row, withOutfitToEdit: t, outfitIndex: indexPath.row)
+            
+         
+         self.navigationController?.pushViewController(vc, animated: true)
+         }
+         
+         return [deleteAction, editAction]
+         }
+        
+        return []
     }
     
     
