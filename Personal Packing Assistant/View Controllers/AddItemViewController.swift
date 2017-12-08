@@ -136,7 +136,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func DecQuantity(_ sender: Any) {
         
-        if ( self.quant > 0) {
+        if ( self.quant > 1) {
             var k :String
             self.quant -= 1
             k = String(self.quant)
