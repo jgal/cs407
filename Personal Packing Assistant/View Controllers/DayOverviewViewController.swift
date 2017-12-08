@@ -162,7 +162,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
                 })
             }
             
-            cell.imageView?.image = thumbnail
+            cell.imageView?.image = UIImage(data: day.outfits[indexPath.row].image!)
             cell.textLabel?.text = "\(day.outfits[indexPath.row].name)"
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
             cell.accessoryType = .none

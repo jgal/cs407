@@ -22,7 +22,7 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
     var dayIndex: Int
     var day: Day
     var outfits: List<Outfit>!
-    var image = UIImage()
+    var image : UIImage?
     
     public init(withExistingTrip: Trip, dayIndex: Int, withOutfitToEdit: Outfit!, outfitIndex: Int) {
         assignedTrip = withExistingTrip
@@ -58,10 +58,11 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         if (self.number != -1) {
             OutfitNameTextField.text = currentOutfit?.name
             OutfitImageView.contentMode = .scaleToFill
+            image = UIImage(data: (currentOutfit?.image)!)
             OutfitImageView.image = UIImage(data: (currentOutfit?.image)!)
         }
             OutfitImageView.contentMode = .scaleToFill
-            OutfitImageView.image = UIImage(named: "no_image")
+            //OutfitImageView.image = UIImage(named: "no_image")
        
     
     }

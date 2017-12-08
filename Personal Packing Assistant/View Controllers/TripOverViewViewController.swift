@@ -35,7 +35,7 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
 
         readTasksAndUpdateUI()
         
-        title = trip.destination
+        title = "\(trip.traveler)'s Trip"
         navigationItem.prompt = "\(trip.name) Overview"
         
         self.table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
