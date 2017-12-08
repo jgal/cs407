@@ -181,7 +181,24 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        if ( indexPath.section == 2 ) {
+        
+        if ( indexPath.section == 1 ) {
+            let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
+                try! realm.write{
+                    self.day.activities.remove(objectAtIndex: indexPath.row)
+                    self.readTasksAndUpdateUI()
+                }
+            }
+            let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
+                let t = self.trip
+                let vc = AddTripActivityViewController(selectedTrip: t!, fromDay: self.row)
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            return [deleteAction, editAction]
+        }
+        else if ( indexPath.section == 2 ) {
          let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
          try! realm.write{
          self.day.outfits.remove(objectAtIndex: indexPath.row)
