@@ -197,7 +197,7 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
             
             return [deleteAction, editAction]
         }
-        else if ( indexPath.section == 2 ) {
+       /* else if ( indexPath.section == 2 ) {
             let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
                 try! realm.write{
                     self.trip.outfits.remove(objectAtIndex: indexPath.row)
@@ -212,7 +212,7 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
             }
             
             return [deleteAction, editAction]
-        }
+        }*/
         
         return []
     }

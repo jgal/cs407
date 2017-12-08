@@ -188,7 +188,8 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     @IBAction func addOutfitTapped(sender: Any) {
-        let secondViewController = AddOutfitViewController(withExistingTrip: self.trip, withOutfitToEdit: nil, index: row)
+        let secondViewController = AddOutfitViewController(withExistingTrip: self.trip, dayIndex: row, withOutfitToEdit: nil, outfitIndex: -1)
+        
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     
