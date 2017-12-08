@@ -340,6 +340,11 @@ span.botted {
     background-size: cover;
      padding: 6em 0em;
 }
+
+.services img {
+    width: 400px;
+}
+
 .service-main {
 	  
 }
