@@ -76,17 +76,19 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         // addOutfitToRealm()
         
         print("trip name: \(assignedTrip.name) dayIndex: \(dayIndex)")
+        
+        let alltripsVC = TripOverviewViewController(withExistingTrip: self.assignedTrip)
+        
+        
          let secondViewController = DayOverviewViewController(withExistingTrip: assignedTrip, indexPathRow: dayIndex )
-        /*let alltripsVC = AllTripsTableViewController()
-        var vcs = [
+        let vcs = [
             navigationController?.viewControllers[0],
             alltripsVC,
             secondViewController
         ]
+        print("just before DayOverview")
         navigationController?.setViewControllers(vcs as! [UIViewController], animated: true)
-       */
         
-        navigationController?.pushViewController(secondViewController, animated: true)
     }
     
     @IBAction func takePhotoTapped(_ sender: UIButton) {
