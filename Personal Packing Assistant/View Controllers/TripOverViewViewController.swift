@@ -189,7 +189,8 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
             }
             let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
                 let t = self.trip
-                let vc = AddTripActivityViewController(selectedTrip: t!)
+                 let num = -1;
+                let vc = AddTripActivityViewController(selectedTrip: t!, fromDay: num)
                 
                 self.navigationController?.pushViewController(vc, animated: true)
             }
@@ -225,7 +226,8 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func AddObject(_ sender: Any) {
-        let secondViewController = AddTripActivityViewController(selectedTrip: self.trip)
+        let num = -1;
+        let secondViewController = AddTripActivityViewController(selectedTrip: self.trip, fromDay: num)
         navigationController?.pushViewController(secondViewController, animated: true)
 
     }

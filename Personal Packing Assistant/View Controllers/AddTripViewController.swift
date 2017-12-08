@@ -227,8 +227,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate  {
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         addTripToRealm()
-
-        let secondViewController = AddTripActivityViewController(selectedTrip: currentTrip)
+        let num = -1
+        let secondViewController = AddTripActivityViewController(selectedTrip: currentTrip, fromDay: num)
         navigationController?.pushViewController(secondViewController, animated: true)
        
         

@@ -40,10 +40,12 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             if (item.name ==  currentItem?.name) {
                 self.number = count
                 self.quant = (currentItem?.quantity)!
+                print("exists")
                 break
             }
             count += 1;
         }
+        print("\(self.number)  exists")
         super.init(nibName: String(describing: AddItemViewController.self), bundle: Bundle.main)
         
     }
@@ -55,6 +57,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         title = "Add Item"
@@ -64,6 +67,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         navigationItem.rightBarButtonItem?.isEnabled = true
 
         if (self.number != -1) {
+            print("please be here  1")
             ItemName.text = currentItem?.name
             var k :String
             k = String((currentItem?.quantity)!)
@@ -126,6 +130,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             i.quantity = self.quant
             
             if (number != -1) {
+                print("please be here 2")
                 self.assignedTrip.tripItems[number] = i
             } else {
                 self.assignedTrip.tripItems.append(i)

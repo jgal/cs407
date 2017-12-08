@@ -25,11 +25,12 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
     var activities: List<Activity>!
     
     public init(withExistingTrip: Trip, indexPathRow: Int) {
+        print("\(withExistingTrip.name), row=\(indexPathRow)")
         trip = withExistingTrip
         tripName = withExistingTrip.name
         row = indexPathRow
-        day = trip.days[row]
-       
+        day = withExistingTrip.days[row]
+        print("\(withExistingTrip.name), row=\(indexPathRow)")
         super.init(nibName: String(describing: DayOverviewViewController.self), bundle: Bundle.main)
     }
     
@@ -41,7 +42,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         readTasksAndUpdateUI()
         navigationItem.prompt = "\(tripName) - Day \(row + 1)  Overview"
-              
+              print("day overview did load")
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE, MMMM d, yyy"
         title = "Day \(row+1): \(formatter.string(from: day.date))"
@@ -70,6 +71,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
         return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numberOfRowsInSection \(section)");
         switch ( section  ) {
         case 0:
             return 1 //weather
@@ -85,6 +87,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        print("titleForHeaderInSection \(section)");
         if ( section == 0) {
             return "Weather"
         } else if ( section == 1) {
@@ -101,8 +104,8 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var c = self.table.dequeueReusableCell(withIdentifier: "subtitle")
         
-        
-        let day = trip.days[indexPath.row]
+        print("cellForRowAt \(indexPath)");
+        //let day = trip.days[indexPath.row]
         let weather = day.weather!
         
         if c == nil {
@@ -114,6 +117,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE, MMMM d, yyy"
         if (indexPath.section == 0) {
+            print("section 0")
             cell.textLabel?.text = "\(weather.emoji)"
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 30.0)
             
@@ -122,7 +126,15 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.accessoryType = .none
             cell.selectionStyle = .none
+            print("section 0 end")
         } else if (indexPath.section == 1) {
+             print("section 1")
+            var count = 0
+            print(day)
+            for object in day.activities {
+                print("\(count): \(object.name) -> \(object.icon)")
+                count += 1
+            }
             cell.imageView?.image = day.activities[indexPath.row].icon.image()
             cell.textLabel?.text = "\(day.activities[indexPath.row].name)"
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
@@ -132,8 +144,9 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .default
-            
+            print("section 1 end")
         } else if (indexPath.section == 2) {
+             print("section 2")
             let fetchOptions = PHFetchOptions()
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
             fetchOptions.fetchLimit = 1
@@ -164,6 +177,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .default
+             print("section 2 end")
         }
 
         
@@ -179,7 +193,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func addActivityTapped(sender: Any) {
-        let secondViewController = AddTripActivityViewController(selectedTrip: self.trip)
+        let secondViewController = AddTripActivityViewController(selectedTrip: self.trip, fromDay: self.row)
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     override func didReceiveMemoryWarning() {
