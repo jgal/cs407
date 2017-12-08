@@ -15,6 +15,8 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
    
     @IBOutlet weak var table: UITableView!
     let tripName: String
+    @IBOutlet weak var AddOutfitButton: UIButton!
+    @IBOutlet weak var AddActivityButton: UIButton!
     var day: Day!
     var trip : Trip!
     var row: Int
@@ -170,10 +172,22 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    
+    @IBAction func addOutfitTapped(sender: Any) {
+        let secondViewController = AddOutfitViewController(withExistingTrip: self.trip, withOutfitToEdit: nil, index: row)
+        navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    
+    @IBAction func addActivityTapped(sender: Any) {
+        let secondViewController = AddTripActivityViewController(selectedTrip: self.trip)
+        navigationController?.pushViewController(secondViewController, animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*
