@@ -32,7 +32,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Outfit"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-Ji-xAC">
+                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-Ji-xAC">
                     <rect key="frame" x="18" y="81" width="338" height="340"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

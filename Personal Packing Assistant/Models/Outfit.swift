@@ -12,7 +12,7 @@ import RealmSwift
 class Outfit : Object {
     // MARK: Properties
     @objc dynamic var name: String = ""
-    @objc dynamic var photoFilePath: String = ""
+    @objc dynamic var image: Data?
     
     let items = List<Item>()
     let categories = List<Category>()

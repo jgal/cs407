@@ -15,13 +15,14 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
     @IBOutlet weak var OutfitImageView: UIImageView!
     @IBOutlet weak var TakePhotoButton: UIButton!
     @IBOutlet weak var OutfitNameTextField: SkyFloatingLabelTextField!
-    
+    var imagePicker = UIImagePickerController()
     let assignedTrip : Trip
     var currentOutfit: Outfit?
     var number: Int
     var dayIndex: Int
     var day: Day
     var outfits: List<Outfit>!
+    var image = UIImage()
     
     public init(withExistingTrip: Trip, dayIndex: Int, withOutfitToEdit: Outfit!, outfitIndex: Int) {
         assignedTrip = withExistingTrip
@@ -29,7 +30,6 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         self.dayIndex = dayIndex
         day = self.assignedTrip.days[self.dayIndex]
         self.outfits = self.day.outfits
-
         if(self.number != -1) {
             currentOutfit = self.outfits[self.number]
         } else {
@@ -48,13 +48,20 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         
         title = "Add Outfit"
         
+        
         let buttonTitle = "Done"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .done, target: self, action: #selector(doneButtonTapped(_:)))
         //navigationItem.rightBarButtonItem?.isEnabled = false
         
         if (self.number != -1) {
             OutfitNameTextField.text = currentOutfit?.name
+            OutfitImageView.contentMode = .scaleToFill
+            OutfitImageView.image = UIImage(data: (currentOutfit?.image)!)
         }
+            OutfitImageView.contentMode = .scaleToFill
+            OutfitImageView.image = UIImage(named: "no_image")
+       
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,25 +103,23 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
             print("Open Camera")
     
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                var imagePicker = UIImagePickerController()
-                imagePicker = UIImagePickerController()
-                imagePicker.delegate = self
-                imagePicker.sourceType = .camera
-                imagePicker.allowsEditing = false
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.allowsEditing = false
         
-                self.present(imagePicker, animated: true, completion: nil)
+                self.present(self.imagePicker, animated: true, completion: nil)
             }
         })
         let libraryAction = UIAlertAction(title: "Open Library", style: .default, handler: { (alert: UIAlertAction!) -> Void in
             print("Open Photo Library")
             
-            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                var imagePicker = UIImagePickerController()
-                imagePicker.delegate = self
-                imagePicker.sourceType = .photoLibrary
-                imagePicker.allowsEditing = true
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+                print("Button capture")
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .savedPhotosAlbum;
+                self.imagePicker.allowsEditing = false
                 
-                self.present(imagePicker, animated: true, completion: nil)
+                self.present(self.imagePicker, animated: true, completion: nil)
             }
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in
@@ -128,17 +133,25 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         self.present(optionMenu, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        OutfitImageView.image = image
-        dismiss(animated: true, completion: nil)
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                self.OutfitImageView.contentMode = .scaleToFill
+                self.OutfitImageView.image = pickedImage
+            }
+            picker.dismiss(animated: true, completion: nil)
     }
     
+    
+    private func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     func addOutfitToRealm() {
         let o = Outfit()
         
         print(OutfitNameTextField.text!)
         o.name = OutfitNameTextField.text!
+        let imageData = UIImagePNGRepresentation(OutfitImageView.image!)
+        o.image = imageData
         
         // TODO add to data structure
         print("row number is \(self.number)")
