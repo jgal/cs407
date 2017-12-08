@@ -115,6 +115,7 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
             let t = self.items[indexPath.row]
+            print("delete  \(t.name)")
             var count = 0
             var number = -1
             for item in self.assignedTrip.tripItems {
@@ -127,7 +128,7 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
             if ( number != -1 ) {
             //Deletion from list in realm
             try! realm.write{
-                self.assignedTrip.items.remove(objectAtIndex: number)
+                self.assignedTrip.tripItems.remove(objectAtIndex: number)
                 self.readTasksAndUpdateUI()
             }
             }
