@@ -19,13 +19,17 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
     let assignedTrip : Trip
     var currentOutfit: Outfit?
     var number: Int
+    var dayIndex: Int
+    var day: Day
     var outfits: List<Outfit>!
     
-    public init(withExistingTrip: Trip, withOutfitToEdit: Outfit!, index: Int) {
+    public init(withExistingTrip: Trip, dayIndex: Int, withOutfitToEdit: Outfit!, outfitIndex: Int) {
         assignedTrip = withExistingTrip
-        self.outfits = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.outfits
-        self.number = index
-        
+        self.number = outfitIndex
+        self.dayIndex = dayIndex
+        day = self.assignedTrip.days[self.dayIndex]
+        self.outfits = self.day.outfits
+
         if(self.number != -1) {
             currentOutfit = self.outfits[self.number]
         } else {
@@ -68,17 +72,19 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         // TODO
          addOutfitToRealm()
         // addOutfitToRealm()
-         let secondViewController = TripOverviewViewController(withExistingTrip: assignedTrip )
-        let alltripsVC = AllTripsTableViewController()
+        
+        print("trip name: \(assignedTrip.name) dayIndex: \(dayIndex)")
+         let secondViewController = DayOverviewViewController(withExistingTrip: assignedTrip, indexPathRow: dayIndex )
+        /*let alltripsVC = AllTripsTableViewController()
         var vcs = [
             navigationController?.viewControllers[0],
             alltripsVC,
             secondViewController
         ]
-        
         navigationController?.setViewControllers(vcs as! [UIViewController], animated: true)
-       
-        //avigationController?.pushViewController(secondViewController, animated: true)
+       */
+        
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
     
     @IBAction func takePhotoTapped(_ sender: UIButton) {
@@ -133,13 +139,15 @@ class AddOutfitViewController: UIViewController, UITextFieldDelegate, UINavigati
         o.name = OutfitNameTextField.text!
         
         // TODO add to data structure
-        
+        print("row number is \(self.number)")
         try! realm.write {
             if (number != -1) {
-                self.assignedTrip.outfits[number] = o
+                self.day.outfits[number] = o
             } else {
-                self.assignedTrip.outfits.append(o)
+                print("in else")
+                self.day.outfits.append(o)
                 currentOutfit = o
+                print("added to outfit list")
             }
         }
     }
