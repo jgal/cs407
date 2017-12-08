@@ -122,7 +122,7 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
             cell.detailTextLabel?.text = "Low: \(String(format: "%.0f", weather.minTemp))℉  Hi: \(String(format: "%.0f", weather.maxTemp))℉.\n\(weather.weatherName)"
             cell.detailTextLabel?.numberOfLines = 0
             
-            cell.accessoryType = .none
+            cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
         }
         else if (indexPath.section == 1) {
@@ -133,7 +133,7 @@ class TripOverviewViewController: UIViewController, UITableViewDelegate, UITable
             
             cell.detailTextLabel?.text = nil
             
-            cell.accessoryType = .disclosureIndicator
+            cell.accessoryType = .none
             cell.selectionStyle = .default
         }
         else if (indexPath.section == 2) {

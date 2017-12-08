@@ -22,9 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Outfit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJy-FW-kgk" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Outfit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJy-FW-kgk" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                     <rect key="frame" x="32" y="482" width="310" height="39"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -32,14 +31,15 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Outfit"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-Ji-xAC">
+                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-Ji-xAC">
                     <rect key="frame" x="18" y="81" width="338" height="340"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="340" id="pCX-Gb-W3c"/>
+                    </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lD-1T-N9m">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lD-1T-N9m">
                     <rect key="frame" x="258" y="429" width="98" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Change Photo"/>
                     <connections>
                         <action selector="takePhotoTapped:" destination="-1" eventType="touchUpInside" id="Fbw-1J-VxN"/>
@@ -47,6 +47,15 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0lD-1T-N9m" firstAttribute="top" secondItem="TtF-Ji-xAC" secondAttribute="bottom" constant="8" symbolic="YES" id="9JI-I7-Nz7"/>
+                <constraint firstItem="TtF-Ji-xAC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="PMt-p0-bdQ"/>
+                <constraint firstItem="TtF-Ji-xAC" firstAttribute="centerX" secondItem="qJy-FW-kgk" secondAttribute="centerX" id="Soq-yz-Lhv"/>
+                <constraint firstItem="TtF-Ji-xAC" firstAttribute="trailing" secondItem="0lD-1T-N9m" secondAttribute="trailing" id="Tq4-sE-euq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TtF-Ji-xAC" secondAttribute="trailing" constant="19" id="cNV-et-Ki9"/>
+                <constraint firstItem="qJy-FW-kgk" firstAttribute="top" secondItem="0lD-1T-N9m" secondAttribute="bottom" constant="23" id="rk5-OY-QTl"/>
+                <constraint firstItem="TtF-Ji-xAC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="61" id="z61-Yh-Eoc"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>

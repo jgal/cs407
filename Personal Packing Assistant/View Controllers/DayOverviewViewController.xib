@@ -22,14 +22,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w82-jK-uQG">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w82-jK-uQG">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPy-6Q-T4t">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPy-6Q-T4t">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Kwq-gO-Qea"/>
+                    </constraints>
                     <items>
                         <barButtonItem style="plain" id="Vyd-7S-xJ2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HrM-bu-cyK">
@@ -61,6 +62,18 @@
                 </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="w82-jK-uQG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0Oo-k5-ICf"/>
+                <constraint firstItem="DPy-6Q-T4t" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1rU-41-TvQ"/>
+                <constraint firstItem="DPy-6Q-T4t" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3ET-rq-Z3O"/>
+                <constraint firstItem="w82-jK-uQG" firstAttribute="leading" secondItem="DPy-6Q-T4t" secondAttribute="leading" id="ApE-Mu-e9m"/>
+                <constraint firstItem="DPy-6Q-T4t" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="IPJ-Jc-nlp"/>
+                <constraint firstItem="w82-jK-uQG" firstAttribute="bottom" secondItem="DPy-6Q-T4t" secondAttribute="top" id="L0w-hV-ijc"/>
+                <constraint firstItem="w82-jK-uQG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qgx-0S-VFw"/>
+                <constraint firstItem="DPy-6Q-T4t" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Tw7-Qz-Tza"/>
+                <constraint firstItem="w82-jK-uQG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eSC-5H-cM6"/>
+                <constraint firstItem="DPy-6Q-T4t" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ovj-UO-1cB"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="65.5"/>
         </view>

@@ -136,7 +136,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.detailTextLabel?.text = nil
             
-            cell.accessoryType = .disclosureIndicator
+            cell.accessoryType = .none
             cell.selectionStyle = .default
             print("section 1 end")
         } else if (indexPath.section == 2) {
@@ -169,7 +169,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.detailTextLabel?.text = nil
             
-            cell.accessoryType = .disclosureIndicator
+            cell.accessoryType = .none
             cell.selectionStyle = .default
              print("section 2 end")
         }
