@@ -15,9 +15,12 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
 
 
     @IBOutlet weak var packingListTable: UITableView!
-    let assignedTrip: Trip
-    var items: [TripItem]!
+    let searchController = UISearchController(searchResultsController: nil)
 
+    let assignedTrip: Trip
+    //var items: [TripItem]!
+    var items: Results<TripItem>!
+    var filteredItems = [TripItem]()
     init(withExistingTrip: Trip!) {
         assignedTrip = withExistingTrip
         
@@ -36,11 +39,18 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         title = "Packing List"
         // Do any additional setup after loading the view.
         self.packingListTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        packingListTable.rowHeight = UITableViewAutomaticDimension
+        packingListTable.estimatedRowHeight = 44
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddItemButtonTapped(_:)))
         
         packingListTable.delegate = self
         packingListTable.dataSource = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Trip Items"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,10 +58,14 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func readTasksAndUpdateUI() {
-        self.items = self.assignedTrip.tripItems.sorted(by: { (a, b) -> Bool in
+       // self.items = self.assignedTrip.tripItems.sorted(byKeyPath: "name", ascending: true)
+
+       // self.items = self.assignedTrip.tripItems.sorted(by: { (a, b) -> Bool in
             // sort alphabetically
-            return a.name < b.name
-        })
+       //     return a.name < b.name
+        //})
+        
+        self.items = self.assignedTrip.tripItems.sorted(byKeyPath: "name")
         
         for element in items {
             print(element.name)
@@ -62,17 +76,35 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return self.items.count;
+        if isFiltering() {
+            return self.filteredItems.count
+        }
+        return self.items.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // create a new cell if needed or reuse an old one
-        let cell:UITableViewCell = self.packingListTable.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
+       // let cell:UITableViewCell = self.packingListTable.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
+        
+        var b = self.packingListTable.dequeueReusableCell(withIdentifier: "subtitle")
+        
+        if b == nil {
+            b = UITableViewCell(style: .subtitle, reuseIdentifier: "subtitle")
+        }
+        
+        let cell = b!
         
         // set the text from the data model
-        let item = self.items[indexPath.row]
-        
-        cell.textLabel?.text = item.name
+        //let item = self.items[indexPath.row]
+        let item : TripItem
+        if isFiltering() {
+            item = self.filteredItems[indexPath.row]
+        } else {
+            item = self.items[indexPath.row]
+        }
+        cell.textLabel?.text = String(item.quantity) + " \t" + item.name
+        cell.detailTextLabel?.text = nil
+        //cell.detailTextLabel?.numberOfLines = 0
         
         let c = CheckboxButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
         c.tag = indexPath.row
@@ -82,9 +114,9 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         
         c.on = item.packed
         
+        
         cell.selectionStyle = .none
         cell.accessoryView = c
-        
         return cell
     }
     
@@ -98,15 +130,37 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
-            
+            let t : TripItem
+            if self.isFiltering() {
+                t = self.filteredItems[indexPath.row]
+            } else {
+                t = self.items[indexPath.row]
+            }
+            print("delete  \(t.name)")
+            var count = 0
+            var number = -1
+            for item in self.assignedTrip.tripItems {
+                if (item.name ==  t.name) {
+                    number = count;
+                    break
+                }
+                count += 1;
+            }
+            if ( number != -1 ) {
             //Deletion from list in realm
             try! realm.write{
-                self.assignedTrip.items.remove(objectAtIndex: indexPath.row)
+                self.assignedTrip.tripItems.remove(objectAtIndex: number)
                 self.readTasksAndUpdateUI()
+            }
             }
         }
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (editAction, indexPath) -> Void in
-            let t = self.items[indexPath.row]
+            let t : TripItem
+            if self.isFiltering() {
+                t = self.filteredItems[indexPath.row]
+            } else {
+                t = self.items[indexPath.row]
+            }
             let vc = AddItemViewController(withExistingTrip: self.assignedTrip, withItemToEdit: t, index: indexPath.row)
             
             self.navigationController?.pushViewController(vc, animated: true)
@@ -125,7 +179,22 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
-
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredItems = items.filter({( item : TripItem) -> Bool in
+            return item.name.lowercased().contains(searchText.lowercased())
+        })
+        
+        self.packingListTable.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
     /*
     // MARK: - Navigation
 
@@ -136,4 +205,11 @@ class PackingListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     */
 
+}
+
+extension PackingListViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
 }

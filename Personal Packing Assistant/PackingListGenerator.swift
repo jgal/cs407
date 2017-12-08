@@ -51,7 +51,7 @@ class PackingListGenerator {
     }
     
     func makeListOfTripItems() -> [TripItem] {
-        
+        print("makeListOfTripItems")
         let gender = self.trip.gender.lowercased()
         
         getBasicItems(gender: gender)
@@ -73,8 +73,10 @@ class PackingListGenerator {
         }
         
         // Change quantities of TripItems for daily things like socks, shirts, etc
+        print("changeItemQuantities")
         packingList = changeItemQuantities(tripItems: packingList)
-        
+        print("sortItems")
+        packingList = sortItems(tripItems: packingList)
         return packingList
     }
     
@@ -122,5 +124,16 @@ class PackingListGenerator {
             }
         }
         return tripItems
+    }
+    func sortItems(tripItems: [TripItem]) -> [TripItem] {
+        
+        let sortedArray = tripItems.sorted {
+            $0.name < $1.name
+        }
+        print("\n\n\tSORTING ARRAYS\n\n")
+        for item in tripItems {
+            print(item.name)
+        }
+        return sortedArray
     }
 }

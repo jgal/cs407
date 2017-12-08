@@ -38,6 +38,7 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         readTasksAndUpdateUI()
+        navigationItem.prompt = "\(tripName) - Day \(row + 1)  Overview"
               
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE, MMMM d, yyy"

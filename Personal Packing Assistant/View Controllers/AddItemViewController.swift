@@ -12,25 +12,38 @@ import RealmSwift
 import SkyFloatingLabelTextField
 
 class AddItemViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var ItemName: SkyFloatingLabelTextField!
+    
     
     var assignedTrip: Trip
     var currentItem: TripItem?
     var number: Int
     var items: List<TripItem>!
+    var quant: Int
     
-    init(withExistingTrip: Trip!, withItemToEdit: TripItem!, index: Int) {
+    let blueColor = UIColor(red: 60/255, green: 155/255, blue: 175/255, alpha: 1.0)
+    let greyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
+    
+    @IBOutlet weak var ItemName: SkyFloatingLabelTextField!
+    @IBOutlet weak var Quantity: SkyFloatingLabelTextField!
+    @IBOutlet weak var DecQ: UIButton!
+    @IBOutlet weak var IncQ: UIButton!
+    
+    
+    public init(withExistingTrip: Trip!, withItemToEdit: TripItem!, index: Int) {
         assignedTrip = withExistingTrip
         self.items = realm.objects(Trip.self).filter("name == %@", assignedTrip.name).first?.tripItems
-        self.number = index
-
-        if(self.number != -1) {
-            currentItem = self.items[self.number]
-        } else {
-            currentItem = TripItem()
+        self.quant = 0
+        self.number = -1
+        currentItem = withItemToEdit
+        var count = 0;
+        for item in assignedTrip.tripItems {
+            if (item.name ==  currentItem?.name) {
+                self.number = count
+                self.quant = (currentItem?.quantity)!
+                break
+            }
+            count += 1;
         }
-        
-        
         super.init(nibName: String(describing: AddItemViewController.self), bundle: Bundle.main)
         
     }
@@ -52,7 +65,34 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
 
         if (self.number != -1) {
             ItemName.text = currentItem?.name
+            var k :String
+            k = String((currentItem?.quantity)!)
+            self.quant = (currentItem?.quantity)!
+            Quantity.text = k
+        } else {
+            quant = 0
+            Quantity.text = "0"
         }
+        ItemName.tintColor = blueColor
+        ItemName.lineColor = blueColor
+        ItemName.selectedTitleColor = blueColor
+        ItemName.selectedLineColor = blueColor
+        Quantity.tintColor = blueColor
+        Quantity.lineColor = blueColor
+        Quantity.selectedTitleColor = blueColor
+        Quantity.selectedLineColor = blueColor
+        //DecQ.tintColor = blueColor
+       // IncQ.tintColor = blueColor
+        //DecQ.backgroundColor = blueColor
+       // IncQ.backgroundColor = blueColor
+        DecQ.backgroundColor = .clear
+        DecQ.layer.cornerRadius = 4
+        DecQ.layer.borderWidth = 2
+        DecQ.layer.borderColor = blueColor.cgColor
+        IncQ.backgroundColor = .clear
+        IncQ.layer.cornerRadius = 4
+        IncQ.layer.borderWidth = 2
+        IncQ.layer.borderColor = blueColor.cgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,6 +123,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
             let i = TripItem()
             print(ItemName.text!)
             i.name = ItemName.text!
+            i.quantity = self.quant
             
             if (number != -1) {
                 self.assignedTrip.tripItems[number] = i
@@ -93,14 +134,24 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func DecQuantity(_ sender: Any) {
+        
+        if ( self.quant > 0) {
+            var k :String
+            self.quant -= 1
+            k = String(self.quant)
+            Quantity.text = k
+        }
     }
-    */
-
+    
+    @IBAction func IncQuantity(_ sender: Any) {
+        if ( self.quant < 99) {
+            var k :String
+            self.quant += 1
+            k = String(self.quant)
+            Quantity.text = k
+        }
+    }
+    
+    
 }
