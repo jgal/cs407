@@ -13,14 +13,16 @@ import RealmSwift
 class AddTripActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
-    
+    var DayNum: Int
     var currentTrip: Trip
     var activities : Results<Activity>!
+    var filteredActivities : List<Activity>!
     private var customView = UIView()
     @IBOutlet weak var activitiesTable: UITableView!
     
-    public init(selectedTrip: Trip) {
+    public init(selectedTrip: Trip, fromDay: Int) {
         currentTrip = selectedTrip
+        DayNum = fromDay
         super.init(nibName: String(describing: AddTripActivityViewController.self), bundle: Bundle.main)
     }
     
@@ -56,41 +58,58 @@ class AddTripActivityViewController: UIViewController, UITableViewDelegate, UITa
     func readTasksAndUpdateUI() {
         self.activities = realm.objects(Activity.self)
         currentTrip = realm.objects(Trip.self).filter("name = %@", currentTrip.name).first!
+        if ( DayNum != -1) {
+            self.filteredActivities = currentTrip.activities
+        }
         self.activitiesTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return activities.count // + 1
+        if ( DayNum != -1) {
+            return self.filteredActivities.count
+        }
+        return activities.count // + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:UITableViewCell = self.activitiesTable.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
         
-        if ( indexPath.row < activities.count ) {
         //currentTrip.activities[i]
-        let tripactivities = currentTrip.activities
-        for object in tripactivities {
-            if ( object.name == self.activities[indexPath.row].name) {
-                cell.textLabel?.text = "\(self.activities[indexPath.row].icon) -  \(self.activities[indexPath.row].name) "
-                cell.tintColor = UIColor.green
-                cell.accessoryType = .checkmark
-                cell.textLabel?.textAlignment = .left
-                return cell
+        let tripactivities : List<Activity>
+        if ( DayNum != -1) {
+            tripactivities = currentTrip.days[DayNum].activities
+            for object in tripactivities {
+                if ( object.name == self.filteredActivities[indexPath.row].name) {
+                    cell.textLabel?.text = "\(self.filteredActivities[indexPath.row].icon) -  \(self.filteredActivities[indexPath.row].name) "
+                    cell.tintColor = UIColor.green
+                    cell.accessoryType = .checkmark
+                    cell.textLabel?.textAlignment = .left
+                    return cell
+                }
+            }
+            cell.textLabel?.text = "\(self.filteredActivities[indexPath.row].icon) -  \(self.filteredActivities[indexPath.row].name) "
+            cell.accessoryType = .none
+            cell.textLabel?.textAlignment = .left
+            return cell
+        } else {
+            tripactivities = currentTrip.activities
+       
+            for object in tripactivities {
+                if ( object.name == self.activities[indexPath.row].name) {
+                    cell.textLabel?.text = "\(self.activities[indexPath.row].icon) -  \(self.activities[indexPath.row].name) "
+                    cell.tintColor = UIColor.green
+                    cell.accessoryType = .checkmark
+                    cell.textLabel?.textAlignment = .left
+                    return cell
+                }
             }
         
-        
-        }
-      
         cell.textLabel?.text = "\(self.activities[indexPath.row].icon) -  \(self.activities[indexPath.row].name) "
         cell.accessoryType = .none
              cell.textLabel?.textAlignment = .left
-        } else {
-            cell.textLabel?.text = "+"
-            cell.textLabel?.textAlignment = .center
-             cell.accessoryType = .none
-        }
         return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -133,66 +152,92 @@ class AddTripActivityViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //currentTrip.activities.append(self.activities[indexPath.row])
-        if (indexPath.row < activities.count) {
+        if ( DayNum == -1) {
             let tripactivities = currentTrip.activities
             var flag = -1
             var count = 0
-            
             for object in tripactivities {
                 count = count + 1
                 if object.name == activities[indexPath.row].name {
                     flag = count
                 }
             }
-            
-            if ( flag == -1) {
-                try! realm.write {
+           try! realm.write {
+                if ( flag == -1) {
                     currentTrip.activities.append(self.activities[indexPath.row])
-                }
-            } else {
-                try! realm.write {
+                } else {
                     currentTrip.activities.remove(objectAtIndex: flag-1)
                 }
             }
-            
             readTasksAndUpdateUI()
         } else {
-            print("\there")
-            loadAddCustomViewIntoController()
+            let tripactivities = currentTrip.days[self.DayNum].activities
+            var flag = -1
+            var count = 0
+            for object in tripactivities {
+                count = count + 1
+                if object.name == self.filteredActivities[indexPath.row].name {
+                    flag = count
+                    break
+                }
+            }
+            try! realm.write {
+                if ( flag == -1) {
+                    currentTrip.days[self.DayNum].activities.append(self.filteredActivities[indexPath.row])
+                } else {
+                    currentTrip.days[self.DayNum].activities.remove(objectAtIndex: flag-1)
+                }
+            }
+            readTasksAndUpdateUI()
+            
         }
     }
     
     @objc func nextButtonTapped(_ sender: UIButton) {
         addActivityToRealm()
-        
-        let packingListGenerator = PackingListGenerator(trip: currentTrip)
-        let items = packingListGenerator.makeListOfTripItems()
-        
-        try! realm.write {
-            for i in items {
-                var itemThatExists = realm.objects(TripItem.self).filter("name = %@", i.name).first
-                
-                if itemThatExists == nil {
-                    realm.add(i)
-                }
-                itemThatExists = currentTrip.tripItems.filter("name = %@", i.name).first
-                if itemThatExists == nil {
-                    currentTrip.tripItems.append(i)
+        if ( self.DayNum == -1) {
+            let packingListGenerator = PackingListGenerator(trip: currentTrip)
+            let items = packingListGenerator.makeListOfTripItems()
+            
+            try! realm.write {
+                for i in items {
+                    var itemThatExists = realm.objects(TripItem.self).filter("name = %@", i.name).first
+                    
+                    if itemThatExists == nil {
+                        realm.add(i)
+                    }
+                    itemThatExists = currentTrip.tripItems.filter("name = %@", i.name).first
+                    if itemThatExists == nil {
+                        currentTrip.tripItems.append(i)
+                        
+                    }
                     
                 }
-                
             }
+        
+            let alltripsVC = AllTripsTableViewController()
+            let secondViewController = TripOverviewViewController(withExistingTrip: currentTrip)
+            
+            let vcs = [
+                navigationController?.viewControllers[0],
+                alltripsVC,
+                secondViewController
+            ]
+            navigationController?.setViewControllers(vcs as! [UIViewController], animated: true)
+        } else {
+            print("just")
+            let alltripsVC = TripOverviewViewController(withExistingTrip: self.currentTrip)
+             print("before")
+            let secondViewController = DayOverviewViewController(withExistingTrip: self.currentTrip, indexPathRow: self.DayNum)
+             print("DayOverview")
+            let vcs = [
+                navigationController?.viewControllers[0],
+                alltripsVC,
+                secondViewController
+            ]
+            print("just before DayOverview")
+            navigationController?.setViewControllers(vcs as! [UIViewController], animated: true)
         }
-        let alltripsVC = AllTripsTableViewController()
-        let secondViewController = TripOverviewViewController(withExistingTrip: currentTrip)
-        
-        var vcs = [
-            navigationController?.viewControllers[0],
-            alltripsVC,
-            secondViewController
-        ]
-        
-        navigationController?.setViewControllers(vcs as! [UIViewController], animated: true)
     }
     
     

@@ -17,7 +17,7 @@ class TripItem : Object {
 
     let items = List<Item>()
     
-    override static func primaryKey() -> String? {
+  /*  override static func primaryKey() -> String? {
         return "name"
-    }
+    }*/
 }
